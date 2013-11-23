@@ -103,6 +103,11 @@
           <version>4.10</version>
           <scope>test</scope>
         </dependency>
+        <dependency>
+          <groupId>javax.json</groupId>
+          <artifactId>javax.json-api</artifactId>
+          <version>1.0</version>
+        </dependency>
       </dependencies>
     </profile>
     <!-- Generate classes via jaxb profile to use this profile, run the following

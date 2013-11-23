@@ -8,3 +8,6 @@ This parser respects the official pgn file definition but does not implement (ye
 notation.
 
 The xml file and its definition is not official as the pgn notation. 
+
+
+copyright 2008-2013 supareno
