@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<games><game>
+<game_property name="Event" value="chp"/>
+<game_property name="Site" value="USA"/>
+<game_property name="Date" value="1956.??.??"/>
+<game_property name="Round" value="?"/>
+<game_property name="White" value="Byrne, D."/>
+<game_property name="Black" value="Fischer, R."/>
+<game_property name="Result" value="0-1"/>
+<game_property name="WhiteElo" value=""/>
+<game_property name="BlackElo" value=""/>
+<game_property name="ECO" value=""/>
+<hits><hit number="1"><![CDATA[Nf3 Nf6]]></hit><hit number="2"><![CDATA[c4 g6]]></hit><hit number="3"><![CDATA[Nc3 Bg7]]></hit><hit number="4"><![CDATA[d4 O-O]]></hit><hit number="5"><![CDATA[Bf4 d5]]></hit><hit number="6"><![CDATA[Qb3 dxc4]]></hit><hit number="7"><![CDATA[Qxc4 c6]]></hit><hit number="8"><![CDATA[e4 Nbd7]]></hit><hit number="9"><![CDATA[Rd1 Nb6]]></hit><hit number="10"><![CDATA[Qc5 Bg4]]></hit><hit number="11"><![CDATA[Bg5 Na4]]></hit><hit number="12"><![CDATA[Qa3 Nxc3]]></hit><hit number="13"><![CDATA[bxc3 Nxe4]]></hit><hit number="14"><![CDATA[Bxe7 Qb6]]></hit><hit number="15"><![CDATA[Bc4 Nxc3]]></hit><hit number="16"><![CDATA[Bc5 Rfe8+]]></hit><hit number="17"><![CDATA[Kf1 Be6]]></hit><hit number="18"><![CDATA[Bxb6 Bxc4+]]></hit><hit number="19"><![CDATA[Kg1 Ne2+]]></hit><hit number="20"><![CDATA[Kf1 Nxd4+]]></hit><hit number="21"><![CDATA[Kg1 Ne2+]]></hit><hit number="22"><![CDATA[Kf1 Nc3+]]></hit><hit number="23"><![CDATA[Kg1 axb6]]></hit><hit number="24"><![CDATA[Qb4 Ra4]]></hit><hit number="25"><![CDATA[Qxb6 Nxd1]]></hit><hit number="26"><![CDATA[h3 Rxa2]]></hit><hit number="27"><![CDATA[Kh2 Nxf2]]></hit><hit number="28"><![CDATA[Re1 Rxe1]]></hit><hit number="29"><![CDATA[Qd8+ Bf8]]></hit><hit number="30"><![CDATA[Nxe1 Bd5]]></hit><hit number="31"><![CDATA[Nf3 Ne4]]></hit><hit number="32"><![CDATA[Qb8 b5]]></hit><hit number="33"><![CDATA[h4 h5]]></hit><hit number="34"><![CDATA[Ne5 Kg7]]></hit><hit number="35"><![CDATA[Kg1 Bc5+]]></hit><hit number="36"><![CDATA[Kf1 Ng3+]]></hit><hit number="37"><![CDATA[Ke1 Bb4+]]></hit><hit number="38"><![CDATA[Kd1 Bb3+]]></hit><hit number="39"><![CDATA[Kc1 Ne2+]]></hit><hit number="40"><![CDATA[Kb1 Nc3+]]></hit><hit number="41"><![CDATA[Kc1 Rc2+]]></hit></hits></game></games>

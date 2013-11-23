@@ -1,0 +1,55 @@
+PGNPARSER - v2.2.1
+
+- correcting INSTALL file
+- correcting pom
+- upgrading JUnit dependency version
+_______________________________________________________________________
+
+PGNPARSER - v2.2.0
+
+setting xml and java objects more compliants to the pgn reference:
+
+- adding the seven tag roster which are mandatories and others additional tags
+- renaming xsd ans dtd to be coherent with the new version
+- correcting implementations according to the sonar report
+- regenerating jaxb classes after xsd enhancement
+- adding jaxb2 profile to help to generate classes from the xsd
+
+_______________________________________________________________________
+
+PGNPARSER - v2.1.0
+
+correcting bugs in the PGNParser
+- attributes was not parsed correctly if a space exists at the end of the line
+- promotions was not parsed correctly
+- castling was not parsed correctly too
+- adding checkmating move (support for # character at the end of the hit)
+- adding more tests to valid patterns used
+
+_______________________________________________________________________
+
+PGNPARSER - v2.0.0
+
+replacing STaX by JAXB
+replacing old the old POJOs with the new JAXB implementations: all the objects are renamed
+refactoring all the parsers and writers
+removing "onlyBlackWin" parameter in the parsers
+
+_______________________________________________________________________
+
+PGNPARSER - v1.0.4
+
+adding assembly maven plugin + assembly file
+adding common interfaces for the writers and the parsers
+adding PGNGameAttribute class 
+correcting test cases
+
+_______________________________________________________________________
+
+PGNPARSER - v0.0.3
+
+adding JUnit4 test suite
+adding JUnit 4 test classes for the PGNGame and the PGNHit
+
+adding CommonsLang builders in the PGNGame and the PGNHit for the 
+compareTo(..), equals(...), toString() and hashCode() methods.

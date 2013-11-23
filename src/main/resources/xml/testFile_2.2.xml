@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright 2011 supareno 
+  
+ Licensed under the Apache License, Version 2.0 (the "License"); 
+ you may not use this file except in compliance with the License. 
+ You may obtain a copy of the License at
+  
+    http://www.apache.org/licenses/LICENSE-2.0 
+  
+ Unless required by applicable law or agreed to in writing, software 
+ distributed under the License is distributed on an "AS IS" BASIS, 
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ See the License for the specific language governing permissions and 
+ limitations under the License.
+ 
+ This file is a xml sample of a chess game. It is used as test file in this API.
+-->
+<games>
+  <game>
+    <event><![CDATA[chp]]></event>
+    <site><![CDATA[USA]]></site>
+    <date><![CDATA[1956.??.??]]></date>
+    <round><![CDATA[?]]></round>
+    <white><![CDATA[Byrne, D.]]></white>
+    <black><![CDATA[Fischer, R.]]></black>
+    <result><![CDATA[0-1]]></result>    
+    <whiteTitle></whiteTitle>
+    <whiteElo></whiteElo>
+    <whiteUSCF></whiteUSCF>
+    <whiteNA></whiteNA>
+    <whiteType></whiteType>
+    <blackTitle></blackTitle>
+    <blackElo></blackElo>
+    <blackUSCF></blackUSCF>
+    <blackNA></blackNA>
+    <blackType></blackType>
+    <eventDate></eventDate>
+    <eventSponsor></eventSponsor>
+    <section></section>
+    <stage></stage>
+    <board></board>
+    <opening></opening>
+    <variation></variation>
+    <subVariation></subVariation>
+    <eco></eco>
+    <nic></nic>
+    <time></time>
+    <UTCTime></UTCTime>
+    <UTCDate></UTCDate>
+    <timeControl></timeControl>
+    <setUp></setUp>
+    <FEN></FEN>
+    <termination></termination>
+    <hits>
+        <hit number="1"><![CDATA[Nf3 Nf6]]></hit>
+        <hit number="2"><![CDATA[c4 g6]]></hit>
+        <hit number="3"><![CDATA[Nc3 Bg7]]></hit>
+        <hit number="4"><![CDATA[d4 O-O]]></hit>
+        <hit number="5"><![CDATA[Bf4 d5]]></hit>
+        <hit number="6"><![CDATA[Qb3 dxc4]]></hit>
+        <hit number="7"><![CDATA[Qxc4 c6]]></hit>
+        <hit number="8"><![CDATA[e4 Nbd7]]></hit>
+        <hit number="9"><![CDATA[Rd1 Nb6]]></hit>
+        <hit number="10"><![CDATA[Qc5 Bg4]]></hit>
+        <hit number="11"><![CDATA[Bg5 Na4]]></hit>
+        <hit number="12"><![CDATA[Qa3 Nxc3]]></hit>
+        <hit number="13"><![CDATA[bxc3 Nxe4]]></hit>
+        <hit number="14"><![CDATA[Bxe7 Qb6]]></hit>
+        <hit number="15"><![CDATA[Bc4 Nxc3]]></hit>
+        <hit number="16"><![CDATA[Bc5 Rfe8+]]></hit>
+        <hit number="17"><![CDATA[Kf1 Be6]]></hit>
+        <hit number="18"><![CDATA[Bxb6 Bxc4+]]></hit>
+        <hit number="19"><![CDATA[Kg1 Ne2+]]></hit>
+        <hit number="20"><![CDATA[Kf1 Nxd4+]]></hit>
+        <hit number="21"><![CDATA[Kg1 Ne2+]]></hit>
+        <hit number="22"><![CDATA[Kf1 Nc3+]]></hit>
+        <hit number="23"><![CDATA[Kg1 axb6]]></hit>
+        <hit number="24"><![CDATA[Qb4 Ra4]]></hit>
+        <hit number="25"><![CDATA[Qxb6 Nxd1]]></hit>
+        <hit number="26"><![CDATA[h3 Rxa2]]></hit>
+        <hit number="27"><![CDATA[Kh2 Nxf2]]></hit>
+        <hit number="28"><![CDATA[Re1 Rxe1]]></hit>
+        <hit number="29"><![CDATA[Qd8+ Bf8]]></hit>
+        <hit number="30"><![CDATA[Nxe1 Bd5]]></hit>
+        <hit number="31"><![CDATA[Nf3 Ne4]]></hit>
+        <hit number="32"><![CDATA[Qb8 b5]]></hit>
+        <hit number="33"><![CDATA[h4 h5]]></hit>
+        <hit number="34"><![CDATA[Ne5 Kg7]]></hit>
+        <hit number="35"><![CDATA[Kg1 Bc5+]]></hit>
+        <hit number="36"><![CDATA[Kf1 Ng3+]]></hit>
+        <hit number="37"><![CDATA[Ke1 Bb4+]]></hit>
+        <hit number="38"><![CDATA[Kd1 Bb3+]]></hit>
+        <hit number="39"><![CDATA[Kc1 Ne2+]]></hit>
+        <hit number="40"><![CDATA[Kb1 Nc3+]]></hit>
+        <hit number="41"><![CDATA[Kc1 Rc2+]]></hit>
+    </hits>
+  </game>
+</games>

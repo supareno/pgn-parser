@@ -1,0 +1,52 @@
+[Event "Lloyds Bank op"]
+[Site "London"]
+[Date "1984.??.??"]
+[Round "6"]
+[White "Adams, Michael"]
+[Black "Levitt, Jonathan"]
+[Result "1/2-1/2"]
+[WhiteElo ""]
+[BlackElo "2370"]
+[ECO "B99"]
+
+1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.Bg5 e6 7.f4 Be7 8.Qf3 Qc7
+9.O-O-O Nbd7 10.Bd3 b5 11.Rhe1 Bb7 12.Qg3 b4 13.Nd5 exd5 14.e5 dxe5 15.fxe5 O-O-O
+16.Nf5 Bc5 17.exf6 Qxg3 18.hxg3 gxf6 19.Bf4 Ne5 20.Bxe5 fxe5 21.Rxe5 Rde8
+22.Rxe8+ Rxe8 23.Rh1 Rh8 24.Rh6 a5 25.Kd2 Kb8 26.Rf6 Rf8 27.Rh6 Rh8 28.Rf6  1/2-1/2
+[Event "Lloyds Bank op"]
+[Site "London"]
+[Date "1984.??.??"]
+[Round "9"]
+[White "Adams, Michael"]
+[Black "Saeed, Saeed Ahmed"]
+[Result "1-0"]
+[WhiteElo ""]
+[BlackElo "2430"]
+[ECO "B56"]
+
+1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 d6 6.Be3 Ng4 7.Bg5 Qb6 8.Bb5 Bd7
+9.O-O Qxd4 10.Bxc6 Qxd1 11.Bxd7+ Kxd7 12.Raxd1 g6 13.h3 Ne5 14.Nd5 Nc6 15.b4 h6
+16.Bh4 f5 17.f4 Rg8 18.b5 Na5 19.e5 Nc4 20.Rd4 Rc8 21.e6+ Ke8 22.b6 axb6
+23.Rb1 g5 24.Rb4 b5 25.Rxb5 Bg7 26.Rxc4 Rxc4 27.Rxb7 Bd4+ 28.Bf2 Bxf2+ 29.Kxf2 Kf8
+30.Rxe7 Rg7 31.Rd7 Rxc2+ 32.Kf3 Rg6 33.Rd8+ Kg7 34.e7 g4+ 35.hxg4 fxg4+ 36.Kg3  1-0
+[Event "BCF-ch"]
+[Site "Edinburgh"]
+[Date "1985.??.??"]
+[Round "9"]
+[White "Adams, Michael"]
+[Black "McNab, Colin Anderson"]
+[Result "0-1"]
+[WhiteElo "2360"]
+[BlackElo "2420"]
+[ECO "B06"]
+
+1.e4 g6 2.d4 d6 3.Nc3 Bg7 4.Bg5 Nc6 5.d5 Ne5 6.f4 Nd7 7.Nf3 c6 8.Qd2 Nc5
+9.O-O-O Qb6 10.e5 Bg4 11.Re1 O-O-O 12.dxc6 bxc6 13.Qe3 f6 14.Bh4 g5 15.fxg5 fxe5
+16.Ne4 Nxe4 17.Qxe4 Be6 18.b3 Bd5 19.Qa4 Rf8 20.Ba6+ Kd7 21.Bg3 e4 22.Nh4 Qc5
+23.Be2 Be6 24.Rhf1 Rxf1 25.Rxf1 Qxg5+ 26.Kb1 Qc5 27.Bf2 e3 28.Bg4 Nf6 29.Bxe6+ Kxe6
+30.Bg1 Kf7 31.Re1 Ne4 32.Qxe4 Qc3 33.Qxe7+ Kxe7 34.Rxe3+ Qxe3 35.Bxe3 Rf8
+36.Nf3 a6 37.Kc1 Rf5 38.Kd2 Ra5 39.a4 Rh5 40.Kd3 Bh6 41.Bf2 Rd5+ 42.Ke2 Rf5
+43.g4 Rf7 44.Nd4 Kd7 45.h3 c5 46.Nf5 Bf8 47.Bg3 Ke6 48.Kd3 Rb7 49.Be1 Bg7
+50.Kc4 Be5 51.Bd2 Rc7 52.Ba5 d5+ 53.Kd3 c4+ 54.Kd2 Rb7 55.bxc4 dxc4 56.Ne3 Bf4
+57.Ke2 Bxe3 58.Kxe3 Rb2 59.c3 Rh2 60.Kd4 Rxh3 61.g5 Rg3 62.Kxc4 Rxg5 63.Bd8 Rg4+
+64.Kc5 Rxa4 65.c4 Kd7 66.Bh4 Ra2 67.Kb6 Rb2+  0-1

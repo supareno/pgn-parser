@@ -1,0 +1,99 @@
+<!--
+ Copyright 2008-2010 supareno 
+  
+ Licensed under the Apache License, Version 2.0 (the "License"); 
+ you may not use this file except in compliance with the License. 
+ You may obtain a copy of the License at
+  
+  	http://www.apache.org/licenses/LICENSE-2.0 
+  
+ Unless required by applicable law or agreed to in writing, software 
+ distributed under the License is distributed on an "AS IS" BASIS, 
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ See the License for the specific language governing permissions and 
+ limitations under the License.
+ 
+ This file is a free proposition for a xml PGN game dtd format according to the pgn reference.
+       
+  
+-->
+ 
+<!ELEMENT games ( game+ ) >
+<!ELEMENT game ( 
+        event, 
+        site, 
+        date, 
+        round, 
+        white, 
+        black, 
+        result, 
+        whiteTitle,
+        whiteElo,
+        whiteUSCF,
+        whiteNA,
+        whiteType,
+        blackTitle,
+        blackElo,
+        blackUSCF,
+        blackNA,
+        blackType,
+        eventDate,
+        eventSponsor,
+        section,
+        stage,
+        board,
+        opening,
+        variation,
+        subVariation,
+        eco,
+        nic,
+        time,
+        UTCTime,
+        UTCDate,
+        timeControl,
+        setUp,
+        FEN,
+        termination,
+        hits ) >
+
+<!-- seven tag roster -->
+<!ELEMENT event ( #CDATA )  >
+<!ELEMENT site ( #CDATA ) >
+<!ELEMENT date ( #CDATA ) >
+<!ELEMENT round ( #CDATA ) >
+<!ELEMENT white ( #CDATA ) >
+<!ELEMENT black ( #CDATA ) >
+<!ELEMENT result ( #CDATA ) >
+<!-- additional tags -->
+<!ELEMENT whiteTitle ( #CDATA ) >
+<!ELEMENT whiteElo ( #CDATA ) >
+<!ELEMENT whiteUSCF ( #CDATA ) >
+<!ELEMENT whiteNA ( #CDATA ) >
+<!ELEMENT whiteType ( #CDATA ) >
+<!ELEMENT blackTitle ( #CDATA ) >
+<!ELEMENT blackElo ( #CDATA ) >
+<!ELEMENT blackUSCF ( #CDATA ) >
+<!ELEMENT blackNA ( #CDATA ) >
+<!ELEMENT blackType ( #CDATA ) >
+<!ELEMENT eventDate ( #CDATA ) >
+<!ELEMENT eventSponsor ( #CDATA ) >
+<!ELEMENT section ( #CDATA ) >
+<!ELEMENT stage ( #CDATA ) >
+<!ELEMENT board ( #CDATA ) >
+<!ELEMENT opening ( #CDATA ) >
+<!ELEMENT variation ( #CDATA ) >
+<!ELEMENT subVariation ( #CDATA ) >
+<!ELEMENT eco ( #CDATA ) >
+<!ELEMENT nic ( #CDATA ) >
+<!ELEMENT time ( #CDATA ) >
+<!ELEMENT UTCTime ( #CDATA ) >
+<!ELEMENT UTCDate ( #CDATA ) >
+<!ELEMENT timeControl ( #CDATA ) >
+<!ELEMENT setUp ( #CDATA ) >
+<!ELEMENT FEN ( #CDATA ) >
+<!ELEMENT termination ( #CDATA ) >
+
+<!ELEMENT hits ( hit+ ) >
+<!ELEMENT hit ( #PCDATA ) >
+<!ATTLIST hit number CDATA #REQUIRED >
+<!ATTLIST hit content CDATA #REQUIRED >
