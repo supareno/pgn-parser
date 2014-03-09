@@ -74,17 +74,18 @@ public class PGNParser extends AbstractPGNParser {
 	 * The value is set to as follow (divided in multilines to a better comprehension):
 	 * <br />
 	 * <pre>
-	 * [a-h][x][a-h][1-8]([e][.][p][.]|[=][RNBQ])?[\\+|#]?|	// en passant and promote
-	 * [O][-][O]([-][O])?[\\+|#]?|			// castles
-	 * [RNBQK]?[a-h]?[1-8]?[x]?[a-h][1-8][\\+|#]?		// every other kind of hit
+	 * [a-h][x][a-h][36][e][.][p][.][\\+|#]?|	// en passant
+	 * ([a-h][x])?[a-h][18]([=][RNBQ])?[\\+|#]?|	// pawn promotion
+	 * [O][-][O]([-][O])?[\\+|#]?|		// castle
+	 * [RNBQK]?[a-h]?[1-8]?[x]?[a-h][1-8][\\+|#]? 	// every other move
 	 * </pre>
 	 * @see #SINGLE_HIT_PATTERN
 	 */
 	public static final String SINGLE_HIT_STRING_PATTERN =
-			"([a-h][x][a-h][1-8]([e][.][p][.]|[=][RNBQ])?[\\+|#]?|" + 	// en passant and promotion
-			"[O][-][O]([-][O])?[\\+|#]?|" + 							// castles
-			"[RNBQK]?[a-h]?[1-8]?[x]?[a-h][1-8][\\+|#]?)";				// every other kind of move
-
+			"([a-h][x][a-h][36][e][.][p][.][\\+|#]?|" +		// en passant
+			"([a-h][x])?[a-h][18]([=][RNBQ])?[\\+|#]?|" + 	// pawn promotion
+			"[O][-][O]([-][O])?[\\+|#]?|" + 				// castle
+			"[RNBQK]?[a-h]?[1-8]?[x]?[a-h][1-8][\\+|#]?)";	// every other move
 	/**
 	 * The String representation of the pattern used to match the hits of
 	 * the PGN file.<br>
