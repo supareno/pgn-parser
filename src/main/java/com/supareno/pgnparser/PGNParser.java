@@ -50,7 +50,7 @@ import com.supareno.pgnparser.utils.PGNParserUtils;
 public class PGNParser extends AbstractPGNParser {
 
 	// game separator used in the first parse.
-	private static final String GAME_SEPARATOR="###";
+	public static final String GAME_SEPARATOR="###";
 
 	/** The PGNType of the Parser: set to {@link PGNType#PGN}. */
 	public static final PGNType TYPE = PGNType.PGN;
@@ -83,9 +83,9 @@ public class PGNParser extends AbstractPGNParser {
 	 */
 	public static final String SINGLE_HIT_STRING_PATTERN =
 			"([a-h][x][a-h][36][e][.][p][.][\\+|#]?|" +		// en passant
-			"([a-h][x])?[a-h][18]([=][RNBQ])?[\\+|#]?|" + 	// pawn promotion
-			"[O][-][O]([-][O])?[\\+|#]?|" + 				// castle
-			"[RNBQK]?[a-h]?[1-8]?[x]?[a-h][1-8][\\+|#]?)";	// every other move
+					"([a-h][x])?[a-h][18]([=][RNBQ])?[\\+|#]?|" + 	// pawn promotion
+					"[O][-][O]([-][O])?[\\+|#]?|" + 				// castle
+					"[RNBQK]?[a-h]?[1-8]?[x]?[a-h][1-8][\\+|#]?)";	// every other move
 	/**
 	 * The String representation of the pattern used to match the hits of
 	 * the PGN file.<br>
@@ -248,7 +248,7 @@ public class PGNParser extends AbstractPGNParser {
 	 * @param reader the current Reader.
 	 * @return a String representation of the content of the file.
 	 */
-	private String formatPGNFile(Reader reader){
+	public String formatPGNFile(Reader reader){
 		StringBuffer contents = new StringBuffer();
 		String lastLine="no";
 		BufferedReader input = null;
@@ -286,7 +286,7 @@ public class PGNParser extends AbstractPGNParser {
 	 * @param content the PGN game String representation to parse.
 	 * @return a List of PGNGames.
 	 */
-	private Games parseContents(String content) {
+	public Games parseContents(String content) {
 		Games games=new Games();
 		String[] gamesString=content.split(GAME_SEPARATOR);
 		for(String s:gamesString){
