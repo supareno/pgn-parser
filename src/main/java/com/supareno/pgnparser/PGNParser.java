@@ -20,14 +20,10 @@ package com.supareno.pgnparser;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.Reader;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -178,11 +174,7 @@ public class PGNParser extends AbstractPGNParser {
 		setLoggerConfiguratorFile ( log4jXmlConfigFile );
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.supareno.pgnparser.Parser#getExtension()
-	 */
+	@Override
 	public String getExtension () {
 		return TYPE.getExtension ();
 	}
@@ -211,51 +203,6 @@ public class PGNParser extends AbstractPGNParser {
 			}
 		}
 		return gamesList;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.supareno.pgnparser.Parser#parseFile(java.lang.String)
-	 */
-	public Games parseFile ( String file ) {
-		return parseFile ( new File ( file ) );
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.supareno.pgnparser.Parser#parseFile(java.io.File)
-	 */
-	public Games parseFile ( File file ) {
-		try {
-			return parseFile ( new FileReader ( file ) );
-		} catch ( FileNotFoundException e ) {
-			log ( "FileNotFoundException: " , e );
-		}
-		return null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.supareno.pgnparser.Parser#parseURL(java.lang.String)
-	 */
-	public Games parseURL ( String url ) {
-		String games = null;
-		URL urltmp = null;
-		try {
-			urltmp = new URL ( url );
-			games = formatPGNFile ( new InputStreamReader ( urltmp.openStream () ) );
-			if ( ( games != null ) && ( games.length () > 0 ) ) {
-				return parseContents ( games );
-			}
-		} catch ( MalformedURLException e ) {
-			log ( "MalformedURLException: " , e );
-		} catch ( IOException e ) {
-			log ( "IOException: " , e );
-		}
-		return null;
 	}
 
 	/**
@@ -459,26 +406,7 @@ public class PGNParser extends AbstractPGNParser {
 		return sb.toString ().trim ();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.supareno.pgnparser.Parser#parseURL(java.net.URL)
-	 */
-	public Games parseURL ( URL url ) {
-		Games games = null;
-		try {
-			games = parseFile ( new InputStreamReader ( url.openStream () ) );
-		} catch ( IOException e ) {
-			log ( "error in parseURL " , e );
-		}
-		return games;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.supareno.pgnparser.Parser#parseFile(java.io.Reader)
-	 */
+	@Override
 	public Games parseFile ( Reader reader ) {
 		String games = null;
 		games = formatPGNFile ( reader );

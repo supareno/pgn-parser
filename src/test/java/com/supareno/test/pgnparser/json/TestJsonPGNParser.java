@@ -1,5 +1,5 @@
 /*
- * TestJAXBPGNParser.java
+ * TestJsonPGNParser.java
  * 
  * Copyright 2008-2014 supareno
  * 
@@ -15,35 +15,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.supareno.test.pgnparser.jaxb;
+package com.supareno.test.pgnparser.json;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.supareno.pgnparser.jaxb.Games;
-import com.supareno.pgnparser.jaxb.parser.JAXBPGNParser;
+import com.supareno.pgnparser.json.JsonPGNParser;
 import com.supareno.test.pgnparser.JUnitTestConstants;
+import com.supareno.test.pgnparser.jaxb.AbstractParserValidator;
 
 /**
- * The {@code TestJAXBPGNParser} class is used to test the {@code JAXBPGNParser} class.
+ * The {@code TestJsonPGNParser} class is used to test the {@code JsonPGNParser} class.
  * 
  * @author supareno
- * @version 1.1
+ * @version 2.3.
  */
-public class TestJAXBPGNParser extends AbstractParserValidator {
+public class TestJsonPGNParser extends AbstractParserValidator {
 
-	private JAXBPGNParser jaxbParser = null;
+	private JsonPGNParser jsonParser = null;
 
-	/**
-	 * Tests that the xml file parsed is equal to the reference game.
-	 */
 	@Test
-	public void testParseAndEquality () {
-		jaxbParser = new JAXBPGNParser ();
-		assertEquals ( "xml" , jaxbParser.getExtension () );
-		Games games = jaxbParser.parseFile ( JUnitTestConstants.XML_PGN_FILE );
+	@Ignore
+	public void testParseJSONFileString () {
+		jsonParser = new JsonPGNParser ();
+		assertEquals ( "json" , jsonParser.getExtension () );
+		Games games = jsonParser.parseFile ( JUnitTestConstants.JSON_PGN_FILE );
 		validateGames ( games );
 	}
-
 }
