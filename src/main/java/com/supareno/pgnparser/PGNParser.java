@@ -50,7 +50,7 @@ import com.supareno.pgnparser.utils.PGNParserUtils;
 public class PGNParser extends AbstractPGNParser {
 
 	// game separator used in the first parse.
-	private static final String GAME_SEPARATOR="###";
+	public static final String GAME_SEPARATOR="###";
 
 	/** The PGNType of the Parser: set to {@link PGNType#PGN}. */
 	public static final PGNType TYPE = PGNType.PGN;
@@ -64,33 +64,28 @@ public class PGNParser extends AbstractPGNParser {
 
 	/**
 	 * The String representation of the pattern used to check a number validity.<br />
-	 * The value is set to {@code [0-9]+}.
+	 * The value is set to {@code [1-9]+([0-9]+)?}.
 	 */
-	public static final String NUMBER_VALIDITY_STRING_PATTERN="[0-9]+";
+	public static final String NUMBER_VALIDITY_STRING_PATTERN="[1-9]+([0-9]+)?";
 
 	/**
 	 * The String representation of the pattern used to match a single hit.<br />
-	 * This pattern matches hit value like {@code e5 e7}.<br />
+	 * This pattern matches hit value like {@code e5} or {@code R8c7}.<br />
 	 * The value is set to as follow (divided in multilines to a better comprehension):
 	 * <br />
 	 * <pre>
-	 * ([a-zA-Z]+[1-8]{1}[=][A-Z]{1}[\\+|#]?|           // promotion pattern
-	 * [a-zA-Z]{1}[1-8]{1}[\\+]?|                       // one letter / one number pattern : simple hit
-	 * [a-zA-Z]{1}[1-8]?[a-zA-Z]{1,3}?[1-8]{1}[\\+|#]?| // complex hit
-	 * [O]+[\\-][O]+[\\-][O]+[\\+|#]?|                  // queenside castling hit
-	 * [O]+[\\-][O]+[\\+|#]?|                           // kingside castling hit
-	 * [a-z]{1}[\\-][a-z]{1}[\\+|#]?)                   // en passant hit
+	 * [a-h][x][a-h][36][e][.][p][.][\\+|#]?|	// en passant
+	 * ([a-h][x])?[a-h][18]([=][RNBQ])?[\\+|#]?|	// pawn promotion
+	 * [O][-][O]([-][O])?[\\+|#]?|		// castle
+	 * [RNBQK]?[a-h]?[1-8]?[x]?[a-h][1-8][\\+|#]? 	// every other move
 	 * </pre>
 	 * @see #SINGLE_HIT_PATTERN
 	 */
 	public static final String SINGLE_HIT_STRING_PATTERN =
-		"([a-zA-Z]+[1-8]{1}[=][A-Z]{1}[\\+|#]?|" + 					// promotion pattern
-		"[a-zA-Z]{1}[1-8]{1}[\\+]?|" +								// one letter / one number pattern : simple hit
-		"[a-zA-Z]{1}[1-8]?[a-zA-Z]{1,3}?[1-8]{1}[\\+|#]?|" +		// complex hit
-		"[O]+[\\-][O]+[\\-][O]+[\\+|#]?|" +							// queenside castling hit
-		"[O]+[\\-][O]+[\\+|#]?|" +									// kingside castling hit
-		"[a-z]{1}[\\-][a-z]{1}[\\+|#]?)";							// en passant hit
-
+			"([a-h][x][a-h][36][e][.][p][.][\\+|#]?|" +		// en passant
+					"([a-h][x])?[a-h][18]([=][RNBQ])?[\\+|#]?|" + 	// pawn promotion
+					"[O][-][O]([-][O])?[\\+|#]?|" + 				// castle
+					"[RNBQK]?[a-h]?[1-8]?[x]?[a-h][1-8][\\+|#]?)";	// every other move
 	/**
 	 * The String representation of the pattern used to match the hits of
 	 * the PGN file.<br>
@@ -103,12 +98,11 @@ public class PGNParser extends AbstractPGNParser {
 	 * @see #HITS_PATTERN
 	 */
 	public static final String HITS_STRING_PATTERN =
-		NUMBER_VALIDITY_STRING_PATTERN +
-		"[.]" +
-		"[ ]?" +
-		SINGLE_HIT_STRING_PATTERN +
-		"[ ]?" +
-		SINGLE_HIT_STRING_PATTERN + "?[ ]?";
+			NUMBER_VALIDITY_STRING_PATTERN +
+			"[.]" +
+			"[ ]?" +
+			SINGLE_HIT_STRING_PATTERN +
+			"([ ]?" + SINGLE_HIT_STRING_PATTERN + ")?";
 
 
 	/**
@@ -254,7 +248,7 @@ public class PGNParser extends AbstractPGNParser {
 	 * @param reader the current Reader.
 	 * @return a String representation of the content of the file.
 	 */
-	private String formatPGNFile(Reader reader){
+	public String formatPGNFile(Reader reader){
 		StringBuffer contents = new StringBuffer();
 		String lastLine="no";
 		BufferedReader input = null;
@@ -292,7 +286,7 @@ public class PGNParser extends AbstractPGNParser {
 	 * @param content the PGN game String representation to parse.
 	 * @return a List of PGNGames.
 	 */
-	private Games parseContents(String content) {
+	public Games parseContents(String content) {
 		Games games=new Games();
 		String[] gamesString=content.split(GAME_SEPARATOR);
 		for(String s:gamesString){
@@ -381,7 +375,7 @@ public class PGNParser extends AbstractPGNParser {
 			Method method = null;
 			try {
 				method = pgnGame.getClass().
-				getMethod(PGNParserConstants.ATTRIBUTES_MAP.get(attribute), String.class);
+						getMethod(PGNParserConstants.ATTRIBUTES_MAP.get(attribute), String.class);
 				method.invoke(pgnGame, PGNParserUtils.isValidString(attrValue) ? attrValue : "?" );				
 			} catch (SecurityException e) {
 				log("SecurityException on built method : " + method, e);
@@ -408,9 +402,8 @@ public class PGNParser extends AbstractPGNParser {
 	private Game parseHits(Game pgn, String hits){
 		StringBuilder newHit=new StringBuilder();
 		String[] strings=hits.split("\n");
-		for(String s:strings){
-			newHit.append(s);
-		}
+		for(String s:strings)
+			newHit.append(s.trim());
 		Hits list=new Hits();
 		Matcher matcher = HITS_PATTERN.matcher(newHit.toString());
 		while(matcher.find()){
