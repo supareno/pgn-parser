@@ -6,9 +6,9 @@
   <artifactId>pgnparser</artifactId>
   <name>PGNParser</name>
   <packaging>jar</packaging>
-  <version>2.2.1</version>
+  <version>2.3.0</version>
   <description>a PGN java parser</description>
-  <url>http://pgnparser.sourceforge.net</url>
+  <url>https://github.com/supareno/pgn-parser</url>
   <developers>
     <developer>
       <id>supareno</id>
