@@ -12,4 +12,4 @@ The xml file and its definition is not official as the pgn notation.
 
 Copyright
 =========
-copyright(c) 2008-2013 supareno and Contributors. See LICENSE for details.
+copyright(c) 2008-2014 supareno and Contributors. See LICENSE for details.
