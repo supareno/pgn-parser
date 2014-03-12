@@ -1,0 +1,69 @@
+[
+  {
+   "Event": "chp",
+   "Site": "USA",
+   "Date": "1956.??.??",
+   "Round": "?",
+   "White": "Byrne, D.",
+   "Black": "Fischer, R.",
+   "Result": "0-1",
+   "hits":
+     [
+       {"hit":"Nf3 Nf6"},
+       {"hit":"c4 g6"},
+       {"hit":"Nc3 Bg7"},
+       {"hit":"d4 O-O"},
+       {"hit":"Bf4 d5"},
+       {"hit":"Qb3 dxc4"},
+       {"hit":"Qxc4 c6"}, 
+       {"hit":"e4 Nbd7"},
+       {"hit":"Rd1 Nb6"}, 
+       {"hit":"Qc5 Bg4"}, 
+       {"hit":"Bg5 Na4"}, 
+       {"hit":"Qa3 Nxc3"}, 
+       {"hit":"bxc3 Nxe4"}, 
+       {"hit":"Bxe7 Qb6"}, 
+       {"hit":"Bc4 Nxc3"},
+       {"hit":"Bc5 Rfe8+"}, 
+       {"hit":"Kf1 Be6"}, 
+       {"hit":"Bxb6 Bxc4+"}, 
+       {"hit":"Kg1 Ne2+"}, 
+       {"hit":"Kf1 Nxd4+"}, 
+       {"hit":"Kg1 Ne2+"},
+       {"hit":"Kf1 Nc3+"}, 
+       {"hit":"Kg1 axb6"}, 
+       {"hit":"Qb4 Ra4"}, 
+       {"hit":"Qxb6 Nxd1"}, 
+       {"hit":"h3 Rxa2"}, 
+       {"hit":"Kh2 Nxf2"}, 
+       {"hit":"Re1 Rxe1"},
+       {"hit":"Qd8+ Bf8"}, 
+       {"hit":"Nxe1 Bd5"},
+       {"hit":"Nf3 Ne4"}, 
+       {"hit":"Qb8 b5"}, 
+       {"hit":"h4 h5"},
+       {"hit":"Ne5 Kg7"}, 
+       {"hit":"Kg1 Bc5+"},
+       {"hit":"Kf1 Ng3+"}, 
+       {"hit":"Ke1 Bb4+"}, 
+       {"hit":"Kd1 Bb3+"}, 
+       {"hit":"Kc1 Ne2+"}, 
+       {"hit":"Kb1 Nc3+"}, 
+       {"hit":"Kc1 Rc2+ 0-1"}
+     ]
+  },
+  {
+   "Event": "chp",
+   "Site": "FR",
+   "Date": "2014.??.??",
+   "Round": "?",
+   "White": "Me",
+   "Black": "Myself",
+   "Result": "",
+   "hits":
+     [
+       {"hit":"e7 e5"},
+       {"hit":"c4 g6"}
+     ]
+  }
+] 

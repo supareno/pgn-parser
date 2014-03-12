@@ -57,7 +57,11 @@ public final class JUnitTestConstants {
 	/**
 	 * json test file: this file contains the same game as the testFile.pgn file
 	 */
-	public static final String JSON_PGN_FILE = "src/main/resources/json/testFile_2.2.json";
+	public static final String JSON_PGN_FILE = "src/main/resources/json/testFile_2.3.json";
+	/**
+	 * json test file: this file contains the same game as the testFile.pgn file
+	 */
+	public static final String JSON_2_GAMES_PGN_FILE = "src/main/resources/json/testFile_jsonArray_2.3.json";
 
 	/**
 	 * REFERENCE_GAME_2_0: this object contains the same game as the pgn and the xml files. This is
