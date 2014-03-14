@@ -103,14 +103,9 @@
           <version>4.10</version>
           <scope>test</scope>
         </dependency>
-        <dependency>
-          <groupId>javax.json</groupId>
-          <artifactId>javax.json-api</artifactId>
-          <version>1.0</version>
-        </dependency>
       </dependencies>
     </profile>
-    <!-- Generate classes via jaxb profile to use this profile, run the following
+    <!-- Generate classes via jaxb profile to use this profile, run the following 
       command line: mvn clean jaxb2:generate -P generate-jaxb -->
     <profile>
       <id>generate-jaxb</id>
@@ -162,8 +157,8 @@
     </dependency>
     <dependency>
       <groupId>net.minidev</groupId>
-	    <artifactId>json-smart</artifactId>
-		  <version>1.1.1</version>
+      <artifactId>json-smart</artifactId>
+      <version>1.1.1</version>
     </dependency>
     <dependency>
       <groupId>log4j</groupId>

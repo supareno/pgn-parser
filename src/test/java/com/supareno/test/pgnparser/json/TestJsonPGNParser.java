@@ -19,7 +19,6 @@ package com.supareno.test.pgnparser.json;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.supareno.pgnparser.jaxb.Games;
@@ -28,21 +27,32 @@ import com.supareno.test.pgnparser.JUnitTestConstants;
 import com.supareno.test.pgnparser.jaxb.AbstractParserValidator;
 
 /**
- * The {@code TestJsonPGNParser} class is used to test the {@code JsonPGNParser} class.
+ * The {@code TestJsonPGNParser} class is used to test the {@code JsonPGNParser}
+ * class.
  * 
  * @author supareno
  * @version 2.3.
  */
 public class TestJsonPGNParser extends AbstractParserValidator {
 
-	private JsonPGNParser jsonParser = null;
+  private JsonPGNParser jsonParser = null;
 
-	@Test
-	@Ignore
-	public void testParseJSONFileString () {
-		jsonParser = new JsonPGNParser ();
-		assertEquals ( "json" , jsonParser.getExtension () );
-		Games games = jsonParser.parseFile ( JUnitTestConstants.JSON_PGN_FILE );
-		validateGames ( games );
-	}
+  @Test
+  public void it_parses_JSONFile_with_one_game () {
+    jsonParser = new JsonPGNParser();
+    assertEquals("json", jsonParser.getExtension());
+    Games games = jsonParser.parseFile(JUnitTestConstants.JSON_PGN_FILE);
+    validateGames(games);
+  }
+
+  @Test
+  public void it_parses_JSONFile_with_two_games_as_JSONArray () {
+    jsonParser = new JsonPGNParser();
+    Games games = jsonParser
+        .parseFile(JUnitTestConstants.JSON_2_GAMES_PGN_FILE);
+    assertEquals(2, games.getGame().size());
+    validateGames(games);
+    assertEquals("Me", games.getGame().get(1).getWhite());
+    assertEquals("Myself", games.getGame().get(1).getBlack());
+  }
 }
