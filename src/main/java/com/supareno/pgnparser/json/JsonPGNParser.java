@@ -152,7 +152,7 @@ public class JsonPGNParser extends AbstractPGNParser {
         JSONObject jsonHit = (JSONObject) a;
         Hit hit = new Hit();
         hit.setNumber(getKeyAsStringFromJSON("number", jsonHit));
-        hit.setContent(getKeyAsStringFromJSON("hit", jsonHit));
+        hit.setContent(getKeyAsStringFromJSON("content", jsonHit));
         hits.getHit().add(hit);
       }
     }
