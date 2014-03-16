@@ -5,11 +5,11 @@
 // Generated on: 2010.11.07 at 07:18:07 PM CET 
 //
 
-
 package com.supareno.pgnparser.jaxb;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -19,12 +19,15 @@ import javax.xml.bind.annotation.XmlType;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
-
+import org.apache.commons.lang.builder.ToStringStyle;
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>
+ * Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -41,50 +44,55 @@ import org.apache.commons.lang.builder.ToStringBuilder;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "hit"
-})
+@XmlType(name = "", propOrder = { "hit" })
 @XmlRootElement(name = "hits")
 public class Hits {
 
-    @XmlElement(required = true)
-    protected List<Hit> hit;
+  @XmlElement(required = true)
+  protected List<Hit> hit;
 
-    /**
-     * Gets the value of the hit property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the hit property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getHit().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Hit }
-     * 
-     * 
-     */
-    public List<Hit> getHit() {
-        if (hit == null) {
-            hit = new ArrayList<Hit>();
-        }
-        return this.hit;
+  /**
+   * Gets the value of the hit property.
+   * 
+   * <p>
+   * This accessor method returns a reference to the live list, not a snapshot.
+   * Therefore any modification you make to the returned list will be present
+   * inside the JAXB object. This is why there is not a <CODE>set</CODE> method
+   * for the hit property.
+   * 
+   * <p>
+   * For example, to add a new item, do as follows:
+   * 
+   * <pre>
+   * getHit().add(newItem);
+   * </pre>
+   * 
+   * 
+   * <p>
+   * Objects of the following type(s) are allowed in the list {@link Hit }
+   * 
+   * 
+   */
+  public List<Hit> getHit () {
+    if (hit == null) {
+      hit = new ArrayList<Hit>();
     }
+    return this.hit;
+  }
 
-	@Override
-	public boolean equals(Object obj) { return EqualsBuilder.reflectionEquals(this, obj); }
+  @Override
+  public boolean equals (Object obj) {
+    return EqualsBuilder.reflectionEquals(this, obj);
+  }
 
-	@Override
-	public int hashCode() { return HashCodeBuilder.reflectionHashCode(this); }
+  @Override
+  public int hashCode () {
+    return HashCodeBuilder.reflectionHashCode(this);
+  }
 
-	@Override
-	public String toString() { return ToStringBuilder.reflectionToString(this); }
+  @Override
+  public String toString () {
+    return ToStringBuilder.reflectionToString(this,
+        ToStringStyle.MULTI_LINE_STYLE);
+  }
 }

@@ -20,7 +20,6 @@
  */
 package com.supareno.pgnparser.jaxb;
 
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -30,12 +29,15 @@ import javax.xml.bind.annotation.XmlType;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
-
+import org.apache.commons.lang.builder.ToStringStyle;
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>
+ * Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -86,927 +88,766 @@ import org.apache.commons.lang.builder.ToStringBuilder;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "event",
-    "site",
-    "date",
-    "round",
-    "white",
-    "black",
-    "result",
-    "whiteTitle",
-    "whiteElo",
-    "whiteUSCF",
-    "whiteNA",
-    "whiteType",
-    "blackTitle",
-    "blackElo",
-    "blackUSCF",
-    "blackNA",
-    "blackType",
-    "eventDate",
-    "eventSponsor",
-    "section",
-    "stage",
-    "board",
-    "opening",
-    "variation",
-    "subVariation",
-    "eco",
-    "nic",
-    "time",
-    "utcTime",
-    "utcDate",
-    "timeControl",
-    "setUp",
-    "fen",
-    "termination",
-    "hits"
-})
+@XmlType(name = "", propOrder = { "event", "site", "date", "round", "white",
+    "black", "result", "whiteTitle", "whiteElo", "whiteUSCF", "whiteNA",
+    "whiteType", "blackTitle", "blackElo", "blackUSCF", "blackNA", "blackType",
+    "eventDate", "eventSponsor", "section", "stage", "board", "opening",
+    "variation", "subVariation", "eco", "nic", "time", "utcTime", "utcDate",
+    "timeControl", "setUp", "fen", "termination", "hits" })
 @XmlRootElement(name = "game")
 public class Game {
 
-    @XmlElement(required = true)
-    protected String event = "";
-    @XmlElement(required = true)
-    protected String site = "";
-    @XmlElement(required = true)
-    protected String date = "";
-    @XmlElement(required = true)
-    protected String round = "";
-    @XmlElement(required = true)
-    protected String white = "";
-    @XmlElement(required = true)
-    protected String black = "";
-    @XmlElement(required = true)
-    protected String result = "";
-    protected String whiteTitle = "";
-    protected String whiteElo = "";
-    protected String whiteUSCF = "";
-    protected String whiteNA = "";
-    protected String whiteType = "";
-    protected String blackTitle = "";
-    protected String blackElo = "";
-    protected String blackUSCF = "";
-    protected String blackNA = "";
-    protected String blackType = "";
-    protected String eventDate = "";
-    protected String eventSponsor = "";
-    protected String section = "";
-    protected String stage = "";
-    protected String board = "";
-    protected String opening = "";
-    protected String variation = "";
-    protected String subVariation = "";
-    protected String eco = "";
-    protected String nic = "";
-    protected String time = "";
-    @XmlElement(name = "UTCTime")
-    protected String utcTime = "";
-    @XmlElement(name = "UTCDate")
-    protected String utcDate = "";
-    protected String timeControl = "";
-    protected String setUp = "";
-    @XmlElement(name = "FEN")
-    protected String fen = "";
-    protected String termination = "";
-    @XmlElement(required = true)
-    protected Hits hits;
-
-    public Hits getHits() { 
-    	if (hits == null) {
-            hits = new Hits();
-        }
-        return this.hits; 
-    }
-    
-
-    public void setHits(Hits h) { 
-        this.hits = h; 
-    }
-    
-    /**
-     * Gets the value of the event property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getEvent() {
-        return event;
-    }
-
-    /**
-     * Sets the value of the event property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setEvent(String value) {
-        this.event = value;
-    }
-
-    /**
-     * Gets the value of the site property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSite() {
-        return site;
-    }
-
-    /**
-     * Sets the value of the site property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSite(String value) {
-        this.site = value;
-    }
-
-    /**
-     * Gets the value of the date property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDate() {
-        return date;
-    }
-
-    /**
-     * Sets the value of the date property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDate(String value) {
-        this.date = value;
-    }
-
-    /**
-     * Gets the value of the round property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getRound() {
-        return round;
-    }
-
-    /**
-     * Sets the value of the round property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setRound(String value) {
-        this.round = value;
-    }
-
-    /**
-     * Gets the value of the white property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getWhite() {
-        return white;
-    }
-
-    /**
-     * Sets the value of the white property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setWhite(String value) {
-        this.white = value;
-    }
-
-    /**
-     * Gets the value of the black property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getBlack() {
-        return black;
-    }
-
-    /**
-     * Sets the value of the black property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setBlack(String value) {
-        this.black = value;
-    }
-
-    /**
-     * Gets the value of the result property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getResult() {
-        return result;
-    }
-
-    /**
-     * Sets the value of the result property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setResult(String value) {
-        this.result = value;
-    }
-
-    /**
-     * Gets the value of the whiteTitle property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getWhiteTitle() {
-        return whiteTitle;
-    }
-
-    /**
-     * Sets the value of the whiteTitle property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setWhiteTitle(String value) {
-        this.whiteTitle = value;
-    }
-
-    /**
-     * Gets the value of the whiteElo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getWhiteElo() {
-        return whiteElo;
-    }
-
-    /**
-     * Sets the value of the whiteElo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setWhiteElo(String value) {
-        this.whiteElo = value;
-    }
-
-    /**
-     * Gets the value of the whiteUSCF property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getWhiteUSCF() {
-        return whiteUSCF;
-    }
-
-    /**
-     * Sets the value of the whiteUSCF property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setWhiteUSCF(String value) {
-        this.whiteUSCF = value;
-    }
-
-    /**
-     * Gets the value of the whiteNA property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getWhiteNA() {
-        return whiteNA;
-    }
-
-    /**
-     * Sets the value of the whiteNA property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setWhiteNA(String value) {
-        this.whiteNA = value;
-    }
-
-    /**
-     * Gets the value of the whiteType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getWhiteType() {
-        return whiteType;
-    }
-
-    /**
-     * Sets the value of the whiteType property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setWhiteType(String value) {
-        this.whiteType = value;
-    }
-
-    /**
-     * Gets the value of the blackTitle property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getBlackTitle() {
-        return blackTitle;
-    }
-
-    /**
-     * Sets the value of the blackTitle property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setBlackTitle(String value) {
-        this.blackTitle = value;
-    }
-
-    /**
-     * Gets the value of the blackElo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getBlackElo() {
-        return blackElo;
-    }
-
-    /**
-     * Sets the value of the blackElo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setBlackElo(String value) {
-        this.blackElo = value;
-    }
-
-    /**
-     * Gets the value of the blackUSCF property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getBlackUSCF() {
-        return blackUSCF;
-    }
-
-    /**
-     * Sets the value of the blackUSCF property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setBlackUSCF(String value) {
-        this.blackUSCF = value;
-    }
-
-    /**
-     * Gets the value of the blackNA property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getBlackNA() {
-        return blackNA;
-    }
-
-    /**
-     * Sets the value of the blackNA property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setBlackNA(String value) {
-        this.blackNA = value;
-    }
-
-    /**
-     * Gets the value of the blackType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getBlackType() {
-        return blackType;
-    }
-
-    /**
-     * Sets the value of the blackType property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setBlackType(String value) {
-        this.blackType = value;
-    }
-
-    /**
-     * Gets the value of the eventDate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getEventDate() {
-        return eventDate;
-    }
-
-    /**
-     * Sets the value of the eventDate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setEventDate(String value) {
-        this.eventDate = value;
-    }
-
-    /**
-     * Gets the value of the eventSponsor property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getEventSponsor() {
-        return eventSponsor;
-    }
-
-    /**
-     * Sets the value of the eventSponsor property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setEventSponsor(String value) {
-        this.eventSponsor = value;
-    }
-
-    /**
-     * Gets the value of the section property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSection() {
-        return section;
-    }
-
-    /**
-     * Sets the value of the section property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSection(String value) {
-        this.section = value;
-    }
-
-    /**
-     * Gets the value of the stage property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getStage() {
-        return stage;
-    }
-
-    /**
-     * Sets the value of the stage property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setStage(String value) {
-        this.stage = value;
-    }
-
-    /**
-     * Gets the value of the board property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getBoard() {
-        return board;
-    }
-
-    /**
-     * Sets the value of the board property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setBoard(String value) {
-        this.board = value;
-    }
-
-    /**
-     * Gets the value of the opening property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getOpening() {
-        return opening;
-    }
-
-    /**
-     * Sets the value of the opening property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setOpening(String value) {
-        this.opening = value;
-    }
-
-    /**
-     * Gets the value of the variation property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getVariation() {
-        return variation;
-    }
-
-    /**
-     * Sets the value of the variation property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setVariation(String value) {
-        this.variation = value;
-    }
-
-    /**
-     * Gets the value of the subVariation property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSubVariation() {
-        return subVariation;
-    }
-
-    /**
-     * Sets the value of the subVariation property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSubVariation(String value) {
-        this.subVariation = value;
-    }
-
-    /**
-     * Gets the value of the eco property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getEco() {
-        return eco;
-    }
-
-    /**
-     * Sets the value of the eco property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setEco(String value) {
-        this.eco = value;
-    }
-
-    /**
-     * Gets the value of the nic property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getNic() {
-        return nic;
-    }
-
-    /**
-     * Sets the value of the nic property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setNic(String value) {
-        this.nic = value;
-    }
-
-    /**
-     * Gets the value of the time property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTime() {
-        return time;
-    }
-
-    /**
-     * Sets the value of the time property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTime(String value) {
-        this.time = value;
-    }
-
-    /**
-     * Gets the value of the utcTime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getUTCTime() {
-        return utcTime;
-    }
-
-    /**
-     * Sets the value of the utcTime property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setUTCTime(String value) {
-        this.utcTime = value;
-    }
-
-    /**
-     * Gets the value of the utcDate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getUTCDate() {
-        return utcDate;
-    }
-
-    /**
-     * Sets the value of the utcDate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setUTCDate(String value) {
-        this.utcDate = value;
-    }
-
-    /**
-     * Gets the value of the timeControl property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTimeControl() {
-        return timeControl;
-    }
-
-    /**
-     * Sets the value of the timeControl property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTimeControl(String value) {
-        this.timeControl = value;
-    }
-
-    /**
-     * Gets the value of the setUp property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSetUp() {
-        return setUp;
-    }
-
-    /**
-     * Sets the value of the setUp property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSetUp(String value) {
-        this.setUp = value;
-    }
-
-    /**
-     * Gets the value of the fen property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getFEN() {
-        return fen;
-    }
-
-    /**
-     * Sets the value of the fen property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setFEN(String value) {
-        this.fen = value;
-    }
-
-    /**
-     * Gets the value of the termination property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTermination() {
-        return termination;
-    }
-
-    /**
-     * Sets the value of the termination property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTermination(String value) {
-        this.termination = value;
-    }
-
-	@Override
-	public boolean equals(Object obj) { return EqualsBuilder.reflectionEquals(this, obj); }
-
-	@Override
-	public int hashCode() { return HashCodeBuilder.reflectionHashCode(this); }
-
-	@Override
-	public String toString() { return ToStringBuilder.reflectionToString(this); }
+  @XmlElement(required = true)
+  protected String event = "";
+  @XmlElement(required = true)
+  protected String site = "";
+  @XmlElement(required = true)
+  protected String date = "";
+  @XmlElement(required = true)
+  protected String round = "";
+  @XmlElement(required = true)
+  protected String white = "";
+  @XmlElement(required = true)
+  protected String black = "";
+  @XmlElement(required = true)
+  protected String result = "";
+  protected String whiteTitle = "";
+  protected String whiteElo = "";
+  protected String whiteUSCF = "";
+  protected String whiteNA = "";
+  protected String whiteType = "";
+  protected String blackTitle = "";
+  protected String blackElo = "";
+  protected String blackUSCF = "";
+  protected String blackNA = "";
+  protected String blackType = "";
+  protected String eventDate = "";
+  protected String eventSponsor = "";
+  protected String section = "";
+  protected String stage = "";
+  protected String board = "";
+  protected String opening = "";
+  protected String variation = "";
+  protected String subVariation = "";
+  protected String eco = "";
+  protected String nic = "";
+  protected String time = "";
+  @XmlElement(name = "UTCTime")
+  protected String utcTime = "";
+  @XmlElement(name = "UTCDate")
+  protected String utcDate = "";
+  protected String timeControl = "";
+  protected String setUp = "";
+  @XmlElement(name = "FEN")
+  protected String fen = "";
+  protected String termination = "";
+  @XmlElement(required = true)
+  protected Hits hits;
+
+  public Hits getHits () {
+    if (hits == null) {
+      hits = new Hits();
+    }
+    return this.hits;
+  }
+
+  public void setHits (Hits h) {
+    this.hits = h;
+  }
+
+  /**
+   * Gets the value of the event property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getEvent () {
+    return event;
+  }
+
+  /**
+   * Sets the value of the event property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setEvent (String value) {
+    this.event = value;
+  }
+
+  /**
+   * Gets the value of the site property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getSite () {
+    return site;
+  }
+
+  /**
+   * Sets the value of the site property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setSite (String value) {
+    this.site = value;
+  }
+
+  /**
+   * Gets the value of the date property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getDate () {
+    return date;
+  }
+
+  /**
+   * Sets the value of the date property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setDate (String value) {
+    this.date = value;
+  }
+
+  /**
+   * Gets the value of the round property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getRound () {
+    return round;
+  }
+
+  /**
+   * Sets the value of the round property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setRound (String value) {
+    this.round = value;
+  }
+
+  /**
+   * Gets the value of the white property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getWhite () {
+    return white;
+  }
+
+  /**
+   * Sets the value of the white property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setWhite (String value) {
+    this.white = value;
+  }
+
+  /**
+   * Gets the value of the black property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getBlack () {
+    return black;
+  }
+
+  /**
+   * Sets the value of the black property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setBlack (String value) {
+    this.black = value;
+  }
+
+  /**
+   * Gets the value of the result property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getResult () {
+    return result;
+  }
+
+  /**
+   * Sets the value of the result property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setResult (String value) {
+    this.result = value;
+  }
+
+  /**
+   * Gets the value of the whiteTitle property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getWhiteTitle () {
+    return whiteTitle;
+  }
+
+  /**
+   * Sets the value of the whiteTitle property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setWhiteTitle (String value) {
+    this.whiteTitle = value;
+  }
+
+  /**
+   * Gets the value of the whiteElo property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getWhiteElo () {
+    return whiteElo;
+  }
+
+  /**
+   * Sets the value of the whiteElo property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setWhiteElo (String value) {
+    this.whiteElo = value;
+  }
+
+  /**
+   * Gets the value of the whiteUSCF property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getWhiteUSCF () {
+    return whiteUSCF;
+  }
+
+  /**
+   * Sets the value of the whiteUSCF property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setWhiteUSCF (String value) {
+    this.whiteUSCF = value;
+  }
+
+  /**
+   * Gets the value of the whiteNA property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getWhiteNA () {
+    return whiteNA;
+  }
+
+  /**
+   * Sets the value of the whiteNA property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setWhiteNA (String value) {
+    this.whiteNA = value;
+  }
+
+  /**
+   * Gets the value of the whiteType property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getWhiteType () {
+    return whiteType;
+  }
+
+  /**
+   * Sets the value of the whiteType property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setWhiteType (String value) {
+    this.whiteType = value;
+  }
+
+  /**
+   * Gets the value of the blackTitle property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getBlackTitle () {
+    return blackTitle;
+  }
+
+  /**
+   * Sets the value of the blackTitle property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setBlackTitle (String value) {
+    this.blackTitle = value;
+  }
+
+  /**
+   * Gets the value of the blackElo property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getBlackElo () {
+    return blackElo;
+  }
+
+  /**
+   * Sets the value of the blackElo property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setBlackElo (String value) {
+    this.blackElo = value;
+  }
+
+  /**
+   * Gets the value of the blackUSCF property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getBlackUSCF () {
+    return blackUSCF;
+  }
+
+  /**
+   * Sets the value of the blackUSCF property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setBlackUSCF (String value) {
+    this.blackUSCF = value;
+  }
+
+  /**
+   * Gets the value of the blackNA property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getBlackNA () {
+    return blackNA;
+  }
+
+  /**
+   * Sets the value of the blackNA property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setBlackNA (String value) {
+    this.blackNA = value;
+  }
+
+  /**
+   * Gets the value of the blackType property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getBlackType () {
+    return blackType;
+  }
+
+  /**
+   * Sets the value of the blackType property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setBlackType (String value) {
+    this.blackType = value;
+  }
+
+  /**
+   * Gets the value of the eventDate property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getEventDate () {
+    return eventDate;
+  }
+
+  /**
+   * Sets the value of the eventDate property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setEventDate (String value) {
+    this.eventDate = value;
+  }
+
+  /**
+   * Gets the value of the eventSponsor property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getEventSponsor () {
+    return eventSponsor;
+  }
+
+  /**
+   * Sets the value of the eventSponsor property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setEventSponsor (String value) {
+    this.eventSponsor = value;
+  }
+
+  /**
+   * Gets the value of the section property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getSection () {
+    return section;
+  }
+
+  /**
+   * Sets the value of the section property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setSection (String value) {
+    this.section = value;
+  }
+
+  /**
+   * Gets the value of the stage property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getStage () {
+    return stage;
+  }
+
+  /**
+   * Sets the value of the stage property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setStage (String value) {
+    this.stage = value;
+  }
+
+  /**
+   * Gets the value of the board property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getBoard () {
+    return board;
+  }
+
+  /**
+   * Sets the value of the board property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setBoard (String value) {
+    this.board = value;
+  }
+
+  /**
+   * Gets the value of the opening property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getOpening () {
+    return opening;
+  }
+
+  /**
+   * Sets the value of the opening property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setOpening (String value) {
+    this.opening = value;
+  }
+
+  /**
+   * Gets the value of the variation property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getVariation () {
+    return variation;
+  }
+
+  /**
+   * Sets the value of the variation property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setVariation (String value) {
+    this.variation = value;
+  }
+
+  /**
+   * Gets the value of the subVariation property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getSubVariation () {
+    return subVariation;
+  }
+
+  /**
+   * Sets the value of the subVariation property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setSubVariation (String value) {
+    this.subVariation = value;
+  }
+
+  /**
+   * Gets the value of the eco property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getEco () {
+    return eco;
+  }
+
+  /**
+   * Sets the value of the eco property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setEco (String value) {
+    this.eco = value;
+  }
+
+  /**
+   * Gets the value of the nic property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getNic () {
+    return nic;
+  }
+
+  /**
+   * Sets the value of the nic property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setNic (String value) {
+    this.nic = value;
+  }
+
+  /**
+   * Gets the value of the time property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getTime () {
+    return time;
+  }
+
+  /**
+   * Sets the value of the time property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setTime (String value) {
+    this.time = value;
+  }
+
+  /**
+   * Gets the value of the utcTime property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getUTCTime () {
+    return utcTime;
+  }
+
+  /**
+   * Sets the value of the utcTime property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setUTCTime (String value) {
+    this.utcTime = value;
+  }
+
+  /**
+   * Gets the value of the utcDate property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getUTCDate () {
+    return utcDate;
+  }
+
+  /**
+   * Sets the value of the utcDate property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setUTCDate (String value) {
+    this.utcDate = value;
+  }
+
+  /**
+   * Gets the value of the timeControl property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getTimeControl () {
+    return timeControl;
+  }
+
+  /**
+   * Sets the value of the timeControl property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setTimeControl (String value) {
+    this.timeControl = value;
+  }
+
+  /**
+   * Gets the value of the setUp property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getSetUp () {
+    return setUp;
+  }
+
+  /**
+   * Sets the value of the setUp property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setSetUp (String value) {
+    this.setUp = value;
+  }
+
+  /**
+   * Gets the value of the fen property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getFEN () {
+    return fen;
+  }
+
+  /**
+   * Sets the value of the fen property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setFEN (String value) {
+    this.fen = value;
+  }
+
+  /**
+   * Gets the value of the termination property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getTermination () {
+    return termination;
+  }
+
+  /**
+   * Sets the value of the termination property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setTermination (String value) {
+    this.termination = value;
+  }
+
+  @Override
+  public boolean equals (Object obj) {
+    return EqualsBuilder.reflectionEquals(this, obj);
+  }
+
+  @Override
+  public int hashCode () {
+    return HashCodeBuilder.reflectionHashCode(this);
+  }
+
+  @Override
+  public String toString () {
+    return ToStringBuilder.reflectionToString(this,
+        ToStringStyle.MULTI_LINE_STYLE);
+  }
 }

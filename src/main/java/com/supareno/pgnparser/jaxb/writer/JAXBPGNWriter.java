@@ -27,52 +27,43 @@ import javax.xml.bind.Marshaller;
 import com.supareno.pgnparser.AbstractPGNWriter;
 import com.supareno.pgnparser.PGNType;
 import com.supareno.pgnparser.Writer;
-import com.supareno.pgnparser.jaxb.Game;
 import com.supareno.pgnparser.jaxb.Games;
 
 /**
- * The {@code JAXBPGNWriter} is a concrete JAXB implementation of the {@link Writer}.
+ * The {@code JAXBPGNWriter} is a concrete JAXB implementation of the
+ * {@link Writer}.
  * 
  * @author supareno
  * 
- * @version 1.0
+ * @version 2.3.0
+ * @since 1.0
  */
 public class JAXBPGNWriter extends AbstractPGNWriter {
 
-	@Override
-	public String getExtension () {
-		return PGNType.XML.getExtension ();
-	}
+  @Override
+  public String getExtension () {
+    return PGNType.XML.getExtension();
+  }
 
-	@Override
-	public boolean writePGNGame ( Game game ) throws IllegalArgumentException {
-		if ( game == null ) {
-			throw new IllegalArgumentException ( "the PGNGame or the file name is null" );
-		}
-		Games games = new Games ();
-		games.getGame ().add ( game );
-		return writePGNGames ( games );
-	}
-
-	@Override
-	public boolean writePGNGames ( Games games ) throws IllegalArgumentException {
-		if ( games == null ) {
-			throw new IllegalArgumentException ( "the PGNGame or the file name is null" );
-		}
-		boolean result = false;
-		JAXBContext context;
-		try {
-			context = JAXBContext.newInstance ( Games.class );
-			Marshaller m = context.createMarshaller ();
-			m.setProperty ( Marshaller.JAXB_FORMATTED_OUTPUT , true );
-			m.marshal ( games , new FileOutputStream ( getFileName () + "." + getExtension () ) );
-			result = true;
-		} catch ( JAXBException e ) {
-			log ( "JAXBException in writePGNGames(Games)" , e );
-		} catch ( FileNotFoundException e ) {
-			log ( "FileNotFoundException in writePGNGames(Games)" , e );
-		}
-		return result;
-	}
+  @Override
+  public boolean writePGNGames (Games games) throws IllegalArgumentException {
+    if (games == null) {
+      throw new IllegalArgumentException("the PGNGame or the file name is null");
+    }
+    boolean result = false;
+    JAXBContext context;
+    try {
+      context = JAXBContext.newInstance(Games.class);
+      Marshaller m = context.createMarshaller();
+      m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+      m.marshal(games, new FileOutputStream(getFullFileName()));
+      result = true;
+    } catch (JAXBException e) {
+      log("JAXBException in writePGNGames(Games)", e);
+    } catch (FileNotFoundException e) {
+      log("FileNotFoundException in writePGNGames(Games)", e);
+    }
+    return result;
+  }
 
 }

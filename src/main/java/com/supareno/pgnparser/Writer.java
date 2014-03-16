@@ -26,8 +26,9 @@ import com.supareno.pgnparser.jaxb.writer.JAXBPGNWriter;
 /**
  * The {@code Writer} class is the root interface of the PGN writers.
  * <p>
- * It uses the JAXB generated classes ({@link Games}, {@link Game}, ...) to generate PGN files. These files could
- * be {@code pgn} files (with the {@link PGNWriter}) or {@code xml} files (with the {@link JAXBPGNWriter}).
+ * It uses the JAXB generated classes ({@link Games}, {@link Game}, ...) to
+ * generate PGN files. These files could be {@code pgn} files (with the
+ * {@link PGNWriter}) or {@code xml} files (with the {@link JAXBPGNWriter}).
  * </p>
  * 
  * @author reno
@@ -35,69 +36,87 @@ import com.supareno.pgnparser.jaxb.writer.JAXBPGNWriter;
  */
 public interface Writer {
 
-	/**
-	 * Returns {@code true} if the game has been written, {@code false} otherwise.
-	 * @param game the game to write.
-	 * @return {@code true} if the game has been written, {@code false} otherwise.
-	 * @throws if the {@code game} parameter is {@code null}.
-	 */
-	boolean writePGNGame(Game game) throws IllegalArgumentException;
+  /**
+   * Returns {@code true} if the game has been written, {@code false} otherwise.
+   * 
+   * @param game the game to write.
+   * @return {@code true} if the game has been written, {@code false} otherwise.
+   * @throws if the {@code game} parameter is {@code null}.
+   */
+  boolean writePGNGame (Game game) throws IllegalArgumentException;
 
-	/**
-	 * Returns {@code true} if the games has been written, {@code false} otherwise.
-	 * @param games the games to write.
-	 * @return {@code true} if the list of the games has been written, {@code false} otherwise.
-	 * @throws if the {@code game} parameter is {@code null}.
-	 */
-	boolean writePGNGames(Games games) throws IllegalArgumentException;
+  /**
+   * Returns {@code true} if the games has been written, {@code false}
+   * otherwise.
+   * 
+   * @param games the games to write.
+   * @return {@code true} if the list of the games has been written,
+   *         {@code false} otherwise.
+   * @throws if the {@code game} parameter is {@code null}.
+   */
+  boolean writePGNGames (Games games) throws IllegalArgumentException;
 
-	/**
-	 * Initializes the Log4j file.
-	 * @param file the Log4j file.
-	 */
-	void setLoggerConfiguratorFile(String file);
+  /**
+   * Initializes the Log4j file.
+   * 
+   * @param file the Log4j file.
+   */
+  void setLoggerConfiguratorFile (String file);
 
-	/**
-	 * Sets the name of the file to write.
-	 * @param filename the name of the file.
-	 */
-	void setFileName(String filename);
+  /**
+   * Sets the name of the file to write.
+   * 
+   * @param filename the name of the file.
+   */
+  void setFileName (String filename);
 
-	/**
-	 * Returns the name of the file to write.
-	 * @return the name of the file to write.
-	 */
-	String getFileName();
+  /**
+   * Returns the name of the file to write.
+   * 
+   * @return the name of the file to write.
+   */
+  String getFileName ();
 
-	/**
-	 * Returns the Log4j level.
-	 * @return the Log4j level.
-	 */
-	Level getLoggerLevel();
+  /**
+   * Returns the Log4j level.
+   * 
+   * @return the Log4j level.
+   */
+  Level getLoggerLevel ();
 
-	/**
-	 * Sets the Log4j level.
-	 * @param level the Log4j level.
-	 */
-	void setLoggerLevel(Level level);
+  /**
+   * Sets the Log4j level.
+   * 
+   * @param level the Log4j level.
+   */
+  void setLoggerLevel (Level level);
 
-	/**
-	 * Returns the extension of the file to write.
-	 * @return the extension of the file to write.
-	 */
-	String getExtension();
+  /**
+   * Returns the extension of the file to write.
+   * 
+   * @return the extension of the file to write.
+   */
+  String getExtension ();
 
-	/**
-	 * Logs the message using the Logger with the Level set.
-	 * @param msg the message to lo;
-	 */
-	void log(String msg);
+  /**
+   * Logs the message using the Logger with the Level set.
+   * 
+   * @param msg the message to lo;
+   */
+  void log (String msg);
 
-	/**
-	 * Logs the message and the Throwable using the Logger with the Level set
-	 * in the constructor.
-	 * @param msg the message to log
-	 * @param t the Throwable to log
-	 */
-	void log(String msg, Throwable t);
+  /**
+   * Logs the message and the Throwable using the Logger with the Level set in
+   * the constructor.
+   * 
+   * @param msg the message to log
+   * @param t the Throwable to log
+   */
+  void log (String msg, Throwable t);
+
+  /**
+   * @return the result of the concatenation of {@link #getFileName()}, a dot
+   *         and {@link #getExtension()}
+   */
+  String getFullFileName ();
 }

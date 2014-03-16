@@ -32,12 +32,15 @@ import javax.xml.bind.annotation.XmlValue;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
-
+import org.apache.commons.lang.builder.ToStringStyle;
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>
+ * Java class for anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -52,77 +55,77 @@ import org.apache.commons.lang.builder.ToStringBuilder;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "content"
-})
+@XmlType(name = "", propOrder = { "content" })
 @XmlRootElement(name = "hit")
 public class Hit {
 
-    @XmlValue
-    protected String content;
-    @XmlAttribute(name = "number", required = true)
-    protected String number;
+  @XmlValue
+  protected String content;
+  @XmlAttribute(name = "number", required = true)
+  protected String number;
 
-    /**
-     * Gets the value of the content property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getContent() {
-        return content;
-    }
+  /**
+   * Gets the value of the content property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getContent () {
+    return content;
+  }
 
-    /**
-     * Sets the value of the content property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setContent(String value) {
-        this.content = value;
-    }
+  /**
+   * Sets the value of the content property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setContent (String value) {
+    this.content = value;
+  }
 
-    /**
-     * Gets the value of the number property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getNumber() {
-        return number;
-    }
+  /**
+   * Gets the value of the number property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getNumber () {
+    return number;
+  }
 
-    /**
-     * Sets the value of the number property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setNumber(String value) {
-        this.number = value;
-    }
+  /**
+   * Sets the value of the number property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setNumber (String value) {
+    this.number = value;
+  }
 
-	/**
-	 * Returns a String array of the hit.
-	 * @return a String array of the hit.
-	 */
-	public String[] getHitSeparated(){ return this.content.split(" "); }
+  /**
+   * Returns a String array of the hit.
+   * 
+   * @return a String array of the hit.
+   */
+  public String[] getHitSeparated () {
+    return this.content.split(" ");
+  }
 
-	@Override
-	public boolean equals(Object obj) { return EqualsBuilder.reflectionEquals(this, obj); }
+  @Override
+  public boolean equals (Object obj) {
+    return EqualsBuilder.reflectionEquals(this, obj);
+  }
 
-	@Override
-	public int hashCode() { return HashCodeBuilder.reflectionHashCode(this); }
+  @Override
+  public int hashCode () {
+    return HashCodeBuilder.reflectionHashCode(this);
+  }
 
-	@Override
-	public String toString() { return ToStringBuilder.reflectionToString(this); }
+  @Override
+  public String toString () {
+    return ToStringBuilder.reflectionToString(this,
+        ToStringStyle.MULTI_LINE_STYLE);
+  }
 }

@@ -18,6 +18,8 @@
 package com.supareno.pgnparser.json;
 
 import java.io.Reader;
+import java.util.Iterator;
+import java.util.Map.Entry;
 
 import net.minidev.json.JSONArray;
 import net.minidev.json.JSONObject;
@@ -30,9 +32,60 @@ import com.supareno.pgnparser.jaxb.Game;
 import com.supareno.pgnparser.jaxb.Games;
 import com.supareno.pgnparser.jaxb.Hit;
 import com.supareno.pgnparser.jaxb.Hits;
+import com.supareno.pgnparser.utils.PGNParserUtils;
 
 /**
- * @author reno
+ * The JSON parser could parse JSON files with a single game or a game's array.
+ * <p>
+ * The supported JSON represent is:
+ * 
+ * <pre>
+ * <code>
+ * {
+ *   "Event":"",
+ *   "Site":"",
+ *   "Date":"",
+ *   "Round":"",
+ *   "White":"",
+ *   "Black":"",
+ *   "Result":"",
+ *   "WhiteTitle":"",
+ *   "WhiteElo":"",
+ *   "WhiteUSCF":"",
+ *   "WhiteNA":"",
+ *   "WhiteType":"",
+ *   "BlackTitle":"",
+ *   "BlackElo":"",
+ *   "BlackUSCF":"",
+ *   "BlackNA":"",
+ *   "BlackType":"",
+ *   "EventDate":"",
+ *   "EventSponsor":"",
+ *   "Section":"",
+ *   "Stage":"",
+ *   "Board":"",
+ *   "Opening":"",
+ *   "Variation":"",
+ *   "SubVariation":"",
+ *   "Eco":"",
+ *   "Nic":"",
+ *   "Time":"",
+ *   "UTCTime":"",
+ *   "UTCDate":"",
+ *   "TimeControl":"",
+ *   "SetUp":"",
+ *   "FEN":"",
+ *   "Termination":"",
+ *   "hits" [
+ *     {"number":"","content":""}
+ *   ]
+ * }
+ * </code>
+ * </pre>
+ * 
+ * </p>
+ * 
+ * @author supareno
  * @since 2.3.0
  */
 public class JsonPGNParser extends AbstractPGNParser {
@@ -87,43 +140,18 @@ public class JsonPGNParser extends AbstractPGNParser {
       return null;
     }
     Game game = new Game();
-    game.setEvent(getKeyAsStringFromJSON("Event", o));
-    game.setSite(getKeyAsStringFromJSON("Site", o));
-    game.setDate(getKeyAsStringFromJSON("Date", o));
-    game.setRound(getKeyAsStringFromJSON("Round", o));
-    game.setWhite(getKeyAsStringFromJSON("White", o));
-    game.setBlack(getKeyAsStringFromJSON("Black", o));
-    game.setResult(getKeyAsStringFromJSON("Result", o));
-    game.setWhiteTitle(getKeyAsStringFromJSON("WhiteTitle", o));
-    game.setWhiteElo(getKeyAsStringFromJSON("WhiteElo", o));
-    game.setWhiteUSCF(getKeyAsStringFromJSON("WhiteUSCF", o));
-    game.setWhiteNA(getKeyAsStringFromJSON("WhiteNA", o));
-    game.setWhiteType(getKeyAsStringFromJSON("WhiteType", o));
-    game.setBlackTitle(getKeyAsStringFromJSON("BlackTitle", o));
-    game.setBlackElo(getKeyAsStringFromJSON("BlackElo", o));
-    game.setBlackUSCF(getKeyAsStringFromJSON("BlackUSCF", o));
-    game.setBlackNA(getKeyAsStringFromJSON("BlackNA", o));
-    game.setBlackType(getKeyAsStringFromJSON("BlackType", o));
-    game.setEventDate(getKeyAsStringFromJSON("EventDate", o));
-    game.setEventSponsor(getKeyAsStringFromJSON("EventSponsor", o));
-    game.setSection(getKeyAsStringFromJSON("Section", o));
-    game.setStage(getKeyAsStringFromJSON("Stage", o));
-    game.setBoard(getKeyAsStringFromJSON("Board", o));
-    game.setOpening(getKeyAsStringFromJSON("Opening", o));
-    game.setVariation(getKeyAsStringFromJSON("Variation", o));
-    game.setSubVariation(getKeyAsStringFromJSON("SubVariation", o));
-    game.setEco(getKeyAsStringFromJSON("Eco", o));
-    game.setNic(getKeyAsStringFromJSON("Nic", o));
-    game.setTime(getKeyAsStringFromJSON("Time", o));
-    game.setUTCTime(getKeyAsStringFromJSON("UTCTime", o));
-    game.setUTCDate(getKeyAsStringFromJSON("UTCDate", o));
-    game.setTimeControl(getKeyAsStringFromJSON("TimeControl", o));
-    game.setSetUp(getKeyAsStringFromJSON("SetUp", o));
-    game.setFEN(getKeyAsStringFromJSON("FEN", o));
-    game.setTermination(getKeyAsStringFromJSON("Termination", o));
-    Hits hits = getHitsFromJSON(o.get("hits"));
-    game.setHits(hits);
+    for (Iterator<Entry<String, Object>> iter = o.entrySet().iterator(); iter
+        .hasNext();) {
+      Entry<String, Object> currentValue = iter.next();
+      if (!currentValue.getKey().equals("hits")) {
+        setPGNGameAttributeAndValue(game, currentValue.getKey(),
+            (String) currentValue.getValue(), PGNParserUtils.BLANK);
+      } else {
+        game.setHits(getHitsFromJSON(o.get("hits")));
+      }
+    }
     return game;
+
   }
 
   /**
@@ -166,7 +194,8 @@ public class JsonPGNParser extends AbstractPGNParser {
    * @return the value of {@code key} in {@code o} if not null
    */
   private String getKeyAsStringFromJSON (String key, JSONObject o) {
-    return o != null && o.get(key) != null ? (String) o.get(key) : "";
+    return o == null ? PGNParserUtils.BLANK : PGNParserUtils
+        .getSafeValue((String) o.get(key));
   }
 
   @Override
