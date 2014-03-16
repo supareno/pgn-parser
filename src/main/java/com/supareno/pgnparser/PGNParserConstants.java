@@ -7,7 +7,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
- *  	http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -23,9 +23,6 @@ import java.util.Map;
 /**
  * The {@code PGNParserConstants} class defines some constants used by the
  * parsers.
- * <p>
- * 
- * </p>
  * 
  * @author supareno
  * 
@@ -33,7 +30,7 @@ import java.util.Map;
  */
 public final class PGNParserConstants {
 
-  private PGNParserConstants() {
+  private PGNParserConstants () {
   }
 
   // SEVEN ROSTER TAGS
@@ -242,41 +239,41 @@ public final class PGNParserConstants {
    */
   public static final String ECO_ATTR = "Eco";
 
-  public static final Map<String, String> ATTRIBUTES_MAP = new HashMap<String, String>();
+  public static final Map<String, String> ATTRIBUTES_MAP = new HashMap<String, String> ();
   static {
-    ATTRIBUTES_MAP.put(EVENT_ATTR, "set" + EVENT_ATTR);
-    ATTRIBUTES_MAP.put(SITE_ATTR, "set" + SITE_ATTR);
-    ATTRIBUTES_MAP.put(DATE_ATTR, "set" + DATE_ATTR);
-    ATTRIBUTES_MAP.put(ROUND_ATTR, "set" + ROUND_ATTR);
-    ATTRIBUTES_MAP.put(WHITE_ATTR, "set" + WHITE_ATTR);
-    ATTRIBUTES_MAP.put(BLACK_ATTR, "set" + BLACK_ATTR);
-    ATTRIBUTES_MAP.put(RESULT_ATTR, "set" + RESULT_ATTR);
+    ATTRIBUTES_MAP.put ( EVENT_ATTR , "set" + EVENT_ATTR );
+    ATTRIBUTES_MAP.put ( SITE_ATTR , "set" + SITE_ATTR );
+    ATTRIBUTES_MAP.put ( DATE_ATTR , "set" + DATE_ATTR );
+    ATTRIBUTES_MAP.put ( ROUND_ATTR , "set" + ROUND_ATTR );
+    ATTRIBUTES_MAP.put ( WHITE_ATTR , "set" + WHITE_ATTR );
+    ATTRIBUTES_MAP.put ( BLACK_ATTR , "set" + BLACK_ATTR );
+    ATTRIBUTES_MAP.put ( RESULT_ATTR , "set" + RESULT_ATTR );
     // ADDITIONALS TAGS
-    ATTRIBUTES_MAP.put(WHITE_ELO_ATTR, "set" + WHITE_ELO_ATTR);
-    ATTRIBUTES_MAP.put(WHITE_TITLE_ATTR, "set" + WHITE_TITLE_ATTR);
-    ATTRIBUTES_MAP.put(WHITE_USCF_ATTR, "set" + WHITE_USCF_ATTR);
-    ATTRIBUTES_MAP.put(WHITE_NA_ATTR, "set" + WHITE_NA_ATTR);
-    ATTRIBUTES_MAP.put(WHITE_TYPE_ATTR, "set" + WHITE_TYPE_ATTR);
-    ATTRIBUTES_MAP.put(BLACK_ELO_ATTR, "set" + BLACK_ELO_ATTR);
-    ATTRIBUTES_MAP.put(BLACK_TITLE_ATTR, "set" + BLACK_TITLE_ATTR);
-    ATTRIBUTES_MAP.put(BLACK_USCF_ATTR, "set" + BLACK_USCF_ATTR);
-    ATTRIBUTES_MAP.put(BLACK_NA_ATTR, "set" + BLACK_NA_ATTR);
-    ATTRIBUTES_MAP.put(BLACK_TYPE_ATTR, "set" + BLACK_TYPE_ATTR);
-    ATTRIBUTES_MAP.put(EVENT_DATE_ATTR, "set" + EVENT_DATE_ATTR);
-    ATTRIBUTES_MAP.put(EVENT_SPONSOR_ATTR, "set" + EVENT_SPONSOR_ATTR);
-    ATTRIBUTES_MAP.put(SECTION_ATTR, "set" + SECTION_ATTR);
-    ATTRIBUTES_MAP.put(STAGE_ATTR, "set" + STAGE_ATTR);
-    ATTRIBUTES_MAP.put(BOARD_ATTR, "set" + BOARD_ATTR);
-    ATTRIBUTES_MAP.put(OPENING_ATTR, "set" + OPENING_ATTR);
-    ATTRIBUTES_MAP.put(VARIATION_ATTR, "set" + VARIATION_ATTR);
-    ATTRIBUTES_MAP.put(SUBVARIATION_ATTR, "set" + SUBVARIATION_ATTR);
-    ATTRIBUTES_MAP.put(NIC_ATTR, "set" + NIC_ATTR);
-    ATTRIBUTES_MAP.put(TIME_ATTR, "set" + TIME_ATTR);
-    ATTRIBUTES_MAP.put(UTCTIME_ATTR, "set" + UTCTIME_ATTR);
-    ATTRIBUTES_MAP.put(UTCDATE_ATTR, "set" + UTCDATE_ATTR);
-    ATTRIBUTES_MAP.put(TIME_CONTROL_ATTR, "set" + TIME_CONTROL_ATTR);
-    ATTRIBUTES_MAP.put(SETUP_ATTR, "set" + SETUP_ATTR);
-    ATTRIBUTES_MAP.put(FEN_ATTR, "set" + FEN_ATTR);
-    ATTRIBUTES_MAP.put(TERMINATION_ATTR, "set" + TERMINATION_ATTR);
+    ATTRIBUTES_MAP.put ( WHITE_ELO_ATTR , "set" + WHITE_ELO_ATTR );
+    ATTRIBUTES_MAP.put ( WHITE_TITLE_ATTR , "set" + WHITE_TITLE_ATTR );
+    ATTRIBUTES_MAP.put ( WHITE_USCF_ATTR , "set" + WHITE_USCF_ATTR );
+    ATTRIBUTES_MAP.put ( WHITE_NA_ATTR , "set" + WHITE_NA_ATTR );
+    ATTRIBUTES_MAP.put ( WHITE_TYPE_ATTR , "set" + WHITE_TYPE_ATTR );
+    ATTRIBUTES_MAP.put ( BLACK_ELO_ATTR , "set" + BLACK_ELO_ATTR );
+    ATTRIBUTES_MAP.put ( BLACK_TITLE_ATTR , "set" + BLACK_TITLE_ATTR );
+    ATTRIBUTES_MAP.put ( BLACK_USCF_ATTR , "set" + BLACK_USCF_ATTR );
+    ATTRIBUTES_MAP.put ( BLACK_NA_ATTR , "set" + BLACK_NA_ATTR );
+    ATTRIBUTES_MAP.put ( BLACK_TYPE_ATTR , "set" + BLACK_TYPE_ATTR );
+    ATTRIBUTES_MAP.put ( EVENT_DATE_ATTR , "set" + EVENT_DATE_ATTR );
+    ATTRIBUTES_MAP.put ( EVENT_SPONSOR_ATTR , "set" + EVENT_SPONSOR_ATTR );
+    ATTRIBUTES_MAP.put ( SECTION_ATTR , "set" + SECTION_ATTR );
+    ATTRIBUTES_MAP.put ( STAGE_ATTR , "set" + STAGE_ATTR );
+    ATTRIBUTES_MAP.put ( BOARD_ATTR , "set" + BOARD_ATTR );
+    ATTRIBUTES_MAP.put ( OPENING_ATTR , "set" + OPENING_ATTR );
+    ATTRIBUTES_MAP.put ( VARIATION_ATTR , "set" + VARIATION_ATTR );
+    ATTRIBUTES_MAP.put ( SUBVARIATION_ATTR , "set" + SUBVARIATION_ATTR );
+    ATTRIBUTES_MAP.put ( NIC_ATTR , "set" + NIC_ATTR );
+    ATTRIBUTES_MAP.put ( TIME_ATTR , "set" + TIME_ATTR );
+    ATTRIBUTES_MAP.put ( UTCTIME_ATTR , "set" + UTCTIME_ATTR );
+    ATTRIBUTES_MAP.put ( UTCDATE_ATTR , "set" + UTCDATE_ATTR );
+    ATTRIBUTES_MAP.put ( TIME_CONTROL_ATTR , "set" + TIME_CONTROL_ATTR );
+    ATTRIBUTES_MAP.put ( SETUP_ATTR , "set" + SETUP_ATTR );
+    ATTRIBUTES_MAP.put ( FEN_ATTR , "set" + FEN_ATTR );
+    ATTRIBUTES_MAP.put ( TERMINATION_ATTR , "set" + TERMINATION_ATTR );
   }
 }

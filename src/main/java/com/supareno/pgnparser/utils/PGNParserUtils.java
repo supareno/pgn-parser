@@ -1,5 +1,5 @@
 /*
- * PGNParserUtils.java.java
+ * PGNParserUtils.java
  * 
  * Copyright 2008-2014 supareno
  * 
@@ -50,8 +50,8 @@ public final class PGNParserUtils {
    * @return {@code true} if {@code str} is not null and if its length is
    *         superior to {@code 0}. Otherwise returns {@code false}.
    */
-  public static boolean isValidString (String str) {
-    return (str != null) && (str.length() > 0);
+  public static boolean isValidString ( String str ) {
+    return ( str != null ) && ( str.length () > 0 );
   }
 
   /**
@@ -59,7 +59,7 @@ public final class PGNParserUtils {
    * 
    * @return value if valid. Otherwise return {@value #BLANK}
    */
-  public static String getSafeValue (String value) {
-    return PGNParserUtils.isValidString(value) ? value : BLANK;
+  public static String getSafeValue ( String value ) {
+    return PGNParserUtils.isValidString ( value ) ? value : BLANK;
   }
 }

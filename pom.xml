@@ -19,6 +19,10 @@
     <name>supareno</name>
     <url>http://supareno.blogspot.com</url>
   </organization>
+  <properties>
+    <log4j.version>1.2.14</log4j.version>
+    <junit.version>4.10</junit.version>
+  </properties>
   <build>
     <sourceDirectory>src/main</sourceDirectory>
     <testSourceDirectory>src/test</testSourceDirectory>
@@ -95,17 +99,17 @@
         <dependency>
           <groupId>log4j</groupId>
           <artifactId>log4j</artifactId>
-          <version>1.2.14</version>
+          <version>${log4j.version}</version>
         </dependency>
         <dependency>
           <groupId>junit</groupId>
           <artifactId>junit</artifactId>
-          <version>4.10</version>
+          <version>${junit.version}</version>
           <scope>test</scope>
         </dependency>
       </dependencies>
     </profile>
-    <!-- Generate classes via jaxb profile to use this profile, run the following 
+    <!-- Generate classes via jaxb profile to use this profile, run the following
       command line: mvn clean jaxb2:generate -P generate-jaxb -->
     <profile>
       <id>generate-jaxb</id>
@@ -149,6 +153,13 @@
       <artifactId>commons-lang</artifactId>
       <version>2.4</version>
     </dependency>
+    <!--  -->
+    <dependency>
+      <groupId>org.codehaus.jettison</groupId>
+      <artifactId>jettison</artifactId>
+      <version>1.3.3</version>
+    </dependency>
+
     <dependency>
       <groupId>xmlunit</groupId>
       <artifactId>xmlunit</artifactId>
@@ -156,19 +167,14 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>net.minidev</groupId>
-      <artifactId>json-smart</artifactId>
-      <version>1.1.1</version>
-    </dependency>
-    <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
-      <version>1.2.14</version>
+      <version>${log4j.version}</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.10</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

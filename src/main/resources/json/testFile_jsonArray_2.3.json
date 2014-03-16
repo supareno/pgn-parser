@@ -1,69 +1,77 @@
-[
-  {
-   "Event": "chp",
-   "Site": "USA",
-   "Date": "1956.??.??",
-   "Round": "?",
-   "White": "Byrne, D.",
-   "Black": "Fischer, R.",
-   "Result": "0-1",
-   "hits":
-       [
-     {"number":"1","content":"Nf3 Nf6"},
-     {"number":"2","content":"c4 g6"},
-     {"number":"3","content":"Nc3 Bg7"},
-     {"number":"4","content":"d4 O-O"},
-     {"number":"5","content":"Bf4 d5"},
-     {"number":"6","content":"Qb3 dxc4"},
-     {"number":"7","content":"Qxc4 c6"}, 
-     {"number":"8","content":"e4 Nbd7"},
-     {"number":"9","content":"Rd1 Nb6"}, 
-     {"number":"10","content":"Qc5 Bg4"}, 
-     {"number":"11","content":"Bg5 Na4"}, 
-     {"number":"12","content":"Qa3 Nxc3"}, 
-     {"number":"13","content":"bxc3 Nxe4"}, 
-     {"number":"14","content":"Bxe7 Qb6"}, 
-     {"number":"15","content":"Bc4 Nxc3"},
-     {"number":"16","content":"Bc5 Rfe8+"}, 
-     {"number":"17","content":"Kf1 Be6"}, 
-     {"number":"18","content":"Bxb6 Bxc4+"}, 
-     {"number":"19","content":"Kg1 Ne2+"}, 
-     {"number":"20","content":"Kf1 Nxd4+"}, 
-     {"number":"21","content":"Kg1 Ne2+"},
-     {"number":"22","content":"Kf1 Nc3+"}, 
-     {"number":"23","content":"Kg1 axb6"}, 
-     {"number":"24","content":"Qb4 Ra4"}, 
-     {"number":"25","content":"Qxb6 Nxd1"}, 
-     {"number":"26","content":"h3 Rxa2"}, 
-     {"number":"27","content":"Kh2 Nxf2"}, 
-     {"number":"28","content":"Re1 Rxe1"},
-     {"number":"29","content":"Qd8+ Bf8"}, 
-     {"number":"30","content":"Nxe1 Bd5"},
-     {"number":"31","content":"Nf3 Ne4"}, 
-     {"number":"32","content":"Qb8 b5"}, 
-     {"number":"33","content":"h4 h5"},
-     {"number":"34","content":"Ne5 Kg7"}, 
-     {"number":"35","content":"Kg1 Bc5+"},
-     {"number":"36","content":"Kf1 Ng3+"}, 
-     {"number":"37","content":"Ke1 Bb4+"}, 
-     {"number":"38","content":"Kd1 Bb3+"}, 
-     {"number":"39","content":"Kc1 Ne2+"}, 
-     {"number":"40","content":"Kb1 Nc3+"}, 
-     {"number":"41","content":"Kc1 Rc2+"}
-   ]
-  },
-  {
-   "Event": "chp",
-   "Site": "FR",
-   "Date": "2014.??.??",
-   "Round": "?",
-   "White": "Me",
-   "Black": "Myself",
-   "Result": "",
-   "hits":
-     [
-       {"number":"1","content":"e7 e5"},
-       {"number":"2","content":"c4 g6"}
-     ]
-  }
-] 
+{"games" : 
+    {"game":
+      [
+        {
+          "event": "chp",
+          "site": "USA",
+          "date": "1956.??.??",
+          "round": "?",
+          "white": "Byrne, D.",
+          "black": "Fischer, R.",
+          "result": "0-1",
+          "hits":
+            {
+              "hit":
+                [
+                  {"@number":"1","$":"Nf3 Nf6"},
+                  {"@number":"2","$":"c4 g6"},
+                  {"@number":"3","$":"Nc3 Bg7"},
+                  {"@number":"4","$":"d4 O-O"},
+                  {"@number":"5","$":"Bf4 d5"},
+                  {"@number":"6","$":"Qb3 dxc4"},
+                  {"@number":"7","$":"Qxc4 c6"}, 
+                  {"@number":"8","$":"e4 Nbd7"},
+                  {"@number":"9","$":"Rd1 Nb6"}, 
+                  {"@number":"10","$":"Qc5 Bg4"}, 
+                  {"@number":"11","$":"Bg5 Na4"}, 
+                  {"@number":"12","$":"Qa3 Nxc3"}, 
+                  {"@number":"13","$":"bxc3 Nxe4"}, 
+                  {"@number":"14","$":"Bxe7 Qb6"}, 
+                  {"@number":"15","$":"Bc4 Nxc3"},
+                  {"@number":"16","$":"Bc5 Rfe8+"}, 
+                  {"@number":"17","$":"Kf1 Be6"}, 
+                  {"@number":"18","$":"Bxb6 Bxc4+"}, 
+                  {"@number":"19","$":"Kg1 Ne2+"}, 
+                  {"@number":"20","$":"Kf1 Nxd4+"}, 
+                  {"@number":"21","$":"Kg1 Ne2+"},
+                  {"@number":"22","$":"Kf1 Nc3+"}, 
+                  {"@number":"23","$":"Kg1 axb6"}, 
+                  {"@number":"24","$":"Qb4 Ra4"}, 
+                  {"@number":"25","$":"Qxb6 Nxd1"}, 
+                  {"@number":"26","$":"h3 Rxa2"}, 
+                  {"@number":"27","$":"Kh2 Nxf2"}, 
+                  {"@number":"28","$":"Re1 Rxe1"},
+                  {"@number":"29","$":"Qd8+ Bf8"}, 
+                  {"@number":"30","$":"Nxe1 Bd5"},
+                  {"@number":"31","$":"Nf3 Ne4"}, 
+                  {"@number":"32","$":"Qb8 b5"}, 
+                  {"@number":"33","$":"h4 h5"},
+                  {"@number":"34","$":"Ne5 Kg7"}, 
+                  {"@number":"35","$":"Kg1 Bc5+"},
+                  {"@number":"36","$":"Kf1 Ng3+"}, 
+                  {"@number":"37","$":"Ke1 Bb4+"}, 
+                  {"@number":"38","$":"Kd1 Bb3+"}, 
+                  {"@number":"39","$":"Kc1 Ne2+"}, 
+                  {"@number":"40","$":"Kb1 Nc3+"}, 
+                  {"@number":"41","$":"Kc1 Rc2+"}
+                ]
+            }
+        },{
+          "event": "chp",
+          "site": "FR",
+          "date": "2014.??.??",
+          "round": "?",
+          "white": "Me",
+          "black": "Myself",
+          "result": "",
+          "hits":
+            {
+              "hit":
+                [
+                  {"@number":"1","$":"Nf3 Nf6"}
+                ]
+            }        
+        }
+      ] 
+    }
+}

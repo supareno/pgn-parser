@@ -5,7 +5,7 @@
  * in JDK 6
  * See <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a>
  * 
- * Copyright 2008-2011 supareno
+ * Copyright 2008-2014 supareno
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

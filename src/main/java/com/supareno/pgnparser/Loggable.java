@@ -20,45 +20,44 @@ package com.supareno.pgnparser;
 import org.apache.log4j.Level;
 
 /**
- * @author reno
- * 
+ * @author supareno
  */
 public interface Loggable {
 
-	/**
-	 * Initializes the Log4j file.
-	 * 
-	 * @param file the Log4j file.
-	 */
-	void setLoggerConfiguratorFile ( String file );
+  /**
+   * Initializes the Log4j file.
+   * 
+   * @param file the Log4j file.
+   */
+  void setLoggerConfiguratorFile ( String file );
 
-	/**
-	 * Returns the Log4j level.
-	 * 
-	 * @return the Log4j level.
-	 */
-	Level getLoggerLevel ();
+  /**
+   * Returns the Log4j level.
+   * 
+   * @return the Log4j level.
+   */
+  Level getLoggerLevel ();
 
-	/**
-	 * Sets the Log4j level.
-	 * 
-	 * @param level the Log4j level.
-	 */
-	void setLoggerLevel ( Level level );
+  /**
+   * Sets the Log4j level.
+   * 
+   * @param level the Log4j level.
+   */
+  void setLoggerLevel ( Level level );
 
-	/**
-	 * Logs the message using the Logger with the Level set.
-	 * 
-	 * @param msg the message to lo;
-	 */
-	void log ( String msg );
+  /**
+   * Logs the message using the Logger with the Level set.
+   * 
+   * @param msg the message to lo;
+   */
+  void log ( String msg );
 
-	/**
-	 * Logs the message and the Throwable using the Logger with the Level set
-	 * in the constructor.
-	 * 
-	 * @param msg the message to log
-	 * @param t the Throwable to log
-	 */
-	void log ( String msg, Throwable t );
+  /**
+   * Logs the message and the Throwable using the Logger with the Level set
+   * in the constructor.
+   * 
+   * @param msg the message to log
+   * @param t the Throwable to log
+   */
+  void log ( String msg, Throwable t );
 }

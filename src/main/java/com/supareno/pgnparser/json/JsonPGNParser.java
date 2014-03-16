@@ -17,69 +17,80 @@
  */
 package com.supareno.pgnparser.json;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.Reader;
-import java.util.Iterator;
-import java.util.Map.Entry;
 
-import net.minidev.json.JSONArray;
-import net.minidev.json.JSONObject;
-import net.minidev.json.parser.JSONParser;
-import net.minidev.json.parser.ParseException;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.stream.XMLStreamReader;
+
+import org.codehaus.jettison.json.JSONObject;
+import org.codehaus.jettison.mapped.Configuration;
+import org.codehaus.jettison.mapped.MappedNamespaceConvention;
+import org.codehaus.jettison.mapped.MappedXMLStreamReader;
 
 import com.supareno.pgnparser.AbstractPGNParser;
 import com.supareno.pgnparser.PGNType;
-import com.supareno.pgnparser.jaxb.Game;
 import com.supareno.pgnparser.jaxb.Games;
-import com.supareno.pgnparser.jaxb.Hit;
-import com.supareno.pgnparser.jaxb.Hits;
-import com.supareno.pgnparser.utils.PGNParserUtils;
 
 /**
  * The JSON parser could parse JSON files with a single game or a game's array.
  * <p>
- * The supported JSON represent is:
+ * It uses JAXB with Jettison to parse JSON. The supported JSON represent is:
  * 
  * <pre>
  * <code>
- * {
- *   "Event":"",
- *   "Site":"",
- *   "Date":"",
- *   "Round":"",
- *   "White":"",
- *   "Black":"",
- *   "Result":"",
- *   "WhiteTitle":"",
- *   "WhiteElo":"",
- *   "WhiteUSCF":"",
- *   "WhiteNA":"",
- *   "WhiteType":"",
- *   "BlackTitle":"",
- *   "BlackElo":"",
- *   "BlackUSCF":"",
- *   "BlackNA":"",
- *   "BlackType":"",
- *   "EventDate":"",
- *   "EventSponsor":"",
- *   "Section":"",
- *   "Stage":"",
- *   "Board":"",
- *   "Opening":"",
- *   "Variation":"",
- *   "SubVariation":"",
- *   "Eco":"",
- *   "Nic":"",
- *   "Time":"",
- *   "UTCTime":"",
- *   "UTCDate":"",
- *   "TimeControl":"",
- *   "SetUp":"",
- *   "FEN":"",
- *   "Termination":"",
- *   "hits" [
- *     {"number":"","content":""}
- *   ]
+ * {"games" : 
+ *     {"game":
+ *       [
+ *         {
+ *           "event": "",
+ *           "site": "",
+ *           "date": "",
+ *           "round": "",
+ *           "white": "",
+ *           "black": "",
+ *           "result": "",
+ *           "whiteTitle":"",
+ *           "whiteElo":"",
+ *           "whiteUSCF":"",
+ *           "whiteNA":"",
+ *           "whiteType":"",
+ *           "blackTitle":"",
+ *           "blackElo":"",
+ *           "blackUSCF":"",
+ *           "blackNA":"",
+ *           "blackType":"",
+ *           "eventDate":"",
+ *           "eventSponsor":"",
+ *           "section":"",
+ *           "stage":"",
+ *           "board":"",
+ *           "opening":"",
+ *           "variation":"",
+ *           "subVariation":"",
+ *           "eco":"",
+ *           "nic":"",
+ *           "time":"",
+ *           "UTCTime":"",
+ *           "UTCDate":"",
+ *           "timeControl":"",
+ *           "setUp":"",
+ *           "fEN":"",
+ *           "termination":"",
+ *           "hits":
+ *             {"hit":
+ *                 [
+ *                   {"@number":"","$":""}
+ *                 ]
+ *             }
+ *         }
+ *     ]
+ *   }
  * }
+ * 
  * </code>
  * </pre>
  * 
@@ -90,117 +101,57 @@ import com.supareno.pgnparser.utils.PGNParserUtils;
  */
 public class JsonPGNParser extends AbstractPGNParser {
 
-  private static final String NET_MINIDEV_JSON_JSON_OBJECT_CLASSNAME = "net.minidev.json.JSONObject";
-  private static final String NET_MINIDEV_JSON_JSON_ARRAY_CLASSNAME = "net.minidev.json.JSONArray";
-
   @Override
-  public Games parseFile (Reader reader) {
+  public Games parseFile ( Reader reader ) {
     Games games = null;
-    JSONParser parser = new JSONParser(0);
     try {
-      Object o = parser.parse(reader);
-      games = new Games();
-      fillGamesWithJSON(games, o);
-    } catch (ParseException e) {
-      log("could not parse JSON content", e);
+      JAXBContext jc = JAXBContext.newInstance ( Games.class );
+      JSONObject obj = new JSONObject ( readJSONFile ( reader ) );
+      Configuration config = new Configuration ();
+      MappedNamespaceConvention con = new MappedNamespaceConvention ( config );
+      XMLStreamReader xmlStreamReader = new MappedXMLStreamReader ( obj , con );
+      Unmarshaller unmarshaller = jc.createUnmarshaller ();
+      games = (Games) unmarshaller.unmarshal ( xmlStreamReader );
+    } catch ( Exception e ) {
+      log ( "" , e );
     }
     return games;
   }
 
   /**
+   * @param reader the current reader
    * 
-   * @param games the current Games object
-   * @param o the JSON object extract by the parser
+   * @return a String representation of the file
    */
-  private void fillGamesWithJSON (Games games, Object o) {
-    if (o != null) {
-      String jsonClass = o.getClass().getName();
-      if (jsonClass.equals(NET_MINIDEV_JSON_JSON_OBJECT_CLASSNAME)) {
-        Game g = getGameFromJSON((JSONObject) o);
-        if (g != null) {
-          games.getGame().add(g);
+  public String readJSONFile ( Reader reader ) {
+    StringBuffer contents = new StringBuffer ();
+    BufferedReader input = null;
+    try {
+      input = new BufferedReader ( reader );
+      String line = null;
+      while ( ( line = input.readLine () ) != null ) {
+        contents.append ( line );
+      }
+    } catch ( FileNotFoundException ex ) {
+      log ( "error in formatting the PGN file" , ex );
+    } catch ( IOException ex ) {
+      log ( "error in formatting the PGN file" , ex );
+    } finally {
+      try {
+        if ( input != null ) {
+          // flush and close both "input" and its underlying Reader
+          input.close ();
         }
-      } else if (jsonClass.equals(NET_MINIDEV_JSON_JSON_ARRAY_CLASSNAME)) {
-        JSONArray array = (JSONArray) o;
-        for (Object a : array) {
-          fillGamesWithJSON(games, a);
-        }
+      } catch ( IOException ex ) {
+        log ( "error in formatting the json file" , ex );
       }
     }
-  }
-
-  /**
-   * @param o the game as JSON object
-   * 
-   * @return a Game filled with the value of the JSON object of null if
-   *         {@code o} is null
-   */
-  private Game getGameFromJSON (JSONObject o) {
-    if (o == null) {
-      return null;
-    }
-    Game game = new Game();
-    for (Iterator<Entry<String, Object>> iter = o.entrySet().iterator(); iter
-        .hasNext();) {
-      Entry<String, Object> currentValue = iter.next();
-      if (!currentValue.getKey().equals("hits")) {
-        setPGNGameAttributeAndValue(game, currentValue.getKey(),
-            (String) currentValue.getValue(), PGNParserUtils.BLANK);
-      } else {
-        game.setHits(getHitsFromJSON(o.get("hits")));
-      }
-    }
-    return game;
-
-  }
-
-  /**
-   * Return a Hits object filled with the hits from {@code object}
-   * <p>
-   * If {@code object} is null or if it is not a JSONArray, it return null.
-   * </p>
-   * 
-   * @param object the JSON hits array
-   * 
-   * @return a Hits object filled with the hits from {@code object}
-   */
-  private Hits getHitsFromJSON (Object object) {
-    if (object == null
-        || !object.getClass().getName()
-            .equals(NET_MINIDEV_JSON_JSON_ARRAY_CLASSNAME)) {
-      return null;
-    }
-    Hits hits = new Hits();
-    JSONArray array = (JSONArray) object;
-    for (Object a : array) {
-      // must be a JSON Object: if not or if null, ignore
-      if (a != null
-          && a.getClass().getName()
-              .equals(NET_MINIDEV_JSON_JSON_OBJECT_CLASSNAME)) {
-        JSONObject jsonHit = (JSONObject) a;
-        Hit hit = new Hit();
-        hit.setNumber(getKeyAsStringFromJSON("number", jsonHit));
-        hit.setContent(getKeyAsStringFromJSON("content", jsonHit));
-        hits.getHit().add(hit);
-      }
-    }
-    return hits;
-  }
-
-  /**
-   * @param key the key in the json object
-   * @param o the current JSON object
-   * 
-   * @return the value of {@code key} in {@code o} if not null
-   */
-  private String getKeyAsStringFromJSON (String key, JSONObject o) {
-    return o == null ? PGNParserUtils.BLANK : PGNParserUtils
-        .getSafeValue((String) o.get(key));
+    return contents.toString ();
   }
 
   @Override
   public String getExtension () {
-    return PGNType.JSON.getExtension();
+    return PGNType.JSON.getExtension ();
   }
 
 }
