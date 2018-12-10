@@ -11,16 +11,16 @@ Generated on: 2010.11.07 at 07:18:07 PM CET
   <jaxb:bindings scd="x-schema::">
     <jaxb:schemaBindings map="false"/>
     <jaxb:bindings scd="hits">
-      <jaxb:class ref="com.supareno.pgnparser.jaxb.Hits"/>
+      <jaxb:class ref="org.supareno.pgnparser.jaxb.model.Hits"/>
     </jaxb:bindings>
     <jaxb:bindings scd="games">
-      <jaxb:class ref="com.supareno.pgnparser.jaxb.Games"/>
+      <jaxb:class ref="org.supareno.pgnparser.jaxb.model.Games"/>
     </jaxb:bindings>
     <jaxb:bindings scd="hit">
-      <jaxb:class ref="com.supareno.pgnparser.jaxb.Hit"/>
+      <jaxb:class ref="org.supareno.pgnparser.jaxb.model.Hit"/>
     </jaxb:bindings>
     <jaxb:bindings scd="game">
-      <jaxb:class ref="com.supareno.pgnparser.jaxb.Game"/>
+      <jaxb:class ref="org.supareno.pgnparser.jaxb.model.Game"/>
     </jaxb:bindings>
   </jaxb:bindings>
 </jaxb:bindings>
