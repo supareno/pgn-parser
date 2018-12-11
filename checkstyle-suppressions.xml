@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE suppressions PUBLIC
+        "-//Puppy Crawl//DTD Suppressions 1.0//EN"
+        "http://www.puppycrawl.com/dtds/suppressions_1_0.dtd">
+
+<suppressions>
+    <suppress files="Game.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="Games.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="Hit.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="Hits.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="ObjectFactory.java" checks="[a-zA-Z0-9]*"/>
+</suppressions>
