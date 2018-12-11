@@ -39,12 +39,12 @@ import java.lang.reflect.Method;
 public abstract class AbstractPGNParser extends AbstractPGNIO implements Parser {
 
     @Override
-    public final Games parseFile(String file) {
+    public final Games parseFile(final String file) {
         return parseFile(new File(file));
     }
 
     @Override
-    public final Games parseFile(File file) {
+    public final Games parseFile(final File file) {
         Reader r = null;
         try {
             r = new FileReader(file);
@@ -71,8 +71,7 @@ public abstract class AbstractPGNParser extends AbstractPGNIO implements Parser 
      * @param attrValue the attribute value.
      * @see #setPGNGameAttributeAndValue(Game, String, String, String)
      */
-    public void setPGNGameAttributeAndValue(Game pgnGame, String attribute,
-                                            String attrValue) {
+    protected final void setPGNGameAttributeAndValue(final Game pgnGame, final String attribute, final String attrValue) {
         setPGNGameAttributeAndValue(pgnGame, attribute, attrValue,
                 PGNParserUtils.QUESTION_MARK);
     }
@@ -92,8 +91,8 @@ public abstract class AbstractPGNParser extends AbstractPGNIO implements Parser 
      *                         valid
      * @throws PGNParserException if an exception occurs during game attribute settings. Should never happen.
      */
-    public void setPGNGameAttributeAndValue(Game pgnGame, String attribute,
-                                            String attrValue, String replacementValue) {
+    protected final void setPGNGameAttributeAndValue(final Game pgnGame, final String attribute,
+                                            final String attrValue, final String replacementValue) {
         if (PGNParserConstants.ATTRIBUTES_MAP.containsKey(attribute)) {
             Method method = null;
             try {
@@ -102,8 +101,8 @@ public abstract class AbstractPGNParser extends AbstractPGNIO implements Parser 
                 method.invoke(pgnGame,
                         PGNParserUtils.isValidString(attrValue) ? attrValue
                                 : replacementValue);
-            } catch (SecurityException | NoSuchMethodException | IllegalArgumentException |
-                    IllegalAccessException | InvocationTargetException e) {
+            } catch (SecurityException | NoSuchMethodException | IllegalArgumentException
+                    | IllegalAccessException | InvocationTargetException e) {
                 throw new PGNParserException("Exception on built method : " + method, e);
             }
         }

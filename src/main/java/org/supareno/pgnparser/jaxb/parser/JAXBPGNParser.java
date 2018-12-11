@@ -19,7 +19,6 @@ package org.supareno.pgnparser.jaxb.parser;
 
 import org.supareno.pgnparser.AbstractPGNParser;
 import org.supareno.pgnparser.PGNType;
-import org.supareno.pgnparser.Parser;
 import org.supareno.pgnparser.exception.PGNParserException;
 import org.supareno.pgnparser.jaxb.model.Games;
 
@@ -28,7 +27,7 @@ import javax.xml.bind.Unmarshaller;
 import java.io.Reader;
 
 /**
- * The {@code JAXBPGNParser} is the JAXB implementation of the {@link Parser} interface.
+ * The {@code JAXBPGNParser} is the JAXB implementation of the {@link org.supareno.pgnparser.Parser} interface.
  *
  * @author supareno
  * @since 1.0
@@ -41,7 +40,7 @@ public final class JAXBPGNParser extends AbstractPGNParser {
     }
 
     @Override
-    public Games parseFile(Reader reader) {
+    public Games parseFile(final Reader reader) {
         try {
             Unmarshaller u = getJaxbContext().createUnmarshaller();
             return (Games) u.unmarshal(reader);

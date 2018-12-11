@@ -20,9 +20,6 @@ package org.supareno.pgnparser;
 import org.supareno.pgnparser.jaxb.model.Game;
 import org.supareno.pgnparser.jaxb.model.Games;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 /**
  * The {@code AbstractPGNWriter} abstract class defines some methods used by all
  * the writers.
@@ -53,16 +50,16 @@ public abstract class AbstractPGNWriter extends AbstractPGNIO implements Writer 
     }
 
     @Override
-    public final void setFileName(String filename) {
-        String fname = filename;
-        if (filename.indexOf(".") > 0) {
-            fname = filename.substring(0, filename.indexOf("."));
+    public final void setFileName(final String name) {
+        String fname = name;
+        if (name.indexOf(".") > 0) {
+            fname = name.substring(0, name.indexOf("."));
         }
         this.filename = fname;
     }
 
     @Override
-    public final boolean writePGNGame(Game game) throws IllegalArgumentException {
+    public final boolean writePGNGame(final Game game) throws IllegalArgumentException {
         if (game == null) {
             throw new IllegalArgumentException("the PGNGame or the file name is null");
         }

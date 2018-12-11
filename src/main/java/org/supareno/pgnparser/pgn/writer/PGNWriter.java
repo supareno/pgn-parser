@@ -7,7 +7,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * 		http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -37,11 +37,11 @@ import java.util.List;
  */
 public final class PGNWriter extends AbstractPGNWriter {
 
-    public static final String LEFT_BRACKET = "[";
-    public static final String RIGHT_BRACKET_WITH_QUOTES = "\"]";
+    private static final String LEFT_BRACKET = "[";
+    private static final String RIGHT_BRACKET_WITH_QUOTES = "\"]";
 
     @Override
-    public boolean writePGNGames(Games games) throws IllegalArgumentException {
+    public boolean writePGNGames(final Games games) throws IllegalArgumentException {
         if (games == null) {
             throw new IllegalArgumentException("the PGNGame or the file name is null");
         }
@@ -87,7 +87,8 @@ public final class PGNWriter extends AbstractPGNWriter {
      * Returns a String representation of the attrbutes of the current Game
      * object.
      *
-     * @param pGame the current game object.
+     * @param pGame the current game object
+     * @return a String representation of the game as pgn format
      */
     private String getAttributesStringRepresentation(final Game pGame) {
         StringBuilder sb = new StringBuilder();

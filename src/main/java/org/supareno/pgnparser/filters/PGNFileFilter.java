@@ -7,7 +7,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *  	http://www.apache.org/licenses/LICENSE-2.0
+ *    http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -34,8 +34,10 @@ import java.io.FileFilter;
  */
 public final class PGNFileFilter implements FileFilter {
 
+    private static final int DOT_N_ENTENSION_LENGTH = 4;
+
     @Override
-    public boolean accept(File pathname) {
+    public boolean accept(final File pathname) {
         if (pathname == null) {
             return false;
         }
@@ -46,7 +48,7 @@ public final class PGNFileFilter implements FileFilter {
      * @param pathname the name of the file
      * @return true if pathname ends with 'pgn', false otherwise
      */
-    private boolean isEndWithPGN(File pathname) {
+    private boolean isEndWithPGN(final File pathname) {
         if (pathname.getName().toLowerCase().endsWith(PGNType.PGN.getExtension())) {
             return isPGNExtension(pathname);
         }
@@ -57,9 +59,9 @@ public final class PGNFileFilter implements FileFilter {
      * @param pathname the pathname to check
      * @return true if pathname ends with pgn, false otherwise
      */
-    private boolean isPGNExtension(File pathname) {
+    private boolean isPGNExtension(final File pathname) {
         int x = pathname.getName().indexOf(".");
-        return pathname.getName().substring(x + 1, x + 4).equalsIgnoreCase((PGNType.PGN.getExtension()));
+        return pathname.getName().substring(x + 1, x + DOT_N_ENTENSION_LENGTH).equalsIgnoreCase((PGNType.PGN.getExtension()));
     }
 
 }

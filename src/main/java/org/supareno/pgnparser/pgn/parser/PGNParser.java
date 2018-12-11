@@ -67,10 +67,10 @@ public final class PGNParser extends AbstractPGNParser {
      * comprehension): <br />
      *
      * <pre>
-     * [a-h][x][a-h][36][e][.][p][.][\\+|#]?|	// en passant
-     * ([a-h][x])?[a-h][18]([=][RNBQ])?[\\+|#]?|	// pawn promotion
-     * [O][-][O]([-][O])?[\\+|#]?|		// castle[ ]?
-     * [RNBQK]?[a-h]?[1-8]?[x]?[a-h][1-8][\\+|#]? 	// every other move
+     * [a-h][x][a-h][36][e][.][p][.][\\+|#]?|       // en passant
+     * ([a-h][x])?[a-h][18]([=][RNBQ])?[\\+|#]?|    // pawn promotion
+     * [O][-][O]([-][O])?[\\+|#]?|                  // castle[ ]?
+     * [RNBQK]?[a-h]?[1-8]?[x]?[a-h][1-8][\\+|#]?   // every other move
      * </pre>
      *
      * @see #SINGLE_HIT_PATTERN
@@ -138,10 +138,10 @@ public final class PGNParser extends AbstractPGNParser {
      * @return a List of List of PGNGames contained in the {@code folder}.
      * @throws PGNParserException if an error occurs during parsing
      */
-    public List<Games> parseFolder(String folder) {
+    public List<Games> parseFolder(final String folder) {
         List<Games> gamesList = null;
         File file = new File(folder);
-        if (file.exists()) {// if the folder exists, we list it and parse each file
+        if (file.exists()) { // if the folder exists, we list it and parse each file
             File[] files = file.listFiles(new PGNFileFilter());
             if ((files != null) && (files.length > 0)) {
                 gamesList = new ArrayList<>();
@@ -161,7 +161,7 @@ public final class PGNParser extends AbstractPGNParser {
      * @return a String representation of the content of the file
      * @throws PGNParserException if an error occurs during parsing
      */
-    public String formatPGNFile(Reader reader) {
+    public String formatPGNFile(final Reader reader) {
         StringBuffer contents = new StringBuffer();
         String lastLine = "no";
         BufferedReader input = null;
@@ -174,7 +174,7 @@ public final class PGNParser extends AbstractPGNParser {
                 }
                 contents.append(line);
                 contents.append(System.getProperty("line.separator"));
-                lastLine = line.trim();// adding trim() to remove with space
+                lastLine = line.trim(); // adding trim() to remove with space
             }
         } catch (IOException ex) {
             throw new PGNParserException("error in formatting the PGN file", ex);
@@ -198,7 +198,7 @@ public final class PGNParser extends AbstractPGNParser {
      * @param content the PGN game String representation to parse.
      * @return a List of PGNGames.
      */
-    public Games parseContents(String content) {
+    public Games parseContents(final String content) {
         Games games = new Games();
         String[] gamesString = content.split(PGNParserUtils.GAME_SEPARATOR);
         for (String s : gamesString) {
@@ -224,7 +224,7 @@ public final class PGNParser extends AbstractPGNParser {
      * @param hits       the hits of the PGN game.
      * @return a PGNGame filled with the datas.
      */
-    private Game treatePGNString(String attributes, String hits) {
+    private Game treatePGNString(final String attributes, final String hits) {
         Game p = new Game();
         parseAttributes(p, attributes);
         parseHits(p, hits);
@@ -255,8 +255,8 @@ public final class PGNParser extends AbstractPGNParser {
      * @param attributes the String representation of the attributes to parse.
      * @return the PGNGame filled with the attributes found.
      */
-    private Game parseAttributes(Game pgn, String attributes) {
-        if ((attributes == null) || (attributes.length() < 1)) {
+    private Game parseAttributes(final Game pgn, final String attributes) {
+        if (attributes == null || attributes.length() < 1) {
             return pgn;
         }
         Matcher matcher = ATTRIBUTES_PATTERN.matcher(attributes);
@@ -278,7 +278,7 @@ public final class PGNParser extends AbstractPGNParser {
      * @return the {@code PGNGame} filled with the attributes found
      * @see PGNParser#HITS_PATTERN
      */
-    private Game parseHits(Game pgn, String hits) {
+    private Game parseHits(final Game pgn, final String hits) {
         StringBuilder newHit = new StringBuilder();
         String[] strings = hits.split("\n");
         for (String s : strings) {
@@ -320,7 +320,7 @@ public final class PGNParser extends AbstractPGNParser {
     }
 
     @Override
-    public Games parseFile(Reader reader) {
+    public Games parseFile(final Reader reader) {
         String games = formatPGNFile(reader);
         if (games != null && games.length() > 0) {
             return parseContents(games);

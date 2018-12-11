@@ -7,7 +7,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *  	http://www.apache.org/licenses/LICENSE-2.0
+ *  http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -25,7 +25,12 @@ package org.supareno.pgnparser.exception;
  */
 public class PGNParserException extends RuntimeException {
 
-    public PGNParserException(String message, Throwable cause) {
+    /**
+     * Construct an exception with a message and a cause
+     * @param message the exception message
+     * @param cause the root cause
+     */
+    public PGNParserException(final String message, final Throwable cause) {
         super(message, cause);
     }
 }

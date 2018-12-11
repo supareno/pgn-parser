@@ -203,6 +203,9 @@ public final class PGNParserConstants {
      * set to {@code Eco}.
      */
     public static final String ECO_ATTR = "Eco";
+    /**
+     * Map of all the attributes.
+     */
     public static final Map<String, String> ATTRIBUTES_MAP = new HashMap<String, String>();
 
     static {
@@ -242,6 +245,9 @@ public final class PGNParserConstants {
         ATTRIBUTES_MAP.put(TERMINATION_ATTR, "set" + TERMINATION_ATTR);
     }
 
+    /**
+     * Private constructor to prevent instantiation
+     */
     private PGNParserConstants() {
     }
 }

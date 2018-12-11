@@ -99,7 +99,7 @@ import java.io.Reader;
 public final class JsonPGNParser extends AbstractPGNParser {
 
     @Override
-    public Games parseFile(Reader reader) {
+    public Games parseFile(final Reader reader) {
         Games games = null;
         try {
             JSONObject obj = new JSONObject(readJSONFile(reader));
@@ -119,7 +119,7 @@ public final class JsonPGNParser extends AbstractPGNParser {
      * @return a String representation of the file
      * @throws PGNParserException if an exception occurs during parsing
      */
-    public String readJSONFile(Reader reader) {
+    public String readJSONFile(final Reader reader) {
         StringBuffer contents = new StringBuffer();
         BufferedReader input = null;
         try {

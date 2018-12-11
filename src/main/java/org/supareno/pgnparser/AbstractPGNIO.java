@@ -34,11 +34,11 @@ import javax.xml.bind.JAXBException;
 public abstract class AbstractPGNIO {
 
 
-    private static JAXBContext JAXB_CONTEXT;
+    private static JAXBContext jaxbContext;
 
     static {
         try {
-            JAXB_CONTEXT = JAXBContext.newInstance(Games.class);
+            jaxbContext = JAXBContext.newInstance(Games.class);
         } catch (JAXBException e) {
             // Should never happen ....
             throw new ExceptionInInitializerError("Could not initialize the JAXBContext with 'org.supareno.pgnparser.jaxb'");
@@ -51,6 +51,6 @@ public abstract class AbstractPGNIO {
      * @return the current JAXBContext
      */
     protected static JAXBContext getJaxbContext() {
-        return JAXB_CONTEXT;
+        return jaxbContext;
     }
 }

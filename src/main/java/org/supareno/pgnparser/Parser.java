@@ -17,7 +17,6 @@
  */
 package org.supareno.pgnparser;
 
-import org.supareno.pgnparser.exception.PGNWriterException;
 import org.supareno.pgnparser.jaxb.model.Games;
 
 import java.io.File;
@@ -37,7 +36,7 @@ public interface Parser {
      * @param file the filename to parse
      * @return a Games object or {@code null} if the file cannot be found
      * @throws IllegalArgumentException                         if the {@code file} parameter is {@code null} or empty
-     * @throws PGNWriterException if an exception occurs during writing
+     * @throws org.supareno.pgnparser.exception.PGNWriterException if an exception occurs during writing
      */
     Games parseFile(String file);
 

@@ -52,7 +52,11 @@ public enum PGNType {
 
     private final String extension;
 
-    PGNType(String ext) {
+    /**
+     * Default constructor
+     * @param ext th extension
+     */
+    PGNType(final String ext) {
         this.extension = ext;
     }
 

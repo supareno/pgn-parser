@@ -19,7 +19,6 @@ package org.supareno.pgnparser.jaxb.writer;
 
 import org.supareno.pgnparser.AbstractPGNWriter;
 import org.supareno.pgnparser.PGNType;
-import org.supareno.pgnparser.Writer;
 import org.supareno.pgnparser.exception.PGNWriterException;
 import org.supareno.pgnparser.jaxb.model.Games;
 
@@ -30,7 +29,7 @@ import java.io.FileOutputStream;
 
 /**
  * The {@code JAXBPGNWriter} is a concrete JAXB implementation of the
- * {@link Writer}.
+ * {@link org.supareno.pgnparser.Writer}.
  *
  * @author supareno
  * @since 1.0
@@ -43,7 +42,7 @@ public final class JAXBPGNWriter extends AbstractPGNWriter {
     }
 
     @Override
-    public boolean writePGNGames(Games games) throws IllegalArgumentException {
+    public boolean writePGNGames(final Games games) throws IllegalArgumentException {
         if (games == null) {
             throw new IllegalArgumentException("the PGNGame or the file name is null");
         }

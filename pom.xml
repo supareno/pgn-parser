@@ -52,7 +52,10 @@
             </resource>
         </resources>
         <plugins>
-            <!-- enforcer plugin -->
+            <!--
+             enforcer plugin
+             Force Maven version (3.0) and djk version (8/9)
+             -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
@@ -74,7 +77,7 @@
                             <version>[${maven.version},)</version>
                         </requireMavenVersion>
                         <requireJavaVersion>
-                            <!-- Until PGNParser supports JDK 9 -->
+                            <!-- Until PGNParser supports at least JDK 9 -->
                             <message>You are running an incompatible version of Java. PGNParser requires JDK
                                 ${java.version}
                             </message>
@@ -101,8 +104,35 @@
                     </descriptors>
                 </configuration>
             </plugin>
+            <!--
+            checkstyle plugin
+            doc: http://checkstyle.sf.net
+            The check is done during the 'validate' phase.
+            A checkstyle suppression file is configured to exclude jaxb model classes from the analyze.
+             -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <configLocation>checkstyle-pgnparser.xml</configLocation>
+                    <suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
+                    <encoding>UTF-8</encoding>
+                    <consoleOutput>true</consoleOutput>
+                    <failsOnError>true</failsOnError>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <phase>validate</phase>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
+
     <profiles>
 
         <!-- Generate classes via jaxb profile to use this profile, run the following

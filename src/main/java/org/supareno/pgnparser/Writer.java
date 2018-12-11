@@ -17,7 +17,6 @@
  */
 package org.supareno.pgnparser;
 
-import org.supareno.pgnparser.exception.PGNWriterException;
 import org.supareno.pgnparser.jaxb.model.Game;
 import org.supareno.pgnparser.jaxb.model.Games;
 
@@ -41,7 +40,7 @@ public interface Writer {
      * @param game the game to write
      * @return {@code true} if the game has been written, {@code false} otherwise
      * @throws IllegalArgumentException                         if the {@code game} parameter is {@code null}
-     * @throws PGNWriterException if an exception occurs during writing
+     * @throws org.supareno.pgnparser.exception.PGNWriterException if an exception occurs during writing
      */
     boolean writePGNGame(Game game);
 

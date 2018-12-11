@@ -40,7 +40,7 @@ import java.io.IOException;
 public final class JsonPGNWriter extends AbstractPGNWriter {
 
     @Override
-    public boolean writePGNGames(Games games) throws IllegalArgumentException {
+    public boolean writePGNGames(final Games games) throws IllegalArgumentException {
         boolean ok = true;
         BufferedWriter out = null;
         try {

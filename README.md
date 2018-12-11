@@ -23,6 +23,8 @@ PGNParser is built with Maven 3. If you use an old maven version, build phase wi
 
      mvn clean package 
 
+A checkstyle analysis is done at every build to check the code produced.
+
 ### Assembling PGNParser
 
 If you want to bundle the source of the PGNParser, you could run the following command:

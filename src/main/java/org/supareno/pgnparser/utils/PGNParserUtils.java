@@ -26,6 +26,12 @@ package org.supareno.pgnparser.utils;
 public final class PGNParserUtils {
 
     /**
+     * Private constructor to prevent instantiation
+     */
+    private PGNParserUtils() {
+    }
+
+    /**
      * Blank String.
      */
     public static final String BLANK = "";
@@ -48,15 +54,15 @@ public final class PGNParserUtils {
      * @return {@code true} if {@code str} is not null and if its length is
      * superior to {@code 0}. Otherwise returns {@code false}.
      */
-    public static boolean isValidString(String str) {
-        return (str != null) && (str.length() > 0);
+    public static boolean isValidString(final String str) {
+        return str != null && str.length() > 0;
     }
 
     /**
      * @param value the value to check
      * @return value if valid. Otherwise return {@value #BLANK}
      */
-    public static String getSafeValue(String value) {
+    public static String getSafeValue(final String value) {
         return PGNParserUtils.isValidString(value) ? value : BLANK;
     }
 }
