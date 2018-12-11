@@ -25,6 +25,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.supareno.pgnparser.AbstractPGNWriter;
 import org.supareno.pgnparser.PGNType;
 import org.supareno.pgnparser.pgn.parser.PGNParser;
 import org.supareno.pgnparser.pgn.writer.PGNWriter;
@@ -55,6 +56,31 @@ public class TestPGNWriter {
     void setUpWriter() {
         this.writer = new PGNWriter();
         this.writer.setFileName(FILENAME);
+    }
+
+    @Test
+    @DisplayName("Test that setting a null filename will set the default filename")
+    void setFilename_with_null_returns_default_filename() {
+        Writer w = new PGNWriter();
+        w.setFileName(null);
+        assertThat( w.getFileName()).isEqualTo(AbstractPGNWriter.DEFAULT_FILE_NAME);
+    }
+
+    @Test
+    @DisplayName("Test that setting a single dot filename will set the default filename")
+    void setFilename_with_onlyADot_returns_default_filename() {
+        Writer w = new PGNWriter();
+        w.setFileName(".");
+        assertThat( w.getFileName()).isEqualTo(AbstractPGNWriter.DEFAULT_FILE_NAME);
+    }
+
+    @Test
+    @DisplayName("Test that setting a filename with double dot will set the filename with the first string before " +
+            "the first dot")
+    void setFilename_with_doubleDot_returns_filename() {
+        Writer w = new PGNWriter();
+        w.setFileName("pgnAdam.pgn.xml");
+        assertThat( w.getFileName()).isEqualTo("pgnAdam");
     }
 
     @Test

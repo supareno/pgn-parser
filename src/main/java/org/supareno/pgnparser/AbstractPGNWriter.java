@@ -51,11 +51,9 @@ public abstract class AbstractPGNWriter extends AbstractPGNIO implements Writer 
 
     @Override
     public final void setFileName(final String name) {
-        String fname = name;
-        if (name.indexOf(".") > 0) {
-            fname = name.substring(0, name.indexOf("."));
+        if (name != null && name.indexOf(".") > 0) {
+            this.filename = name.substring(0, name.indexOf("."));
         }
-        this.filename = fname;
     }
 
     @Override
