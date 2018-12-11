@@ -1,7 +1,7 @@
 /*
  * PGNType.java
  *
- * Copyright 2008-2014 supareno
+ * Copyright 2008-2018 supareno
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ package org.supareno.pgnparser;
  * </p>
  *
  * @author supareno
- * @version 1.0
+ * @since 1.0
  */
 public enum PGNType {
 

@@ -1,7 +1,7 @@
 /*
  * Writer.java
  *
- * Copyright 2008-2014 supareno
+ * Copyright 2008-2018 supareno
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,21 +17,20 @@
  */
 package org.supareno.pgnparser;
 
+import org.supareno.pgnparser.exception.PGNWriterException;
 import org.supareno.pgnparser.jaxb.model.Game;
 import org.supareno.pgnparser.jaxb.model.Games;
-import org.supareno.pgnparser.jaxb.writer.JAXBPGNWriter;
-import org.supareno.pgnparser.pgn.writer.PGNWriter;
 
 /**
  * The {@code Writer} class is the root interface of the PGN writers.
  * <p>
  * It uses the JAXB generated classes ({@link Games}, {@link Game}, ...) to generate PGN files.
- * These files could be {@code pgn} files (with the {@link PGNWriter}) or {@code xml} files (with
- * the {@link JAXBPGNWriter}).
+ * These files could be {@code pgn} files (with the {@link org.supareno.pgnparser.pgn.writer.PGNWriter}),
+ * {@code xml} files (with the {@link org.supareno.pgnparser.jaxb.writer.JAXBPGNWriter}) or
+ * {@code json} files (with the {@link org.supareno.pgnparser.json.writer.JsonPGNWriter}).
  * </p>
  *
  * @author reno
- * @version 3.0.0
  * @since 1.0
  */
 public interface Writer {
@@ -42,7 +41,7 @@ public interface Writer {
      * @param game the game to write
      * @return {@code true} if the game has been written, {@code false} otherwise
      * @throws IllegalArgumentException                         if the {@code game} parameter is {@code null}
-     * @throws org.supareno.pgnparser.exception.WriterException if an exception occurs during writing
+     * @throws PGNWriterException if an exception occurs during writing
      */
     boolean writePGNGame(Game game);
 
@@ -52,7 +51,7 @@ public interface Writer {
      * @param games the games to write
      * @return {@code true} if the list of the games has been written, {@code false} otherwise
      * @throws IllegalArgumentException                         if the {@code game} parameter is {@code null}
-     * @throws org.supareno.pgnparser.exception.WriterException if an exception occurs during writing
+     * @throws PGNWriterException if an exception occurs during writing
      */
     boolean writePGNGames(Games games);
 

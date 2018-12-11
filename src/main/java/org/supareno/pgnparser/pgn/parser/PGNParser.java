@@ -1,7 +1,7 @@
 /*
  * PGNParser.java
  *
- * Copyright 2008-2014 supareno
+ * Copyright 2008-2018 supareno
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ package org.supareno.pgnparser.pgn.parser;
 
 import org.supareno.pgnparser.AbstractPGNParser;
 import org.supareno.pgnparser.PGNType;
-import org.supareno.pgnparser.exception.ParserException;
+import org.supareno.pgnparser.exception.PGNParserException;
 import org.supareno.pgnparser.filters.PGNFileFilter;
 import org.supareno.pgnparser.jaxb.model.Game;
 import org.supareno.pgnparser.jaxb.model.Games;
@@ -27,7 +27,10 @@ import org.supareno.pgnparser.jaxb.model.Hit;
 import org.supareno.pgnparser.jaxb.model.Hits;
 import org.supareno.pgnparser.utils.PGNParserUtils;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -39,10 +42,9 @@ import java.util.regex.Pattern;
  * @author supareno
  * @author Frank Breuel
  * @author Philip Ritchey
- * @version 3.0.0
  * @since 1.0
  */
-public class PGNParser extends AbstractPGNParser {
+public final class PGNParser extends AbstractPGNParser {
 
     /**
      * The String representation of the pattern used to match the attributes of
@@ -134,6 +136,7 @@ public class PGNParser extends AbstractPGNParser {
      *
      * @param folder the folder that contains files to parse.
      * @return a List of List of PGNGames contained in the {@code folder}.
+     * @throws PGNParserException if an error occurs during parsing
      */
     public List<Games> parseFolder(String folder) {
         List<Games> gamesList = null;
@@ -155,7 +158,8 @@ public class PGNParser extends AbstractPGNParser {
      * games.
      *
      * @param reader the current Reader.
-     * @return a String representation of the content of the file.
+     * @return a String representation of the content of the file
+     * @throws PGNParserException if an error occurs during parsing
      */
     public String formatPGNFile(Reader reader) {
         StringBuffer contents = new StringBuffer();
@@ -173,7 +177,7 @@ public class PGNParser extends AbstractPGNParser {
                 lastLine = line.trim();// adding trim() to remove with space
             }
         } catch (IOException ex) {
-            throw new ParserException("error in formatting the PGN file", ex);
+            throw new PGNParserException("error in formatting the PGN file", ex);
         } finally {
             try {
                 if (input != null) {
@@ -181,7 +185,7 @@ public class PGNParser extends AbstractPGNParser {
                     input.close();
                 }
             } catch (IOException ex) {
-                throw new ParserException("error in formatting the PGN file", ex);
+                throw new PGNParserException("error in formatting the PGN file", ex);
             }
         }
         return contents.toString();
@@ -317,9 +321,8 @@ public class PGNParser extends AbstractPGNParser {
 
     @Override
     public Games parseFile(Reader reader) {
-        String games = null;
-        games = formatPGNFile(reader);
-        if ((games != null) && (games.length() > 0)) {
+        String games = formatPGNFile(reader);
+        if (games != null && games.length() > 0) {
             return parseContents(games);
         }
         return null;

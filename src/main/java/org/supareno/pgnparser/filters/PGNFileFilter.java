@@ -1,7 +1,7 @@
 /*
  * PGNFileFilter.java
  *
- * Copyright 2008-2014 supareno
+ * Copyright 2008-2018 supareno
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ import java.io.FileFilter;
 public final class PGNFileFilter implements FileFilter {
 
     @Override
-    public final boolean accept(File pathname) {
+    public boolean accept(File pathname) {
         if (pathname == null) {
             return false;
         }
@@ -54,8 +54,8 @@ public final class PGNFileFilter implements FileFilter {
     }
 
     /**
-     * @param pathname
-     * @return
+     * @param pathname the pathname to check
+     * @return true if pathname ends with pgn, false otherwise
      */
     private boolean isPGNExtension(File pathname) {
         int x = pathname.getName().indexOf(".");

@@ -1,7 +1,7 @@
 /*
  * AbstractPGNParser.java
  *
- * Copyright 2008-2014 supareno
+ * Copyright 2008-2018 supareno
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
  */
 package org.supareno.pgnparser;
 
-import org.supareno.pgnparser.exception.ParserException;
+import org.supareno.pgnparser.exception.PGNParserException;
 import org.supareno.pgnparser.jaxb.model.Game;
 import org.supareno.pgnparser.jaxb.model.Games;
 import org.supareno.pgnparser.utils.PGNParserUtils;
@@ -34,7 +34,6 @@ import java.lang.reflect.Method;
  * {@link Parser} interface. It defines few methods used by the parsers.
  *
  * @author supareno
- * @version 3.0.0
  * @since 1.0
  */
 public abstract class AbstractPGNParser extends AbstractPGNIO implements Parser {
@@ -91,7 +90,7 @@ public abstract class AbstractPGNParser extends AbstractPGNIO implements Parser 
      * @param attrValue        the attribute value.
      * @param replacementValue the value to use if the attribute's value is not
      *                         valid
-     * @throws ParserException if an exception occurs during game attribute settings. Should never happen.
+     * @throws PGNParserException if an exception occurs during game attribute settings. Should never happen.
      */
     public void setPGNGameAttributeAndValue(Game pgnGame, String attribute,
                                             String attrValue, String replacementValue) {
@@ -105,7 +104,7 @@ public abstract class AbstractPGNParser extends AbstractPGNIO implements Parser 
                                 : replacementValue);
             } catch (SecurityException | NoSuchMethodException | IllegalArgumentException |
                     IllegalAccessException | InvocationTargetException e) {
-                throw new ParserException("Exception on built method : " + method, e);
+                throw new PGNParserException("Exception on built method : " + method, e);
             }
         }
     }

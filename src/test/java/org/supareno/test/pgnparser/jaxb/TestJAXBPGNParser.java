@@ -25,7 +25,10 @@ import org.supareno.pgnparser.jaxb.parser.JAXBPGNParser;
 import org.supareno.test.pgnparser.AbstractParserValidator;
 import org.supareno.test.pgnparser.JUnitTestConstants;
 
+import java.io.Reader;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -42,6 +45,13 @@ public class TestJAXBPGNParser extends AbstractParserValidator {
     void JAXBPGNParser_extension_returns_XML() {
         jaxbParser = new JAXBPGNParser();
         assertThat(jaxbParser.getExtensionType()).isEqualTo(PGNType.XML);
+    }
+
+    @Test
+    void JAXBPGNParser_parsing_null_returns_IllegalArgumentException() {
+        jaxbParser = new JAXBPGNParser();
+        Reader reader = null;
+        assertThatThrownBy(() -> jaxbParser.parseFile(reader)).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test

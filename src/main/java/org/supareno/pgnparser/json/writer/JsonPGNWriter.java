@@ -1,7 +1,7 @@
 /*
  * JsonPGNWriter.java
  *
- * Copyright 2008-2014 supareno
+ * Copyright 2008-2018 supareno
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ import org.codehaus.jettison.mapped.MappedNamespaceConvention;
 import org.codehaus.jettison.mapped.MappedXMLStreamWriter;
 import org.supareno.pgnparser.AbstractPGNWriter;
 import org.supareno.pgnparser.PGNType;
-import org.supareno.pgnparser.exception.WriterException;
+import org.supareno.pgnparser.exception.PGNWriterException;
 import org.supareno.pgnparser.jaxb.model.Games;
 
 import javax.xml.bind.Marshaller;
@@ -35,6 +35,7 @@ import java.io.IOException;
  * Uses JAXB with Jettison to produce JSON.
  *
  * @author supareno
+ * @since 2.3
  */
 public final class JsonPGNWriter extends AbstractPGNWriter {
 
@@ -56,7 +57,7 @@ public final class JsonPGNWriter extends AbstractPGNWriter {
             try {
                 out.close();
             } catch (IOException e) {
-                throw new WriterException("could not close the stream", e);
+                throw new PGNWriterException("could not close the stream", e);
             }
         }
         return ok;

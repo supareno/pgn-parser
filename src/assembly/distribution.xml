@@ -9,23 +9,8 @@
   </formats>
   <files>
     <file>
-      <source>src/main/resources/INSTALL</source>
+      <source>LICENSE</source>
       <outputDirectory>/</outputDirectory>
-      <filtered>true</filtered>
-    </file>
-    <file>
-      <source>src/main/resources/CHANGES</source>
-      <outputDirectory>/</outputDirectory>
-      <filtered>true</filtered>
-    </file>
-    <file>
-      <source>src/main/resources/LICENSE</source>
-      <outputDirectory>/</outputDirectory>
-    </file>
-    <file>
-      <source>src/main/resources/NOTICE</source>
-      <outputDirectory>/</outputDirectory>
-      <filtered>true</filtered>
     </file>
   </files>
   <fileSets>
@@ -37,10 +22,7 @@
         <include>**/**</include>
       </includes>
       <excludes>
-        <exclude>src/main/resources/INSTALL</exclude>
         <exclude>src/main/resources/LICENSE</exclude>
-        <exclude>src/main/resources/NOTICE</exclude>
-        <exclude>src/main/resources/CHANGES</exclude>
       </excludes>
     </fileSet>
     <fileSet>

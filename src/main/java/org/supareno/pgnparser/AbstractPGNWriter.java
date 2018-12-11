@@ -1,7 +1,7 @@
 /*
  * AbstractPGNWriter.java
  *
- * Copyright 2008-2014 supareno
+ * Copyright 2008-2018 supareno
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,52 +33,19 @@ import java.util.Date;
  * </p>
  *
  * @author supareno
- * @version 3.0.0
  * @since 1.0
  */
 public abstract class AbstractPGNWriter extends AbstractPGNIO implements Writer {
 
     /**
-     * The {@code DATEFORMAT} SimpleDateFormat is used to format date file name:
-     * the value is set to {@literal yyyMMddHHmmss}.
-     */
-    public static final SimpleDateFormat DATEFORMAT = new SimpleDateFormat(
-            "yyyyMMddHHmmss");
-    /**
-     * Default file name: sets to {@code pgnfile} with the date of the creation
-     * added at the end. The format of the date is:
+     * Default file name: sets to {@code pgnfile}.
      * <p>
-     * {@code yyyyMMddHHmmss}
+     * The extension will be added automatically by the writer
      * </p>
-     * The extension will be added automatically by the writer.
      */
     public static final String DEFAULT_FILE_NAME = "pgnfile";
     // name of the file
     private String filename = DEFAULT_FILE_NAME;
-
-    /**
-     * Formats a Date and returns it to a String representation using the
-     * {@link #DATEFORMAT} SimpleDateFormat pattern. A new Date is used at every
-     * call.
-     *
-     * @return a String representation of a Date using the {@link #DATEFORMAT}
-     * SimpleDateFormat pattern.
-     * @see #formatDate(SimpleDateFormat)
-     */
-    protected static synchronized String formatDate() {
-        return formatDate(DATEFORMAT);
-    }
-
-    /**
-     * Formats a Date and returns it to a String representation using the
-     * {@code sdf} SimpleDateFormat pattern. A new Date is used at every call.
-     *
-     * @param sdf the SimpleDateFormat used for the formatting
-     * @return a String representation of a Date using the {@code format} pattern
-     */
-    protected static synchronized String formatDate(SimpleDateFormat sdf) {
-        return sdf.format(new Date());
-    }
 
     @Override
     public final String getFileName() {

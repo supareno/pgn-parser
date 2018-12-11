@@ -1,7 +1,7 @@
 /*
  * AbstractPGNIO.java
  *
- * Copyright 2008-2014 supareno
+ * Copyright 2008-2018 supareno
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,10 +29,9 @@ import javax.xml.bind.JAXBException;
  * </p>
  *
  * @author supareno
- * @version 3.0.0
  * @since 2.3
  */
-public class AbstractPGNIO {
+public abstract class AbstractPGNIO {
 
 
     private static JAXBContext JAXB_CONTEXT;
@@ -41,6 +40,7 @@ public class AbstractPGNIO {
         try {
             JAXB_CONTEXT = JAXBContext.newInstance(Games.class);
         } catch (JAXBException e) {
+            // Should never happen ....
             throw new ExceptionInInitializerError("Could not initialize the JAXBContext with 'org.supareno.pgnparser.jaxb'");
         }
     }

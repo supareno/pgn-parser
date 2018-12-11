@@ -1,7 +1,7 @@
 /*
  * Parser.java
  *
- * Copyright 2008-2014 supareno
+ * Copyright 2008-2018 supareno
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@
  */
 package org.supareno.pgnparser;
 
+import org.supareno.pgnparser.exception.PGNWriterException;
 import org.supareno.pgnparser.jaxb.model.Games;
 
 import java.io.File;
@@ -26,7 +27,6 @@ import java.io.Reader;
  * The {@code Parser} interface is the root interface used to parse a PGN file.
  *
  * @author supareno
- * @version 3.0.0
  * @since 1.0
  */
 public interface Parser {
@@ -37,7 +37,7 @@ public interface Parser {
      * @param file the filename to parse
      * @return a Games object or {@code null} if the file cannot be found
      * @throws IllegalArgumentException                         if the {@code file} parameter is {@code null} or empty
-     * @throws org.supareno.pgnparser.exception.WriterException if an exception occurs during writing
+     * @throws PGNWriterException if an exception occurs during writing
      */
     Games parseFile(String file);
 
@@ -47,7 +47,7 @@ public interface Parser {
      * @param file the file object to parse
      * @return a Games object or {@code null} if the file cannot be found
      * @throws IllegalArgumentException                         if the {@code file} parameter is {@code null}
-     * @throws org.supareno.pgnparser.exception.WriterException if an exception occurs during writing
+     * @throws PGNWriterException if an exception occurs during writing
      */
     Games parseFile(File file);
 
@@ -58,7 +58,7 @@ public interface Parser {
      * @return a Games object or {@code null} if the file cannot be found or if the reader is
      * {@code null}
      * @throws IllegalArgumentException                         if the {@code file} parameter is {@code null} or empty
-     * @throws org.supareno.pgnparser.exception.WriterException if an exception occurs during writing
+     * @throws PGNWriterException if an exception occurs during writing
      */
     Games parseFile(Reader reader);
 

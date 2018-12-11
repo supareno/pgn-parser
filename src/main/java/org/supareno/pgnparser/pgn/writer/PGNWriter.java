@@ -1,7 +1,7 @@
 /*
  * PGNWriter.java
  *
- * Copyright 2008-2014 supareno
+ * Copyright 2008-2018 supareno
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,11 +33,14 @@ import java.util.List;
  * The {@code PGNWriter} class is used to write pgn files from PGNGames.
  *
  * @author supareno
- * @version 3.0.0
  * @since 1.0
  */
-public class PGNWriter extends AbstractPGNWriter {
+public final class PGNWriter extends AbstractPGNWriter {
 
+    public static final String LEFT_BRACKET = "[";
+    public static final String RIGHT_BRACKET_WITH_QUOTES = "\"]";
+
+    @Override
     public boolean writePGNGames(Games games) throws IllegalArgumentException {
         if (games == null) {
             throw new IllegalArgumentException("the PGNGame or the file name is null");
@@ -88,26 +91,26 @@ public class PGNWriter extends AbstractPGNWriter {
      */
     private String getAttributesStringRepresentation(final Game pGame) {
         StringBuilder sb = new StringBuilder();
-        sb.append("[").append(PGNParserConstants.EVENT_ATTR).append(" \"")
-                .append(pGame.getEvent()).append("\"]").append("\n")
-                .append("[").append(PGNParserConstants.SITE_ATTR).append(" \"")
-                .append(pGame.getSite()).append("\"]").append("\n")
-                .append("[").append(PGNParserConstants.DATE_ATTR).append(" \"")
-                .append(pGame.getDate()).append("\"]").append("\n")
-                .append("[").append(PGNParserConstants.ROUND_ATTR).append(" \"")
-                .append(pGame.getRound()).append("\"]").append("\n")
-                .append("[").append(PGNParserConstants.WHITE_ATTR).append(" \"")
-                .append(pGame.getWhite()).append("\"]").append("\n")
-                .append("[").append(PGNParserConstants.BLACK_ATTR).append(" \"")
-                .append(pGame.getBlack()).append("\"]").append("\n")
-                .append("[").append(PGNParserConstants.RESULT_ATTR).append(" \"")
-                .append(pGame.getResult()).append("\"]").append("\n")
-                .append("[").append(PGNParserConstants.WHITE_ELO_ATTR).append(" \"")
-                .append(pGame.getWhiteElo()).append("\"]").append("\n")
-                .append("[").append(PGNParserConstants.BLACK_ELO_ATTR).append(" \"")
-                .append(pGame.getBlackElo()).append("\"]").append("\n")
-                .append("[").append(PGNParserConstants.ECO_ATTR).append(" \"")
-                .append(pGame.getEco()).append("\"]").append("\n");
+        sb.append(LEFT_BRACKET).append(PGNParserConstants.EVENT_ATTR).append(" \"")
+                .append(pGame.getEvent()).append(RIGHT_BRACKET_WITH_QUOTES).append("\n")
+                .append(LEFT_BRACKET).append(PGNParserConstants.SITE_ATTR).append(" \"")
+                .append(pGame.getSite()).append(RIGHT_BRACKET_WITH_QUOTES).append("\n")
+                .append(LEFT_BRACKET).append(PGNParserConstants.DATE_ATTR).append(" \"")
+                .append(pGame.getDate()).append(RIGHT_BRACKET_WITH_QUOTES).append("\n")
+                .append(LEFT_BRACKET).append(PGNParserConstants.ROUND_ATTR).append(" \"")
+                .append(pGame.getRound()).append(RIGHT_BRACKET_WITH_QUOTES).append("\n")
+                .append(LEFT_BRACKET).append(PGNParserConstants.WHITE_ATTR).append(" \"")
+                .append(pGame.getWhite()).append(RIGHT_BRACKET_WITH_QUOTES).append("\n")
+                .append(LEFT_BRACKET).append(PGNParserConstants.BLACK_ATTR).append(" \"")
+                .append(pGame.getBlack()).append(RIGHT_BRACKET_WITH_QUOTES).append("\n")
+                .append(LEFT_BRACKET).append(PGNParserConstants.RESULT_ATTR).append(" \"")
+                .append(pGame.getResult()).append(RIGHT_BRACKET_WITH_QUOTES).append("\n")
+                .append(LEFT_BRACKET).append(PGNParserConstants.WHITE_ELO_ATTR).append(" \"")
+                .append(pGame.getWhiteElo()).append(RIGHT_BRACKET_WITH_QUOTES).append("\n")
+                .append(LEFT_BRACKET).append(PGNParserConstants.BLACK_ELO_ATTR).append(" \"")
+                .append(pGame.getBlackElo()).append(RIGHT_BRACKET_WITH_QUOTES).append("\n")
+                .append(LEFT_BRACKET).append(PGNParserConstants.ECO_ATTR).append(" \"")
+                .append(pGame.getEco()).append(RIGHT_BRACKET_WITH_QUOTES).append("\n");
         return sb.toString();
     }
 

@@ -1,7 +1,7 @@
 /*
  * JAXBPGNWriter.java
  *
- * Copyright 2008-2014 supareno
+ * Copyright 2008-2018 supareno
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ package org.supareno.pgnparser.jaxb.writer;
 import org.supareno.pgnparser.AbstractPGNWriter;
 import org.supareno.pgnparser.PGNType;
 import org.supareno.pgnparser.Writer;
-import org.supareno.pgnparser.exception.WriterException;
+import org.supareno.pgnparser.exception.PGNWriterException;
 import org.supareno.pgnparser.jaxb.model.Games;
 
 import javax.xml.bind.JAXBException;
@@ -33,7 +33,6 @@ import java.io.FileOutputStream;
  * {@link Writer}.
  *
  * @author supareno
- * @version 3.0.0
  * @since 1.0
  */
 public final class JAXBPGNWriter extends AbstractPGNWriter {
@@ -48,16 +47,14 @@ public final class JAXBPGNWriter extends AbstractPGNWriter {
         if (games == null) {
             throw new IllegalArgumentException("the PGNGame or the file name is null");
         }
-        boolean result;
         try {
             Marshaller m = getJaxbContext().createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.marshal(games, new FileOutputStream(getFullFileName()));
-            result = true;
+            return true;
         } catch (JAXBException | FileNotFoundException e) {
-            throw new WriterException("FileNotFoundException in writePGNGames(Games)", e);
+            throw new PGNWriterException("FileNotFoundException in writePGNGames(Games)", e);
         }
-        return result;
     }
 
 }
