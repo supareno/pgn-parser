@@ -18,8 +18,8 @@
 package org.supareno.pgnparser;
 
 import org.supareno.pgnparser.exception.PGNParserException;
-import org.supareno.pgnparser.jaxb.model.Game;
-import org.supareno.pgnparser.jaxb.model.Games;
+import org.supareno.pgnparser.model.Game;
+import org.supareno.pgnparser.model.Games;
 import org.supareno.pgnparser.utils.PGNParserUtils;
 
 import java.io.File;
@@ -92,7 +92,7 @@ public abstract class AbstractPGNParser extends AbstractPGNIO implements Parser 
      * @throws PGNParserException if an exception occurs during game attribute settings. Should never happen.
      */
     protected final void setPGNGameAttributeAndValue(final Game pgnGame, final String attribute,
-                                            final String attrValue, final String replacementValue) {
+                                                     final String attrValue, final String replacementValue) {
         if (PGNParserConstants.ATTRIBUTES_MAP.containsKey(attribute)) {
             Method method = null;
             try {

@@ -17,15 +17,15 @@
  */
 package org.supareno.pgnparser;
 
-import org.supareno.pgnparser.jaxb.model.Game;
-import org.supareno.pgnparser.jaxb.model.Games;
+import org.supareno.pgnparser.model.Game;
+import org.supareno.pgnparser.model.Games;
 
 /**
  * The {@code Writer} class is the root interface of the PGN writers.
  * <p>
  * It uses the JAXB generated classes ({@link Games}, {@link Game}, ...) to generate PGN files.
  * These files could be {@code pgn} files (with the {@link org.supareno.pgnparser.pgn.writer.PGNWriter}),
- * {@code xml} files (with the {@link org.supareno.pgnparser.jaxb.writer.JAXBPGNWriter}) or
+ * {@code xml} files (with the {@link org.supareno.pgnparser.xml.writer.XMLPGNWriter}) or
  * {@code json} files (with the {@link org.supareno.pgnparser.json.writer.JsonPGNWriter}).
  * </p>
  *
@@ -50,7 +50,7 @@ public interface Writer {
      * @param games the games to write
      * @return {@code true} if the list of the games has been written, {@code false} otherwise
      * @throws IllegalArgumentException                         if the {@code game} parameter is {@code null}
-     * @throws PGNWriterException if an exception occurs during writing
+     * @throws org.supareno.pgnparser.exception.PGNWriterException if an exception occurs during writing
      */
     boolean writePGNGames(Games games);
 

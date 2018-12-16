@@ -1,0 +1,354 @@
+{
+  "games": [
+    {
+      "event": "chp",
+      "site": "USA",
+      "date": "1956.??.??",
+      "round": "?",
+      "white": "Byrne, D.",
+      "black": "Fischer, R.",
+      "result": "0-1",
+      "hits": [
+        {
+          "content": "Nf3 Nf6",
+          "number": "1"
+        },
+        {
+          "content": "c4 g6",
+          "number": "2"
+        },
+        {
+          "content": "Nc3 Bg7",
+          "number": "3"
+        },
+        {
+          "content": "d4 O-O",
+          "number": "4"
+        },
+        {
+          "content": "Bf4 d5",
+          "number": "5"
+        },
+        {
+          "content": "Qb3 dxc4",
+          "number": "6"
+        },
+        {
+          "content": "Qxc4 c6",
+          "number": "7"
+        },
+        {
+          "content": "e4 Nbd7",
+          "number": "8"
+        },
+        {
+          "content": "Rd1 Nb6",
+          "number": "9"
+        },
+        {
+          "content": "Qc5 Bg4",
+          "number": "10"
+        },
+        {
+          "content": "Bg5 Na4",
+          "number": "11"
+        },
+        {
+          "content": "Qa3 Nxc3",
+          "number": "12"
+        },
+        {
+          "content": "bxc3 Nxe4",
+          "number": "13"
+        },
+        {
+          "content": "Bxe7 Qb6",
+          "number": "14"
+        },
+        {
+          "content": "Bc4 Nxc3",
+          "number": "15"
+        },
+        {
+          "content": "Bc5 Rfe8+",
+          "number": "16"
+        },
+        {
+          "content": "Kf1 Be6",
+          "number": "17"
+        },
+        {
+          "content": "Bxb6 Bxc4+",
+          "number": "18"
+        },
+        {
+          "content": "Kg1 Ne2+",
+          "number": "19"
+        },
+        {
+          "content": "Kf1 Nxd4+",
+          "number": "20"
+        },
+        {
+          "content": "Kg1 Ne2+",
+          "number": "21"
+        },
+        {
+          "content": "Kf1 Nc3+",
+          "number": "22"
+        },
+        {
+          "content": "Kg1 axb6",
+          "number": "23"
+        },
+        {
+          "content": "Qb4 Ra4",
+          "number": "24"
+        },
+        {
+          "content": "Qxb6 Nxd1",
+          "number": "25"
+        },
+        {
+          "content": "h3 Rxa2",
+          "number": "26"
+        },
+        {
+          "content": "Kh2 Nxf2",
+          "number": "27"
+        },
+        {
+          "content": "Re1 Rxe1",
+          "number": "28"
+        },
+        {
+          "content": "Qd8+ Bf8",
+          "number": "29"
+        },
+        {
+          "content": "Nxe1 Bd5",
+          "number": "30"
+        },
+        {
+          "content": "Nf3 Ne4",
+          "number": "31"
+        },
+        {
+          "content": "Qb8 b5",
+          "number": "32"
+        },
+        {
+          "content": "h4 h5",
+          "number": "33"
+        },
+        {
+          "content": "Ne5 Kg7",
+          "number": "34"
+        },
+        {
+          "content": "Kg1 Bc5+",
+          "number": "35"
+        },
+        {
+          "content": "Kf1 Ng3+",
+          "number": "36"
+        },
+        {
+          "content": "Ke1 Bb4+",
+          "number": "37"
+        },
+        {
+          "content": "Kd1 Bb3+",
+          "number": "38"
+        },
+        {
+          "content": "Kc1 Ne2+",
+          "number": "39"
+        },
+        {
+          "content": "Kb1 Nc3+",
+          "number": "40"
+        },
+        {
+          "content": "Kc1 Rc2+",
+          "number": "41"
+        }
+      ]
+    },
+    {
+      "event": "chp",
+      "site": "USA",
+      "date": "1956.??.??",
+      "round": "?",
+      "white": "Byrne, D.",
+      "black": "Fischer, R.",
+      "result": "0-1",
+      "hits": [
+        {
+          "content": "Nf3 Nf6",
+          "number": "1"
+        },
+        {
+          "content": "c4 g6",
+          "number": "2"
+        },
+        {
+          "content": "Nc3 Bg7",
+          "number": "3"
+        },
+        {
+          "content": "d4 O-O",
+          "number": "4"
+        },
+        {
+          "content": "Bf4 d5",
+          "number": "5"
+        },
+        {
+          "content": "Qb3 dxc4",
+          "number": "6"
+        },
+        {
+          "content": "Qxc4 c6",
+          "number": "7"
+        },
+        {
+          "content": "e4 Nbd7",
+          "number": "8"
+        },
+        {
+          "content": "Rd1 Nb6",
+          "number": "9"
+        },
+        {
+          "content": "Qc5 Bg4",
+          "number": "10"
+        },
+        {
+          "content": "Bg5 Na4",
+          "number": "11"
+        },
+        {
+          "content": "Qa3 Nxc3",
+          "number": "12"
+        },
+        {
+          "content": "bxc3 Nxe4",
+          "number": "13"
+        },
+        {
+          "content": "Bxe7 Qb6",
+          "number": "14"
+        },
+        {
+          "content": "Bc4 Nxc3",
+          "number": "15"
+        },
+        {
+          "content": "Bc5 Rfe8+",
+          "number": "16"
+        },
+        {
+          "content": "Kf1 Be6",
+          "number": "17"
+        },
+        {
+          "content": "Bxb6 Bxc4+",
+          "number": "18"
+        },
+        {
+          "content": "Kg1 Ne2+",
+          "number": "19"
+        },
+        {
+          "content": "Kf1 Nxd4+",
+          "number": "20"
+        },
+        {
+          "content": "Kg1 Ne2+",
+          "number": "21"
+        },
+        {
+          "content": "Kf1 Nc3+",
+          "number": "22"
+        },
+        {
+          "content": "Kg1 axb6",
+          "number": "23"
+        },
+        {
+          "content": "Qb4 Ra4",
+          "number": "24"
+        },
+        {
+          "content": "Qxb6 Nxd1",
+          "number": "25"
+        },
+        {
+          "content": "h3 Rxa2",
+          "number": "26"
+        },
+        {
+          "content": "Kh2 Nxf2",
+          "number": "27"
+        },
+        {
+          "content": "Re1 Rxe1",
+          "number": "28"
+        },
+        {
+          "content": "Qd8+ Bf8",
+          "number": "29"
+        },
+        {
+          "content": "Nxe1 Bd5",
+          "number": "30"
+        },
+        {
+          "content": "Nf3 Ne4",
+          "number": "31"
+        },
+        {
+          "content": "Qb8 b5",
+          "number": "32"
+        },
+        {
+          "content": "h4 h5",
+          "number": "33"
+        },
+        {
+          "content": "Ne5 Kg7",
+          "number": "34"
+        },
+        {
+          "content": "Kg1 Bc5+",
+          "number": "35"
+        },
+        {
+          "content": "Kf1 Ng3+",
+          "number": "36"
+        },
+        {
+          "content": "Ke1 Bb4+",
+          "number": "37"
+        },
+        {
+          "content": "Kd1 Bb3+",
+          "number": "38"
+        },
+        {
+          "content": "Kc1 Ne2+",
+          "number": "39"
+        },
+        {
+          "content": "Kb1 Nc3+",
+          "number": "40"
+        },
+        {
+          "content": "Kc1 Rc2+",
+          "number": "41"
+        }
+      ]
+    }
+  ]
+}

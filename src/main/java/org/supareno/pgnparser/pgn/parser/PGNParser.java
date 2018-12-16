@@ -21,10 +21,9 @@ import org.supareno.pgnparser.AbstractPGNParser;
 import org.supareno.pgnparser.PGNType;
 import org.supareno.pgnparser.exception.PGNParserException;
 import org.supareno.pgnparser.filters.PGNFileFilter;
-import org.supareno.pgnparser.jaxb.model.Game;
-import org.supareno.pgnparser.jaxb.model.Games;
-import org.supareno.pgnparser.jaxb.model.Hit;
-import org.supareno.pgnparser.jaxb.model.Hits;
+import org.supareno.pgnparser.model.Game;
+import org.supareno.pgnparser.model.Games;
+import org.supareno.pgnparser.model.Hit;
 import org.supareno.pgnparser.utils.PGNParserUtils;
 
 import java.io.BufferedReader;
@@ -208,7 +207,7 @@ public final class PGNParser extends AbstractPGNParser {
                 if ((attributes.length() > 0) && (hits.length() > 0)) {
                     Game pgn = treatePGNString(attributes, hits);
                     if (pgn != null) {
-                        games.getGame().add(pgn);
+                        games.getGames().add(pgn);
                     }
                 }
             }
@@ -284,7 +283,6 @@ public final class PGNParser extends AbstractPGNParser {
         for (String s : strings) {
             newHit.append(s.trim());
         }
-        Hits list = new Hits();
         Matcher matcher = HITS_PATTERN.matcher(newHit.toString());
         while (matcher.find()) {
             String[] str = matcher.group().split("\\.");
@@ -294,9 +292,8 @@ public final class PGNParser extends AbstractPGNParser {
             Hit hit = new Hit();
             hit.setNumber(str[0]);
             hit.setContent(normalizeHit(str[1]));
-            list.getHit().add(hit);
+            pgn.getHits().add(hit);
         }
-        pgn.setHits(list);
         return pgn;
     }
 

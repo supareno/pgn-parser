@@ -17,7 +17,7 @@
  */
 package org.supareno.pgnparser;
 
-import org.supareno.pgnparser.jaxb.model.Games;
+import org.supareno.pgnparser.model.Games;
 
 import java.io.File;
 import java.io.Reader;
@@ -35,8 +35,8 @@ public interface Parser {
      *
      * @param file the filename to parse
      * @return a Games object or {@code null} if the file cannot be found
-     * @throws IllegalArgumentException                         if the {@code file} parameter is {@code null} or empty
-     * @throws org.supareno.pgnparser.exception.PGNWriterException if an exception occurs during writing
+     * @throws IllegalArgumentException                            if the {@code file} parameter is {@code null} or empty
+     * @throws org.supareno.pgnparser.exception.PGNParserException if an exception occurs during writing
      */
     Games parseFile(String file);
 
@@ -45,8 +45,8 @@ public interface Parser {
      *
      * @param file the file object to parse
      * @return a Games object or {@code null} if the file cannot be found
-     * @throws IllegalArgumentException                         if the {@code file} parameter is {@code null}
-     * @throws PGNWriterException if an exception occurs during writing
+     * @throws IllegalArgumentException                            if the {@code file} parameter is {@code null}
+     * @throws org.supareno.pgnparser.exception.PGNParserException if an exception occurs during writing
      */
     Games parseFile(File file);
 
@@ -56,8 +56,8 @@ public interface Parser {
      * @param reader the reader object that contained the PGNGame(s)
      * @return a Games object or {@code null} if the file cannot be found or if the reader is
      * {@code null}
-     * @throws IllegalArgumentException                         if the {@code file} parameter is {@code null} or empty
-     * @throws PGNWriterException if an exception occurs during writing
+     * @throws IllegalArgumentException                            if the {@code file} parameter is {@code null} or empty
+     * @throws org.supareno.pgnparser.exception.PGNParserException if an exception occurs during writing
      */
     Games parseFile(Reader reader);
 

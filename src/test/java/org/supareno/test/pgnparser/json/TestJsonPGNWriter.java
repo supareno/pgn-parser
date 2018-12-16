@@ -18,13 +18,16 @@
 package org.supareno.test.pgnparser.json;
 
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.supareno.pgnparser.Parser;
-import org.supareno.pgnparser.jaxb.model.Game;
-import org.supareno.pgnparser.jaxb.model.Games;
+import org.supareno.pgnparser.model.Game;
+import org.supareno.pgnparser.model.Games;
 import org.supareno.pgnparser.json.parser.JsonPGNParser;
 import org.supareno.pgnparser.json.writer.JsonPGNWriter;
 import org.supareno.test.pgnparser.JUnitTestConstants;
+
+import java.io.File;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -34,33 +37,46 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 public class TestJsonPGNWriter {
 
-    private static final String FILENAME = "target/referencegame.json";
     private JsonPGNWriter jsonPGNWriter;
 
     @Test
     public void it_writes_a_game_as_json() {
         jsonPGNWriter = new JsonPGNWriter();
-        jsonPGNWriter.setFileName(FILENAME);
-        assertTrue(jsonPGNWriter.writePGNGame(JUnitTestConstants.REFERENCE_GAME_2_2), "xml not written");
+        jsonPGNWriter.setFileName("target/referencegame.json");
+        assertTrue(jsonPGNWriter.writePGNGame(JUnitTestConstants.REFERENCE_GAME_2_2), "json not written");
 
         Parser parser = new JsonPGNParser();
         Game expected = JUnitTestConstants.REFERENCE_GAME_2_2;
-        Game parsed = parser.parseFile(FILENAME).getGame().get(0);
+        Game parsed = parser.parseFile("target/referencegame.json").getGames().get(0);
         assertTrue(expected.equals(parsed));
     }
 
     @Test
     public void it_writes_a_games_as_json() {
         jsonPGNWriter = new JsonPGNWriter();
-        jsonPGNWriter.setFileName(FILENAME);
+        jsonPGNWriter.setFileName("target/referencegames.json");
         Games games = new Games();
-        games.getGame().add(JUnitTestConstants.REFERENCE_GAME_2_2);
+        games.getGames().add(JUnitTestConstants.REFERENCE_GAME_2_2);
+        games.getGames().add(JUnitTestConstants.REFERENCE_GAME_2_2);
         assertTrue(jsonPGNWriter.writePGNGames(games), "xml not written");
 
         Parser parser = new JsonPGNParser();
         Game expected = JUnitTestConstants.REFERENCE_GAME_2_2;
-        Game parsed = parser.parseFile(FILENAME).getGame().get(0);
+        Game parsed = parser.parseFile("target/referencegames.json").getGames().get(0);
         assertTrue(expected.equals(parsed));
     }
 
+
+    @AfterEach
+    public void deleteCreatedFile() {
+        deleteFile("target/referencegame.json");
+        deleteFile("target/referencegames.json");
+    }
+
+    private void deleteFile(String filename) {
+        File file = new File(filename);
+        if (file.exists()) {
+            file.delete();
+        }
+    }
 }

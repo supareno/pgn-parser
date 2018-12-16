@@ -20,7 +20,7 @@ package org.supareno.test.pgnparser.jaxb.model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.supareno.pgnparser.jaxb.model.Hit;
+import org.supareno.pgnparser.model.Hit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotSame;

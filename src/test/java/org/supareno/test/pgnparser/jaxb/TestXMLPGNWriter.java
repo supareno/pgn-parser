@@ -1,5 +1,5 @@
 /*
- * TestJAXBPGNWriter.java
+ * TestXMLPGNWriter.java
  *
  * Copyright 2008-2014 supareno
  *
@@ -24,9 +24,10 @@ import org.junit.jupiter.api.Test;
 import org.supareno.pgnparser.PGNType;
 import org.supareno.pgnparser.Parser;
 import org.supareno.pgnparser.Writer;
-import org.supareno.pgnparser.jaxb.model.Game;
-import org.supareno.pgnparser.jaxb.parser.JAXBPGNParser;
-import org.supareno.pgnparser.jaxb.writer.JAXBPGNWriter;
+import org.supareno.pgnparser.model.Game;
+import org.supareno.pgnparser.xml.parser.XMLPGNParser;
+import org.supareno.pgnparser.xml.writer.XMLPGNWriter;
+import org.supareno.pgnparser.model.Games;
 import org.supareno.test.pgnparser.JUnitTestConstants;
 
 import java.io.File;
@@ -37,19 +38,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * The {@code TestJAXBPGNWriter} class is used to test the {@link JAXBPGNWriter}.
+ * The {@code TestXMLPGNWriter} class is used to test the {@link XMLPGNWriter}.
  *
  * @author reno
  * @version 1.0
  */
-public class TestJAXBPGNWriter {
+public class TestXMLPGNWriter {
 
     private static final String FILENAME = "target/referencegame.xml";
     private Writer writer = null;
 
     @BeforeEach
     void setUpMethod() {
-        writer = new JAXBPGNWriter();
+        writer = new XMLPGNWriter();
     }
 
     /**
@@ -57,7 +58,7 @@ public class TestJAXBPGNWriter {
      */
     @Test
     void testWriterInitExtension() {
-        Writer w = new JAXBPGNWriter();
+        Writer w = new XMLPGNWriter();
         assertThat(w.getExtensionType()).isEqualTo(PGNType.XML);
     }
 
@@ -89,23 +90,46 @@ public class TestJAXBPGNWriter {
 
 
     @Test
-    void testWritePGNGames() {
-        final String filename = "target/referencegame.xml";
-        writer.setFileName(filename);
+    void testWritePGNGame() {
+        writer.setFileName(FILENAME);
         assertTrue(writer.writePGNGame(JUnitTestConstants.REFERENCE_GAME_2_2), "xml not written");
         /*
          * test if the xml is written correctly
          * the xml written **MUST** be equals to the JUnitTestConstants.REFERENCE_GAME
          */
-        Parser parser = new JAXBPGNParser();
+        Parser parser = new XMLPGNParser();
         Game expected = JUnitTestConstants.REFERENCE_GAME_2_2;
-        Game parsed = parser.parseFile(filename).getGame().get(0);
+        Game parsed = parser.parseFile(FILENAME).getGames().get(0);
+        assertEquals(true, expected.equals(parsed));
+    }
+
+
+    @Test
+    void testWritePGNGames() {
+        final Games games = new Games();
+        games.getGames().add(JUnitTestConstants.REFERENCE_GAME_2_2);
+        games.getGames().add(JUnitTestConstants.REFERENCE_GAME_2_2);
+        final String filename = "target/referencegames.xml";
+        writer.setFileName(filename);
+        assertTrue(writer.writePGNGames(games), "xml not written");
+        /*
+         * test if the xml is written correctly
+         * the xml written **MUST** be equals to the JUnitTestConstants.REFERENCE_GAME
+         */
+        Parser parser = new XMLPGNParser();
+        Game expected = JUnitTestConstants.REFERENCE_GAME_2_2;
+        Game parsed = parser.parseFile(filename).getGames().get(0);
         assertEquals(true, expected.equals(parsed));
     }
 
     @AfterEach
     public void deleteCreatedFile() {
-        File file = new File(FILENAME);
+        deleteFile(FILENAME);
+        deleteFile("target/referencegames.xml");
+    }
+
+    private void deleteFile(String filename) {
+        File file = new File(filename);
         if (file.exists()) {
             file.delete();
         }

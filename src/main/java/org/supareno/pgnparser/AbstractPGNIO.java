@@ -17,11 +17,6 @@
  */
 package org.supareno.pgnparser;
 
-import org.supareno.pgnparser.jaxb.model.Games;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-
 /**
  * Abstract class for writing or parsing PGN files, urls, ...
  * <p>
@@ -34,23 +29,4 @@ import javax.xml.bind.JAXBException;
 public abstract class AbstractPGNIO {
 
 
-    private static JAXBContext jaxbContext;
-
-    static {
-        try {
-            jaxbContext = JAXBContext.newInstance(Games.class);
-        } catch (JAXBException e) {
-            // Should never happen ....
-            throw new ExceptionInInitializerError("Could not initialize the JAXBContext with 'org.supareno.pgnparser.jaxb'");
-        }
-    }
-
-    /**
-     * Return the current JAXBContext
-     *
-     * @return the current JAXBContext
-     */
-    protected static JAXBContext getJaxbContext() {
-        return jaxbContext;
-    }
 }

@@ -17,22 +17,16 @@
  */
 package org.supareno.pgnparser.json.writer;
 
-import org.codehaus.jettison.mapped.Configuration;
-import org.codehaus.jettison.mapped.MappedNamespaceConvention;
-import org.codehaus.jettison.mapped.MappedXMLStreamWriter;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.supareno.pgnparser.AbstractPGNWriter;
 import org.supareno.pgnparser.PGNType;
 import org.supareno.pgnparser.exception.PGNWriterException;
-import org.supareno.pgnparser.jaxb.model.Games;
+import org.supareno.pgnparser.model.Games;
 
-import javax.xml.bind.Marshaller;
-import javax.xml.stream.XMLStreamWriter;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.FileOutputStream;
 
 /**
- * Uses JAXB with Jettison to produce JSON.
+ * Uses Jackson's {@link ObjectMapper} to produce JSON.
  *
  * @author supareno
  * @since 2.3
@@ -41,26 +35,13 @@ public final class JsonPGNWriter extends AbstractPGNWriter {
 
     @Override
     public boolean writePGNGames(final Games games) throws IllegalArgumentException {
-        boolean ok = true;
-        BufferedWriter out = null;
         try {
-            Configuration config = new Configuration();
-            MappedNamespaceConvention con = new MappedNamespaceConvention(config);
-            out = new BufferedWriter(new FileWriter(getFullFileName()));
-            XMLStreamWriter xmlStreamWriter = new MappedXMLStreamWriter(con, out);
-
-            Marshaller marshaller = getJaxbContext().createMarshaller();
-            marshaller.marshal(games, xmlStreamWriter);
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.writeValue(new FileOutputStream(getFullFileName()), games);
+            return true;
         } catch (Exception e) {
-            ok = false;
-        } finally {
-            try {
-                out.close();
-            } catch (IOException e) {
-                throw new PGNWriterException("could not close the stream", e);
-            }
+            throw new PGNWriterException("Error during JSON writing", e);
         }
-        return ok;
     }
 
     @Override

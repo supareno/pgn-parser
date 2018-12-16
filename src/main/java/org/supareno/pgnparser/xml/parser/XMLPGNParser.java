@@ -1,5 +1,5 @@
 /*
- * JAXBPGNParser.java
+ * XMLPGNParser.java
  *
  * Copyright 2008-2018 supareno
  *
@@ -15,24 +15,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.supareno.pgnparser.jaxb.parser;
+package org.supareno.pgnparser.xml.parser;
 
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.supareno.pgnparser.AbstractPGNParser;
 import org.supareno.pgnparser.PGNType;
 import org.supareno.pgnparser.exception.PGNParserException;
-import org.supareno.pgnparser.jaxb.model.Games;
+import org.supareno.pgnparser.model.Games;
 
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
+import java.io.IOException;
 import java.io.Reader;
 
 /**
- * The {@code JAXBPGNParser} is the JAXB implementation of the {@link org.supareno.pgnparser.Parser} interface.
+ * The {@code XMLPGNParser} is the XML implementation of the {@link org.supareno.pgnparser.Parser} interface.
  *
  * @author supareno
- * @since 1.0
+ * @since 3.0
  */
-public final class JAXBPGNParser extends AbstractPGNParser {
+public final class XMLPGNParser extends AbstractPGNParser {
 
     @Override
     public PGNType getExtensionType() {
@@ -41,10 +41,13 @@ public final class JAXBPGNParser extends AbstractPGNParser {
 
     @Override
     public Games parseFile(final Reader reader) {
+        if (reader == null) {
+            throw new IllegalArgumentException("reader cannot be null");
+        }
         try {
-            Unmarshaller u = getJaxbContext().createUnmarshaller();
-            return (Games) u.unmarshal(reader);
-        } catch (JAXBException e) {
+            XmlMapper xmlMapper = new XmlMapper();
+            return xmlMapper.readValue(reader, Games.class);
+        } catch (IOException e) {
             throw new PGNParserException("error during parse", e);
         }
     }

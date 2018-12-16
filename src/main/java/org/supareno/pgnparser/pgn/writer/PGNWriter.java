@@ -20,9 +20,9 @@ package org.supareno.pgnparser.pgn.writer;
 import org.supareno.pgnparser.AbstractPGNWriter;
 import org.supareno.pgnparser.PGNParserConstants;
 import org.supareno.pgnparser.PGNType;
-import org.supareno.pgnparser.jaxb.model.Game;
-import org.supareno.pgnparser.jaxb.model.Games;
-import org.supareno.pgnparser.jaxb.model.Hit;
+import org.supareno.pgnparser.model.Game;
+import org.supareno.pgnparser.model.Games;
+import org.supareno.pgnparser.model.Hit;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -49,7 +49,7 @@ public final class PGNWriter extends AbstractPGNWriter {
         BufferedWriter out = null;
         try {
             out = new BufferedWriter(new FileWriter(getFullFileName()));
-            for (Game game : games.getGame()) {
+            for (Game game : games.getGames()) {
                 if (game == null) {
                     continue;
                 }
@@ -57,7 +57,7 @@ public final class PGNWriter extends AbstractPGNWriter {
                 // writing attributes
                 out.write(getAttributesStringRepresentation(game));
                 // writing hits & result
-                List<Hit> hits = game.getHits().getHit();
+                List<Hit> hits = game.getHits();
                 if (hits != null && hits.size() > 0) {
                     for (Hit hit : hits) {
                         out.write(hit.getNumber() + "." + hit.getContent());

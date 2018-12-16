@@ -17,7 +17,6 @@
  */
 package org.supareno.test.pgnparser.pgn;
 
-
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
@@ -27,9 +26,9 @@ import org.junit.jupiter.api.Test;
 import org.supareno.pgnparser.PGNType;
 import org.supareno.pgnparser.pgn.parser.PGNParser;
 import org.supareno.pgnparser.Parser;
-import org.supareno.pgnparser.jaxb.model.Game;
-import org.supareno.pgnparser.jaxb.model.Games;
-import org.supareno.pgnparser.jaxb.model.Hit;
+import org.supareno.pgnparser.model.Game;
+import org.supareno.pgnparser.model.Games;
+import org.supareno.pgnparser.model.Hit;
 import org.supareno.test.pgnparser.JUnitTestConstants;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -63,8 +62,8 @@ public class TestPGNParser {
 	@Test
 	void testParseFile(){
 		Games games=parser.parseFile(JUnitTestConstants.PGN_FILE);
-		assertEquals(1, games.getGame().size());
-		assertEquals(JUnitTestConstants.REFERENCE_GAME_2_2, games.getGame().get(0));
+		assertEquals(1, games.getGames().size());
+		assertEquals(JUnitTestConstants.REFERENCE_GAME_2_2, games.getGames().get(0));
 	}
 
 
@@ -76,8 +75,8 @@ public class TestPGNParser {
 	@Test
 	void testParseFileTestPgn3(){
 		Games games=parser.parseFile(JUnitTestConstants.PGN_FILE_3);
-		assertEquals(1, games.getGame().size());
-		Game g = games.getGame().get(0);
+		assertEquals(1, games.getGames().size());
+		Game g = games.getGames().get(0);
 		assertEquals(JUnitTestConstants.REFERENCE_GAME_2_2.getHits(), g.getHits());
 		assertEquals("whiteUSCFTest", g.getWhiteUSCF());
 		assertEquals("blackUSCFTest", g.getBlackUSCF());
@@ -90,7 +89,7 @@ public class TestPGNParser {
 	@Test
 	void testParseFileFile(){
 		Games list2=parser.parseFile(new File(JUnitTestConstants.PGN_FOLDER+"testFile_2.pgn"));
-		assertEquals(3, list2.getGame().size());
+		assertEquals(3, list2.getGames().size());
 		/*
 		 * First game:
 		 * Attributes tested :-)
@@ -99,7 +98,7 @@ public class TestPGNParser {
 		 * [Date "1984.??.??"]
 		 * ...
 		 */
-		Game g1 = list2.getGame().get(0);
+		Game g1 = list2.getGames().get(0);
 		assertEquals("Lloyds Bank op", g1.getEvent());
 		assertEquals("London", g1.getSite());
 		assertEquals("1984.??.??", g1.getDate());
@@ -122,7 +121,7 @@ public class TestPGNParser {
 		// fisher_spassky.pgn
 		final String fileToTest = "fisher_spassky.pgn";
 		Games list = parser.parseFile(new File(JUnitTestConstants.PGN_TEST_FOLDER + fileToTest));
-		assertEquals(1, list.getGame().size());
+		assertEquals(1, list.getGames().size());
 		/*
 		 * [Event "F/S Return Match"]
 		 * [Site "Belgrade, Serbia JUG"]
@@ -133,13 +132,13 @@ public class TestPGNParser {
 		 * [Result "1/2-1/2"]
 		 * ...
 		 */
-		Game g1 = list.getGame().get(0);
+		Game g1 = list.getGames().get(0);
 		assertEquals("F/S Return Match", g1.getEvent());
 		assertEquals("Belgrade, Serbia JUG", g1.getSite());
 		assertEquals("1992.11.04", g1.getDate());
 		assertEquals("29", g1.getRound());
 		assertEquals("1/2-1/2", g1.getResult());
-		assertEquals(43, g1.getHits().getHit().size());
+		assertEquals(43, g1.getHits().size());
 		/*
 		 * testing each hit...
 		 */
@@ -153,7 +152,7 @@ public class TestPGNParser {
 				"Ke1 Nf4","g3 Nxh3","Kd2 Kb5","Rd6 Kc5","Ra6 Nf2",
 				"g4 Bd3","Re6");
 		int i = 0;
-		for ( Hit hit : g1.getHits().getHit() ) {
+		for ( Hit hit : g1.getHits() ) {
 			assertThat(hit.getContent()).isEqualTo(expectedHits.get(i));
 			i ++;
 		}

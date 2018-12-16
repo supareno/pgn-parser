@@ -1,0 +1,177 @@
+<Games>
+    <games>
+        <event>chp</event>
+        <site>USA</site>
+        <date>1956.??.??</date>
+        <round>?</round>
+        <white>Byrne, D.</white>
+        <black>Fischer, R.</black>
+        <result>0-1</result>
+        <hits>
+            <hits>
+                <content>Nf3 Nf6</content>
+                <number>1</number>
+            </hits>
+            <hits>
+                <content>c4 g6</content>
+                <number>2</number>
+            </hits>
+            <hits>
+                <content>Nc3 Bg7</content>
+                <number>3</number>
+            </hits>
+            <hits>
+                <content>d4 O-O</content>
+                <number>4</number>
+            </hits>
+            <hits>
+                <content>Bf4 d5</content>
+                <number>5</number>
+            </hits>
+            <hits>
+                <content>Qb3 dxc4</content>
+                <number>6</number>
+            </hits>
+            <hits>
+                <content>Qxc4 c6</content>
+                <number>7</number>
+            </hits>
+            <hits>
+                <content>e4 Nbd7</content>
+                <number>8</number>
+            </hits>
+            <hits>
+                <content>Rd1 Nb6</content>
+                <number>9</number>
+            </hits>
+            <hits>
+                <content>Qc5 Bg4</content>
+                <number>10</number>
+            </hits>
+            <hits>
+                <content>Bg5 Na4</content>
+                <number>11</number>
+            </hits>
+            <hits>
+                <content>Qa3 Nxc3</content>
+                <number>12</number>
+            </hits>
+            <hits>
+                <content>bxc3 Nxe4</content>
+                <number>13</number>
+            </hits>
+            <hits>
+                <content>Bxe7 Qb6</content>
+                <number>14</number>
+            </hits>
+            <hits>
+                <content>Bc4 Nxc3</content>
+                <number>15</number>
+            </hits>
+            <hits>
+                <content>Bc5 Rfe8+</content>
+                <number>16</number>
+            </hits>
+            <hits>
+                <content>Kf1 Be6</content>
+                <number>17</number>
+            </hits>
+            <hits>
+                <content>Bxb6 Bxc4+</content>
+                <number>18</number>
+            </hits>
+            <hits>
+                <content>Kg1 Ne2+</content>
+                <number>19</number>
+            </hits>
+            <hits>
+                <content>Kf1 Nxd4+</content>
+                <number>20</number>
+            </hits>
+            <hits>
+                <content>Kg1 Ne2+</content>
+                <number>21</number>
+            </hits>
+            <hits>
+                <content>Kf1 Nc3+</content>
+                <number>22</number>
+            </hits>
+            <hits>
+                <content>Kg1 axb6</content>
+                <number>23</number>
+            </hits>
+            <hits>
+                <content>Qb4 Ra4</content>
+                <number>24</number>
+            </hits>
+            <hits>
+                <content>Qxb6 Nxd1</content>
+                <number>25</number>
+            </hits>
+            <hits>
+                <content>h3 Rxa2</content>
+                <number>26</number>
+            </hits>
+            <hits>
+                <content>Kh2 Nxf2</content>
+                <number>27</number>
+            </hits>
+            <hits>
+                <content>Re1 Rxe1</content>
+                <number>28</number>
+            </hits>
+            <hits>
+                <content>Qd8+ Bf8</content>
+                <number>29</number>
+            </hits>
+            <hits>
+                <content>Nxe1 Bd5</content>
+                <number>30</number>
+            </hits>
+            <hits>
+                <content>Nf3 Ne4</content>
+                <number>31</number>
+            </hits>
+            <hits>
+                <content>Qb8 b5</content>
+                <number>32</number>
+            </hits>
+            <hits>
+                <content>h4 h5</content>
+                <number>33</number>
+            </hits>
+            <hits>
+                <content>Ne5 Kg7</content>
+                <number>34</number>
+            </hits>
+            <hits>
+                <content>Kg1 Bc5+</content>
+                <number>35</number>
+            </hits>
+            <hits>
+                <content>Kf1 Ng3+</content>
+                <number>36</number>
+            </hits>
+            <hits>
+                <content>Ke1 Bb4+</content>
+                <number>37</number>
+            </hits>
+            <hits>
+                <content>Kd1 Bb3+</content>
+                <number>38</number>
+            </hits>
+            <hits>
+                <content>Kc1 Ne2+</content>
+                <number>39</number>
+            </hits>
+            <hits>
+                <content>Kb1 Nc3+</content>
+                <number>40</number>
+            </hits>
+            <hits>
+                <content>Kc1 Rc2+</content>
+                <number>41</number>
+            </hits>
+        </hits>
+    </games>
+</Games>

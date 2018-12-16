@@ -17,80 +17,48 @@
  */
 package org.supareno.pgnparser.json.parser;
 
-import org.codehaus.jettison.json.JSONObject;
-import org.codehaus.jettison.mapped.Configuration;
-import org.codehaus.jettison.mapped.MappedNamespaceConvention;
-import org.codehaus.jettison.mapped.MappedXMLStreamReader;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.supareno.pgnparser.AbstractPGNParser;
 import org.supareno.pgnparser.PGNType;
 import org.supareno.pgnparser.exception.PGNParserException;
-import org.supareno.pgnparser.jaxb.model.Games;
+import org.supareno.pgnparser.model.Games;
 
-import javax.xml.bind.Unmarshaller;
-import javax.xml.stream.XMLStreamReader;
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.Reader;
 
 /**
  * The JSON parser could parse JSON files with a single game or a game's array.
  * <p>
- * It uses JAXB with Jettison to parse JSON. The supported JSON represent is:
+ * It uses Jackson's {@link ObjectMapper} to parse JSON. The supported JSON represent is:
  *
  * <pre>
  * <code>
- * {"games" :
- *     {"game":
- *       [
+ * {
+ *   "games": [
+ *     {
+ *       "event": "chp",
+ *       "site": "USA",
+ *       "date": "1956.??.??",
+ *       "round": "?",
+ *       "white": "Byrne, D.",
+ *       "black": "Fischer, R.",
+ *       "result": "0-1",
+ *       "hits": [
  *         {
- *           "event": "",
- *           "site": "",
- *           "date": "",
- *           "round": "",
- *           "white": "",
- *           "black": "",
- *           "result": "",
- *           "whiteTitle":"",
- *           "whiteElo":"",
- *           "whiteUSCF":"",
- *           "whiteNA":"",
- *           "whiteType":"",
- *           "blackTitle":"",
- *           "blackElo":"",
- *           "blackUSCF":"",
- *           "blackNA":"",
- *           "blackType":"",
- *           "eventDate":"",
- *           "eventSponsor":"",
- *           "section":"",
- *           "stage":"",
- *           "board":"",
- *           "opening":"",
- *           "variation":"",
- *           "subVariation":"",
- *           "eco":"",
- *           "nic":"",
- *           "time":"",
- *           "UTCTime":"",
- *           "UTCDate":"",
- *           "timeControl":"",
- *           "setUp":"",
- *           "fEN":"",
- *           "termination":"",
- *           "hits":
- *             {"hit":
- *                 [
- *                   {"@number":"","$":""}
- *                 ]
- *             }
- *         }
- *     ]
- *   }
+ *           "content": "Nf3 Nf6",
+ *           "number": "1"
+ *         },
+ *         {
+ *           "content": "c4 g6",
+ *           "number": "2"
+ *         },...
+ *       ]
+ *     }
+ *   ]
  * }
  *
  * </code>
  * </pre>
- *
+ * Null or empty values are not written to the JSON if not set in the object.
  * </p>
  *
  * @author supareno
@@ -100,48 +68,12 @@ public final class JsonPGNParser extends AbstractPGNParser {
 
     @Override
     public Games parseFile(final Reader reader) {
-        Games games = null;
         try {
-            JSONObject obj = new JSONObject(readJSONFile(reader));
-            Configuration config = new Configuration();
-            MappedNamespaceConvention con = new MappedNamespaceConvention(config);
-            XMLStreamReader xmlStreamReader = new MappedXMLStreamReader(obj, con);
-            Unmarshaller unmarshaller = getJaxbContext().createUnmarshaller();
-            games = (Games) unmarshaller.unmarshal(xmlStreamReader);
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.readValue(reader, Games.class);
         } catch (Exception e) {
             throw new PGNParserException("Error during parsing", e);
         }
-        return games;
-    }
-
-    /**
-     * @param reader the current reader
-     * @return a String representation of the file
-     * @throws PGNParserException if an exception occurs during parsing
-     */
-    public String readJSONFile(final Reader reader) {
-        StringBuffer contents = new StringBuffer();
-        BufferedReader input = null;
-        try {
-            input = new BufferedReader(reader);
-            String line = null;
-            while ((line = input.readLine()) != null) {
-                contents.append(line);
-            }
-        } catch (IOException ex) {
-            throw new PGNParserException("Error during parsing", ex);
-        } finally {
-            try {
-                if (input != null) {
-                    // flush and close both "input" and its underlying Reader
-                    input.close();
-                }
-            } catch (IOException ex) {
-
-                throw new PGNParserException("Error during parsing", ex);
-            }
-        }
-        return contents.toString();
     }
 
     @Override

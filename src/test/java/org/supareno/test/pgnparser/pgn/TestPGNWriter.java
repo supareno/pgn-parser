@@ -17,9 +17,7 @@
  */
 package org.supareno.test.pgnparser.pgn;
 
-
 import java.io.File;
-
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,8 +29,8 @@ import org.supareno.pgnparser.pgn.parser.PGNParser;
 import org.supareno.pgnparser.pgn.writer.PGNWriter;
 import org.supareno.pgnparser.Parser;
 import org.supareno.pgnparser.Writer;
-import org.supareno.pgnparser.jaxb.model.Game;
-import org.supareno.pgnparser.jaxb.model.Games;
+import org.supareno.pgnparser.model.Game;
+import org.supareno.pgnparser.model.Games;
 import org.supareno.test.pgnparser.JUnitTestConstants;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -105,7 +103,7 @@ public class TestPGNWriter {
         assertTrue(writer.writePGNGame(JUnitTestConstants.REFERENCE_GAME_2_2));
         Parser parser = new PGNParser();
         Game expected = JUnitTestConstants.REFERENCE_GAME_2_2;
-        Game received = parser.parseFile(FILENAME).getGame().get(0);
+        Game received = parser.parseFile(FILENAME).getGames().get(0);
         assertEquals(expected.getHits(), received.getHits());
     }
 
@@ -113,11 +111,11 @@ public class TestPGNWriter {
     @DisplayName("Trying to write a list of png games succeed")
     void testWritePGNGames() {
         Games games = new Games();
-        games.getGame().add(JUnitTestConstants.REFERENCE_GAME_2_2);
+        games.getGames().add(JUnitTestConstants.REFERENCE_GAME_2_2);
         assertTrue(writer.writePGNGames(games));
         Parser parser = new PGNParser();
         Game expected = JUnitTestConstants.REFERENCE_GAME_2_2;
-        Game received = parser.parseFile(FILENAME).getGame().get(0);
+        Game received = parser.parseFile(FILENAME).getGames().get(0);
         assertEquals(expected.getHits(), received.getHits());
     }
 

@@ -1,5 +1,5 @@
 /*
- * TestJAXBPGNParser.java
+ * TestXMLPGNParser.java
  *
  * Copyright 2008-2014 supareno
  *
@@ -20,8 +20,8 @@ package org.supareno.test.pgnparser.jaxb;
 
 import org.junit.jupiter.api.Test;
 import org.supareno.pgnparser.PGNType;
-import org.supareno.pgnparser.jaxb.model.Games;
-import org.supareno.pgnparser.jaxb.parser.JAXBPGNParser;
+import org.supareno.pgnparser.xml.parser.XMLPGNParser;
+import org.supareno.pgnparser.model.Games;
 import org.supareno.test.pgnparser.AbstractParserValidator;
 import org.supareno.test.pgnparser.JUnitTestConstants;
 
@@ -29,34 +29,33 @@ import java.io.Reader;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * The {@code TestJAXBPGNParser} class is used to test the {@code JAXBPGNParser} class.
+ * The {@code TestXMLPGNParser} class is used to test the {@code XMLPGNParser} class.
  *
  * @author supareno
  * @version 1.1
  */
-public class TestJAXBPGNParser extends AbstractParserValidator {
+public class TestXMLPGNParser extends AbstractParserValidator {
 
-    private JAXBPGNParser jaxbParser = null;
+    private XMLPGNParser jaxbParser = null;
 
     @Test
     void JAXBPGNParser_extension_returns_XML() {
-        jaxbParser = new JAXBPGNParser();
+        jaxbParser = new XMLPGNParser();
         assertThat(jaxbParser.getExtensionType()).isEqualTo(PGNType.XML);
     }
 
     @Test
     void JAXBPGNParser_parsing_null_returns_IllegalArgumentException() {
-        jaxbParser = new JAXBPGNParser();
+        jaxbParser = new XMLPGNParser();
         Reader reader = null;
         assertThatThrownBy(() -> jaxbParser.parseFile(reader)).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void testParseAndEquality() {
-        jaxbParser = new JAXBPGNParser();
+        jaxbParser = new XMLPGNParser();
         Games games = jaxbParser.parseFile(JUnitTestConstants.XML_PGN_FILE);
         validateGames(games);
     }

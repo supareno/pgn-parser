@@ -17,8 +17,8 @@
  */
 package org.supareno.pgnparser;
 
-import org.supareno.pgnparser.jaxb.model.Game;
-import org.supareno.pgnparser.jaxb.model.Games;
+import org.supareno.pgnparser.model.Game;
+import org.supareno.pgnparser.model.Games;
 
 /**
  * The {@code AbstractPGNWriter} abstract class defines some methods used by all
@@ -62,7 +62,7 @@ public abstract class AbstractPGNWriter extends AbstractPGNIO implements Writer 
             throw new IllegalArgumentException("the PGNGame or the file name is null");
         }
         Games games = new Games();
-        games.getGame().add(game);
+        games.getGames().add(game);
         return writePGNGames(games);
     }
 

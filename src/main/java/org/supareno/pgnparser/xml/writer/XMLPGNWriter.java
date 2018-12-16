@@ -1,5 +1,5 @@
 /*
- * JAXBPGNWriter.java
+ * XMLPGNWriter.java
  *
  * Copyright 2008-2018 supareno
  *
@@ -15,26 +15,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.supareno.pgnparser.jaxb.writer;
+package org.supareno.pgnparser.xml.writer;
 
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.supareno.pgnparser.AbstractPGNWriter;
 import org.supareno.pgnparser.PGNType;
 import org.supareno.pgnparser.exception.PGNWriterException;
-import org.supareno.pgnparser.jaxb.model.Games;
+import org.supareno.pgnparser.model.Games;
 
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
- * The {@code JAXBPGNWriter} is a concrete JAXB implementation of the
+ * The {@code XMLPGNWriter} is a concrete XML implementation of the
  * {@link org.supareno.pgnparser.Writer}.
  *
  * @author supareno
- * @since 1.0
+ * @since 3.0
  */
-public final class JAXBPGNWriter extends AbstractPGNWriter {
+public final class XMLPGNWriter extends AbstractPGNWriter {
 
     @Override
     public PGNType getExtensionType() {
@@ -47,12 +46,12 @@ public final class JAXBPGNWriter extends AbstractPGNWriter {
             throw new IllegalArgumentException("the PGNGame or the file name is null");
         }
         try {
-            Marshaller m = getJaxbContext().createMarshaller();
-            m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            m.marshal(games, new FileOutputStream(getFullFileName()));
+            XmlMapper xmlMapper = new XmlMapper();
+            xmlMapper.setDefaultUseWrapper(false);
+            xmlMapper.writeValue(new FileOutputStream(getFullFileName()), games);
             return true;
-        } catch (JAXBException | FileNotFoundException e) {
-            throw new PGNWriterException("FileNotFoundException in writePGNGames(Games)", e);
+        } catch (IOException e) {
+            throw new PGNWriterException("IOException in writePGNGames(Games)", e);
         }
     }
 

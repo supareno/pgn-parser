@@ -5,8 +5,8 @@ package org.supareno.test.pgnparser.jaxb.model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.supareno.pgnparser.jaxb.model.Game;
-import org.supareno.pgnparser.jaxb.model.Hit;
+import org.supareno.pgnparser.model.Game;
+import org.supareno.pgnparser.model.Hit;
 import org.supareno.test.pgnparser.JUnitTestConstants;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -44,9 +44,9 @@ public class TestGame {
 	@Test
 	void testEquality02(){
 		game1 = JUnitTestConstants.getFilledGame();
-		game1.setHits(JUnitTestConstants.getFilledHits());
+		game1.getHits().add(new Hit().setContent("e2 e4").setNumber("1"));
 		game2 = JUnitTestConstants.getFilledGame();
-		game2.setHits(JUnitTestConstants.getFilledHits());
+		game2.getHits().add(new Hit().setContent("e2 e4").setNumber("1"));
 		assertEquals(game1, game2);
 		assertEquals(game2, game1);
 		assertEquals(game1, game1);
@@ -59,9 +59,9 @@ public class TestGame {
 	@Test
 	void testEqualityWithHits(){
 		game1.setEvent("event");
-		game1.setHits(JUnitTestConstants.getFilledHits());
+		game1.getHits().add(new Hit().setContent("e2 e4").setNumber("1"));
 		game2.setEvent("event");
-		game2.setHits(JUnitTestConstants.getFilledHits());
+		game2.getHits().add(new Hit().setContent("e2 e4").setNumber("1"));
 		assertEquals(game1, game2);
 		assertEquals(game2, game1);
 		assertEquals(game1, game1);
@@ -73,7 +73,7 @@ public class TestGame {
 	 */
 	@Test
 	void testNotSame(){
-		game2.getHits().getHit().add(new Hit());
+		game2.getHits().add(new Hit());
 		assertNotSame(game1, game2);
 		assertNotSame(game2, game1);
 	}
