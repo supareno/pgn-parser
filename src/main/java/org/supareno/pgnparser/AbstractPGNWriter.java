@@ -32,7 +32,7 @@ import org.supareno.pgnparser.model.Games;
  * @author supareno
  * @since 1.0
  */
-public abstract class AbstractPGNWriter extends AbstractPGNIO implements Writer {
+public abstract class AbstractPGNWriter implements Writer {
 
     /**
      * Default file name: sets to {@code pgnfile}.

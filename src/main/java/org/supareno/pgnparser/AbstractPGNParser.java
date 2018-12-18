@@ -36,7 +36,7 @@ import java.lang.reflect.Method;
  * @author supareno
  * @since 1.0
  */
-public abstract class AbstractPGNParser extends AbstractPGNIO implements Parser {
+public abstract class AbstractPGNParser implements Parser {
 
     @Override
     public final Games parseFile(final String file) {
