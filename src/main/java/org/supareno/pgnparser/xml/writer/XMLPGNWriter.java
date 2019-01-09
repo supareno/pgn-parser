@@ -35,6 +35,11 @@ import java.io.IOException;
  */
 public final class XMLPGNWriter extends AbstractPGNWriter {
 
+    private static final XmlMapper XML_MAPPER = new XmlMapper();
+    static {
+        XML_MAPPER.setDefaultUseWrapper(false);
+    }
+
     @Override
     public PGNType getExtensionType() {
         return PGNType.XML;
@@ -46,9 +51,7 @@ public final class XMLPGNWriter extends AbstractPGNWriter {
             throw new IllegalArgumentException("the PGNGame or the file name is null");
         }
         try {
-            XmlMapper xmlMapper = new XmlMapper();
-            xmlMapper.setDefaultUseWrapper(false);
-            xmlMapper.writeValue(new FileOutputStream(getFullFileName()), games);
+            XML_MAPPER.writeValue(new FileOutputStream(getFullFileName()), games);
             return true;
         } catch (IOException e) {
             throw new PGNWriterException("IOException in writePGNGames(Games)", e);

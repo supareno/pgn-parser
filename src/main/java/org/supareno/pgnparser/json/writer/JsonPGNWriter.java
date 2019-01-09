@@ -33,11 +33,12 @@ import java.io.FileOutputStream;
  */
 public final class JsonPGNWriter extends AbstractPGNWriter {
 
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+
     @Override
     public boolean writePGNGames(final Games games) throws IllegalArgumentException {
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.writeValue(new FileOutputStream(getFullFileName()), games);
+            OBJECT_MAPPER.writeValue(new FileOutputStream(getFullFileName()), games);
             return true;
         } catch (Exception e) {
             throw new PGNWriterException("Error during JSON writing", e);

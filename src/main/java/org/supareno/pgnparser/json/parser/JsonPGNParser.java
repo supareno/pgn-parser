@@ -66,11 +66,12 @@ import java.io.Reader;
  */
 public final class JsonPGNParser extends AbstractPGNParser {
 
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+
     @Override
     public Games parseFile(final Reader reader) {
         try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            return objectMapper.readValue(reader, Games.class);
+            return OBJECT_MAPPER.readValue(reader, Games.class);
         } catch (Exception e) {
             throw new PGNParserException("Error during parsing", e);
         }

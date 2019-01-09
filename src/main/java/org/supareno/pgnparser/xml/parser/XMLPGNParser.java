@@ -34,6 +34,8 @@ import java.io.Reader;
  */
 public final class XMLPGNParser extends AbstractPGNParser {
 
+    private static final XmlMapper XML_MAPPER = new XmlMapper();
+
     @Override
     public PGNType getExtensionType() {
         return PGNType.XML;
@@ -45,8 +47,7 @@ public final class XMLPGNParser extends AbstractPGNParser {
             throw new IllegalArgumentException("reader cannot be null");
         }
         try {
-            XmlMapper xmlMapper = new XmlMapper();
-            return xmlMapper.readValue(reader, Games.class);
+            return XML_MAPPER.readValue(reader, Games.class);
         } catch (IOException e) {
             throw new PGNParserException("error during parse", e);
         }

@@ -18,6 +18,7 @@
 package org.supareno.test.pgnparser.jaxb;
 
 
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.supareno.pgnparser.PGNType;
 import org.supareno.pgnparser.xml.parser.XMLPGNParser;
@@ -54,6 +55,7 @@ public class TestXMLPGNParser extends AbstractParserValidator {
     }
 
     @Test
+    @RepeatedTest(5)
     void testParseAndEquality() {
         jaxbParser = new XMLPGNParser();
         Games games = jaxbParser.parseFile(JUnitTestConstants.XML_PGN_FILE);

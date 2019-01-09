@@ -6,7 +6,7 @@
     <artifactId>pgnparser-jackson</artifactId>
     <name>PGNParser</name>
     <packaging>jar</packaging>
-    <version>3.0.0</version>
+    <version>3.0.1-SNAPSHOT</version>
     <description>a PGN java parser</description>
     <url>https://github.com/supareno/pgn-parser</url>
 
